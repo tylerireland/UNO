@@ -23,7 +23,8 @@ public:
 
 	void updateTC(const double dt = 0.0) final;
 	void updateData(const double dt = 0.0) final;
-
+	void reset() final;
+	
 	std::string getColor() { return color; }
 	std::string getType() { return type; }
 
