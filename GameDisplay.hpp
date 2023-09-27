@@ -1,4 +1,3 @@
-
 #ifndef __GameDisplay_H__
 #define __GameDisplay_H__
 

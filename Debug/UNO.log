@@ -1,2 +1,2 @@
-﻿  main.cpp
-  UNO.vcxproj -> C:\Apps\mixr\mixr-examples\build\vs2017\Debug\UNO.exe
+﻿GameDisplay.obj : error LNK2001: unresolved external symbol "public: virtual bool __thiscall GameDisplay::event(int,class mixr::base::Object * const)" (?event@GameDisplay@@UAE_NHQAVObject@base@mixr@@@Z)
+C:\Apps\mixr\mixr-examples\build\vs2017\Debug\UNO.exe : fatal error LNK1120: 1 unresolved externals
