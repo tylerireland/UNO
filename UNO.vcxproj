@@ -18,6 +18,15 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameDisplay.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameDisplay.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Display.epp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
