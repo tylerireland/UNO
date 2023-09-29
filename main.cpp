@@ -1,5 +1,7 @@
 
 #include "GameDisplay.hpp"
+#include "Card.hpp"
+
 #include "mixr/base/Timers.hpp"
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/edl_parser.hpp"
@@ -35,6 +37,9 @@ mixr::base::Object* factory(const std::string& name)
 
     if (name == GameDisplay::getFactoryName()) {
         obj = new GameDisplay();
+    }
+    if (name == Card::getFactoryName()) {
+        obj = new Card();
     }
 
     // framework libraries
