@@ -19,6 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameDisplay.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameDisplay.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Display.epp" />
     <ClInclude Include="Card.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -88,7 +96,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\..\mixr\lib;..\..\mixr-3rdparty\lib\vs2017-32;..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mixr_base_d.lib;Ws2_32.lib;Winmm.lib;comctl32.lib;gdi32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mixr_models_d.lib;JSBSim_d.lib;libzmq_d.lib;mixr_ighost_cigi_d.lib;mixr_ighost_pov_d.lib;ccl_lib_d.lib;mixr_interop_dis_d.lib;mixr_interop_d.lib;mixr_recorder_d.lib;mixr_linkage_d.lib;mixr_simulation_d.lib;mixr_terrain_d.lib;mixr_ui_glut_d.lib;mixr_instruments_d.lib;mixr_graphics_d.lib;mixr_base_d.lib;ftgl_d.lib;freetype2_d.lib;freeglut_d.lib;glu32.lib;opengl32.lib;libprotobuf_d.lib;Ws2_32.lib;Winmm.lib;comctl32.lib;gdi32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

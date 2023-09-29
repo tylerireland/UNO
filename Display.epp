@@ -1,0 +1,29 @@
+display:
+( GameDisplay
+
+	name: "UNO"
+
+	left:		-17
+	right:		 17
+	bottom:		-10
+	top:		 10
+	
+	vpX:		 3000
+	vpY:		 10
+	vpWidth:	 1920
+	vpHeight:	 1080
+
+	clearDepth:  20.0
+					
+	clearColor:	 ( rgb 0 0 0 ) // Black
+
+	components:
+	{
+		( Circle
+			color: ( rgb 0 0.8 0)
+			radius: 5.5	
+			filled: true
+			slices: 5
+		)
+	}
+)
