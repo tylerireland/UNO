@@ -14,7 +14,7 @@ public:
 
 	void updateTC(const double dt = 0.0) final;
 	void updateData(const double dt = 0.0) final;
-	bool event(const int event, mixr::base::Object* const obj = nullptr) override;
+	//bool event(const int event, mixr::base::Object* const obj = nullptr) override;
 	void reset() final;
 
 private:

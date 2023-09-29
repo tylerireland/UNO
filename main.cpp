@@ -71,8 +71,8 @@ GameDisplay* builder(const std::string& filename)
     }
 
     // try to cast to proper object, and check
-    const auto station = dynamic_cast<GameDisplay*>(obj);
-    if (station == nullptr) {
+    const auto display = dynamic_cast<GameDisplay*>(obj);
+    if (display == nullptr) {
         std::cerr << "Invalid configuration file!" << std::endl;
         std::exit(EXIT_FAILURE);
     }
