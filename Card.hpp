@@ -25,20 +25,20 @@ public:
 	void updateData(const double dt = 0.0) final;
 	void reset() final;
 	
-	std::string getColor() { return color; }
-	std::string getType() { return type; }
+	std::string getCardColor() { return cardColor; }
+	std::string getCardType() { return cardType; }
 
-	void setType(const std::string newType) { type = newType; }
-	void setColor(const std::string newColor) { color = newColor; }
+	void setCardType(const std::string newType) { cardType = newType; }
+	void setCardColor(const std::string newColor) { cardColor = newColor; }
 
 private:
 
-	std::string type;
-	std::string color;
+	std::string cardType;
+	std::string cardColor;
 
-	bool setSlotType(const mixr::base::String* const);
+	bool setSlotCardType(const mixr::base::String* const);
 
-	bool setSlotColor(const mixr::base::String* const);
+	bool setSlotCardColor(const mixr::base::String* const);
 	
 };
 

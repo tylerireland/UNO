@@ -5,17 +5,17 @@ IMPLEMENT_SUBCLASS(Card, "Card")
 EMPTY_DELETEDATA(Card)
 
 BEGIN_SLOTTABLE(Card)
-	"type",				// This is determine the type of card it will be
+	"cardType",				// This is determine the type of card it will be
 						// ONLY accepts "zero" to "nine", "reverse", "skip", "drawFour",
 						//              "drawTwo", "wild", "swapHand"
 	
-	"color",			// This will determine the color the card will be
+	"cardColor",			// This will determine the color the card will be
 						// ONLY accepts "red", "blue", "green", "yellow", "default" (for wilds)
 END_SLOTTABLE(Card)
 
 BEGIN_SLOT_MAP(Card)
-	ON_SLOT(1, setSlotType, mixr::base::String)
-	ON_SLOT(2, setSlotColor, mixr::base::String)
+	ON_SLOT(1, setSlotCardType, mixr::base::String)
+	ON_SLOT(2, setSlotCardColor, mixr::base::String)
 END_SLOT_MAP()
 
 Card::Card()
@@ -43,24 +43,24 @@ void Card::reset()
 	BaseClass::reset();
 }
 
-bool Card::setSlotType(const mixr::base::String* const sobj)
+bool Card::setSlotCardType(const mixr::base::String* const sobj)
 {
 	bool ok{};
 	if (sobj != nullptr)
 	{
-		setType(sobj->getString());
+		setCardType(sobj->getString());
 		ok = true;
 	}
 
 	return ok;
 }
 
-bool Card::setSlotColor(const mixr::base::String* const cobj)
+bool Card::setSlotCardColor(const mixr::base::String* const cobj)
 {
 	bool ok{};
 	if (cobj != nullptr)
 	{
-		setColor(cobj->getString());
+		setCardColor(cobj->getString());
 		ok = true;
 	}
 

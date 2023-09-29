@@ -19,11 +19,8 @@ display:
 
 	components:
 	{
-		( Circle
-			color: ( rgb 0 0.8 0)
-			radius: 5.5	
-			filled: true
-			slices: 5
+		( Card
+			
 		)
 	}
 )
