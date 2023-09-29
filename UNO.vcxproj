@@ -27,6 +27,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Display.epp" />
+    <ClInclude Include="Card.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Card.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
