@@ -1,6 +1,11 @@
 display:
 ( GameDisplay
 
+	textures: 
+	{
+       red0: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO" file: "redzero.bmp" )
+    }
+    
 	name: "UNO"
 
 	left:		-17
@@ -15,12 +20,27 @@ display:
 
 	clearDepth:  20.0
 					
-	clearColor:	 ( rgb 0 0 0 ) // Black
+	clearColor:	 ( rgb 0.2 0.2 0.2 ) // Black
 
 	components:
 	{
 		( Card
 			
+			color: red
+			vertices:
+			{
+				[-5 -5]
+				[-5  5]
+				[5   5]
+				[5  -5]
+			}
+
+			texCoord: {
+				[  0.0  0.0 ]
+				[  0.0  1.0 ]
+				[  1.0  1.0 ]
+				[  1.0  0.0 ]
+			}
 		)
 	}
 )
