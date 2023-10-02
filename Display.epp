@@ -3,7 +3,7 @@ display:
 
 	textures: 
 	{
-       red0: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO" file: "redzero.bmp" )
+       zero: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO" file: "redzero.bmp" )
     }
     
 	name: "UNO"
@@ -25,22 +25,11 @@ display:
 	components:
 	{
 		( Card
-			
-			color: red
-			vertices:
-			{
-				[-5 -5]
-				[-5  5]
-				[5   5]
-				[5  -5]
-			}
+			cardColor: red
+			cardType: zero
+			texture: zero
 
-			texCoord: {
-				[  0.0  0.0 ]
-				[  0.0  1.0 ]
-				[  1.0  1.0 ]
-				[  1.0  0.0 ]
-			}
+			#include"setVertAndTexCoords.epp"
 		)
 	}
 )
