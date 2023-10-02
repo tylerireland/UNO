@@ -24,6 +24,9 @@
     <ClInclude Include="GameDisplay.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameDisplay.cpp">
@@ -47,5 +50,60 @@
     <ClCompile Include="Card.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UNO.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redzero.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\drawfour.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\reddrawtwo.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redeight.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redfive.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redfour.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\rednine.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redone.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redreverse.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redseven.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redsix.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redskip.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redthree.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redtwo.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\wild.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
