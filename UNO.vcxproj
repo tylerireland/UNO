@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameDisplay.hpp" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameDisplay.cpp" />
@@ -31,6 +32,27 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Card.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UNO.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\drawfour.bmp" />
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\reddrawtwo.bmp" />
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redeight.bmp" />
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redfive.bmp" />
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redfour.bmp" />
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\rednine.bmp" />
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redone.bmp" />
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redreverse.bmp" />
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redseven.bmp" />
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redsix.bmp" />
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redskip.bmp" />
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redthree.bmp" />
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redtwo.bmp" />
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\redzero.bmp" />
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\wild.bmp" />
+    <Image Include="bitmap1.bmp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
