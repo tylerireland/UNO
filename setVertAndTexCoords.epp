@@ -1,10 +1,10 @@
 // This is used for the cards to automatically adjust the texture to fit the Polygon
 vertices:
 {
-	[-5 -6.1]
-	[-5  6.1]
-	[5   6.1]
-	[5  -6.1]
+	[-1.25 -1.9375]
+	[-1.25  1.9375]
+	[1.25   1.9375]
+	[1.25  -1.9375]
 }
 
 texCoord: {

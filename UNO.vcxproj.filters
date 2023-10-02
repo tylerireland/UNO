@@ -37,6 +37,9 @@
     <None Include="setVertAndTexCoords.epp">
       <Filter>configs</Filter>
     </None>
+    <None Include="redCards.epp">
+      <Filter>configs</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.hpp">

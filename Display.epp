@@ -3,7 +3,21 @@ display:
 
 	textures: 
 	{
-       zero: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO" file: "redzero.bmp" )
+       zero: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redzero.bmp" )
+	   one: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redone.bmp" )
+	   two: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redtwo.bmp" )
+	   three: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redthree.bmp" )
+	   four: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redfour.bmp" )
+	   five: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redfive.bmp" )
+	   six: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redsix.bmp" )
+	   seven: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redseven.bmp" )
+	   eight: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redeight.bmp" )
+	   nine: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "rednine.bmp" )
+	   skip: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redskip.bmp" )
+	   reverse: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redreverse.bmp" )
+	   drawTwo: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "reddrawtwo.bmp" )
+	   drawFour: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "drawfour.bmp" )
+	   wild: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "wild.bmp" )
     }
     
 	name: "UNO"
@@ -27,8 +41,22 @@ display:
 		( Card
 			cardColor: red
 			cardType: zero
-			texture: zero
-
+			components:
+			{
+				( Polygon
+					texture: one
+					#include"setVertAndTexCoords.epp"
+				)
+				
+			}
+			
+		)
+		
+		( Card
+			cardColor: red
+			cardType: one
+			
+			
 			#include"setVertAndTexCoords.epp"
 		)
 	}

@@ -1,7 +1,7 @@
 #ifndef CARD_H
 #define CARD_H
 
-#include "mixr/graphics/Polygon.hpp"
+#include "mixr/graphics/Translator.hpp"
 #include <string>
 
 /*
@@ -13,9 +13,9 @@
 */
 
 
-class Card final : public mixr::graphics::Polygon
+class Card final : public mixr::graphics::Translator
 {
-	DECLARE_SUBCLASS(Card, mixr::graphics::Polygon)
+	DECLARE_SUBCLASS(Card, mixr::graphics::Translator)
 
 public:
 
