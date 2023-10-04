@@ -27,8 +27,14 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="blueCards.epp" />
     <None Include="Display.epp" />
     <ClInclude Include="Card.hpp" />
+    <None Include="greenCards.epp" />
+    <None Include="redCards.epp" />
+    <None Include="setVertAndTexCoords.epp" />
+    <None Include="wildCards.epp" />
+    <None Include="yellowCards.epp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Card.cpp" />

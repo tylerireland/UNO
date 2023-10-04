@@ -1,0 +1,168 @@
+( Card
+	transform: (Translation -15 -6.5)
+	cardColor: yellow
+	cardType: zero
+	components:
+	{
+		( Polygon
+			texture: yellowzero
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+		
+( Card
+	transform: (Translation -12 -6.5)
+	cardColor: yellow
+	cardType: one
+	components:
+	{
+		( Polygon
+			texture: yellowone
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation -9 -6.5)
+	cardColor: yellow
+	cardType: two
+	components:
+	{
+		( Polygon
+			texture: yellowtwo
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation -6 -6.5)
+	cardColor: yellow
+	cardType: three
+	components:
+	{
+		( Polygon
+			texture: yellowthree
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation -3 -6.5)
+	cardColor: yellow
+	cardType: four
+	components:
+	{
+		( Polygon
+			texture: yellowfour
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 0 -6.5)
+	cardColor: yellow
+	cardType: five
+	components:
+	{
+		( Polygon
+			texture: yellowfive
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 3 -6.5)
+	cardColor: yellow
+	cardType: six
+	components:
+	{
+		( Polygon
+			texture: yellowsix
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 6 -6.5)
+	cardColor: yellow
+	cardType: seven
+	components:
+	{
+		( Polygon
+			texture: yellowseven
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 9 -6.5)
+	cardColor: yellow
+	cardType: eight
+	components:
+	{
+		( Polygon
+			texture: yelloweight
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 12 -6.5)
+	cardColor: yellow
+	cardType: nine
+	components:
+	{
+		( Polygon
+			texture: yellownine
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 15 -6.5)
+	cardColor: yellow
+	cardType: skip
+	components:
+	{
+		( Polygon
+			texture: yellowskip
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 18 -6.5)
+	cardColor: yellow
+	cardType: reverse
+	components:
+	{
+		( Polygon
+			texture: yellowreverse
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 21 -6.5)
+	cardColor: yellow
+	cardType: drawTwo
+	components:
+	{
+		( Polygon
+			texture: yellowdrawtwo
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)

@@ -1,0 +1,15 @@
+// This is used for the cards to automatically adjust the texture to fit the Polygon
+vertices:
+{
+	[-1.25 -1.9375]
+	[-1.25  1.9375]
+	[1.25   1.9375]
+	[1.25  -1.9375]
+}
+
+texCoord: {
+	[  0.0  0.0 ]
+	[  0.0  0.77 ]
+	[  1.0  0.77 ]
+	[  1.0  0.0 ]
+}
