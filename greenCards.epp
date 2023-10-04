@@ -1,0 +1,168 @@
+( Card
+	transform: (Translation -15 -2)
+	cardColor: green
+	cardType: zero
+	components:
+	{
+		( Polygon
+			texture: greenzero
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+		
+( Card
+	transform: (Translation -12 -2)
+	cardColor: green
+	cardType: one
+	components:
+	{
+		( Polygon
+			texture: greenone
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation -9 -2)
+	cardColor: green
+	cardType: two
+	components:
+	{
+		( Polygon
+			texture: greentwo
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation -6 -2)
+	cardColor: green
+	cardType: three
+	components:
+	{
+		( Polygon
+			texture: greenthree
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation -3 -2)
+	cardColor: green
+	cardType: four
+	components:
+	{
+		( Polygon
+			texture: greenfour
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 0 -2)
+	cardColor: green
+	cardType: five
+	components:
+	{
+		( Polygon
+			texture: greenfive
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 3 -2)
+	cardColor: green
+	cardType: six
+	components:
+	{
+		( Polygon
+			texture: greensix
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 6 -2)
+	cardColor: green
+	cardType: seven
+	components:
+	{
+		( Polygon
+			texture: greenseven
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 9 -2)
+	cardColor: green
+	cardType: eight
+	components:
+	{
+		( Polygon
+			texture: greeneight
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 12 -2)
+	cardColor: green
+	cardType: nine
+	components:
+	{
+		( Polygon
+			texture: greennine
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 15 -2)
+	cardColor: green
+	cardType: skip
+	components:
+	{
+		( Polygon
+			texture: greenskip
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 18 -2)
+	cardColor: green
+	cardType: reverse
+	components:
+	{
+		( Polygon
+			texture: greenreverse
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 21 -2)
+	cardColor: green
+	cardType: drawTwo
+	components:
+	{
+		( Polygon
+			texture: greendrawtwo
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)

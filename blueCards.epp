@@ -1,0 +1,168 @@
+( Card
+	transform: (Translation -15 2.5)
+	cardColor: blue
+	cardType: zero
+	components:
+	{
+		( Polygon
+			texture: bluezero
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+		
+( Card
+	transform: (Translation -12 2.5)
+	cardColor: blue
+	cardType: one
+	components:
+	{
+		( Polygon
+			texture: blueone
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation -9 2.5)
+	cardColor: blue
+	cardType: two
+	components:
+	{
+		( Polygon
+			texture: bluetwo
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation -6 2.5)
+	cardColor: blue
+	cardType: three
+	components:
+	{
+		( Polygon
+			texture: bluethree
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation -3 2.5)
+	cardColor: blue
+	cardType: four
+	components:
+	{
+		( Polygon
+			texture: bluefour
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 0 2.5)
+	cardColor: blue
+	cardType: five
+	components:
+	{
+		( Polygon
+			texture: bluefive
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 3 2.5)
+	cardColor: blue
+	cardType: six
+	components:
+	{
+		( Polygon
+			texture: bluesix
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 6 2.5)
+	cardColor: blue
+	cardType: seven
+	components:
+	{
+		( Polygon
+			texture: blueseven
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 9 2.5)
+	cardColor: blue
+	cardType: eight
+	components:
+	{
+		( Polygon
+			texture: blueeight
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 12 2.5)
+	cardColor: blue
+	cardType: nine
+	components:
+	{
+		( Polygon
+			texture: bluenine
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 15 2.5)
+	cardColor: blue
+	cardType: skip
+	components:
+	{
+		( Polygon
+			texture: blueskip
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 18 2.5)
+	cardColor: blue
+	cardType: reverse
+	components:
+	{
+		( Polygon
+			texture: bluereverse
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 21 2.5)
+	cardColor: blue
+	cardType: drawTwo
+	components:
+	{
+		( Polygon
+			texture: bluedrawtwo
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)

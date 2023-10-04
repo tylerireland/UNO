@@ -1,0 +1,25 @@
+( Card
+	transform: (Translation -15 -11)
+	cardColor: default
+	cardType: wild
+	components:
+	{
+		( Polygon
+			texture: wild
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation -12 -11)
+	cardColor: default
+	cardType: drawfour
+	components:
+	{
+		( Polygon
+			texture: drawfour
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)

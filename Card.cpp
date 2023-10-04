@@ -6,8 +6,8 @@ EMPTY_DELETEDATA(Card)
 
 BEGIN_SLOTTABLE(Card)
 	"cardType",				// This is determine the type of card it will be
-						// ONLY accepts "zero" to "nine", "reverse", "skip", "drawFour",
-						//              "drawTwo", "wild", "swapHand"
+						// ONLY accepts "zero" to "nine", "reverse", "skip", "drawfour",
+						//              "drawtwo", "wild", "swapHand"
 	
 	"cardColor",			// This will determine the color the card will be
 						// ONLY accepts "red", "blue", "green", "yellow", "default" (for wilds)
