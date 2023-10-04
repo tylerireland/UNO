@@ -123,5 +123,125 @@
     <Image Include="bitmap1.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Textures\wild.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Textures\yellowzero.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\yellowdrawtwo.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\yelloweight.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\yellowfive.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\yellowfour.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\yellownine.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\yellowone.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\yellowreverse.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\yellowseven.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\yellowsix.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\yellowskip.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\yellowthree.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\yellowtwo.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\greenzero.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\bluedrawtwo.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\blueeight.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\bluefive.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\bluefour.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\bluenine.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\blueone.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\bluereverse.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\blueseven.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\bluesix.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\blueskip.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\bluethree.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\bluetwo.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\bluezero.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\greendrawtwo.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\greeneight.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\greenfive.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\greenfour.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\greennine.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\greenone.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\greenreverse.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\greenseven.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\greensix.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\greenskip.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\greenthree.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="Textures\greentwo.bmp">
+      <Filter>Textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>
