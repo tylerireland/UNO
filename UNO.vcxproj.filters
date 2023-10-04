@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="configs">
       <UniqueIdentifier>{48cac8df-292e-42d5-9e2a-b15d443b6bf3}</UniqueIdentifier>
     </Filter>
@@ -70,11 +66,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="UNO.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="..\..\mixr-data\textures\UNO\Cards\redzero.bmp">
       <Filter>Textures</Filter>
     </Image>
@@ -119,12 +110,6 @@
     </Image>
     <Image Include="..\..\mixr-data\textures\UNO\Cards\wild.bmp">
       <Filter>Textures</Filter>
-    </Image>
-    <Image Include="bitmap1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Textures\wild.bmp">
-      <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Textures\yellowzero.bmp">
       <Filter>Textures</Filter>

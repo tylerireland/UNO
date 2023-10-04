@@ -40,9 +40,6 @@
     <ClCompile Include="Card.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="UNO.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="..\..\mixr-data\textures\UNO\Cards\drawfour.bmp" />
     <Image Include="..\..\mixr-data\textures\UNO\Cards\reddrawtwo.bmp" />
     <Image Include="..\..\mixr-data\textures\UNO\Cards\redeight.bmp" />
@@ -58,7 +55,6 @@
     <Image Include="..\..\mixr-data\textures\UNO\Cards\redtwo.bmp" />
     <Image Include="..\..\mixr-data\textures\UNO\Cards\redzero.bmp" />
     <Image Include="..\..\mixr-data\textures\UNO\Cards\wild.bmp" />
-    <Image Include="bitmap1.bmp" />
     <Image Include="Textures\bluedrawtwo.bmp" />
     <Image Include="Textures\blueeight.bmp" />
     <Image Include="Textures\bluefive.bmp" />
@@ -85,7 +81,6 @@
     <Image Include="Textures\greenthree.bmp" />
     <Image Include="Textures\greentwo.bmp" />
     <Image Include="Textures\greenzero.bmp" />
-    <Image Include="Textures\wild.bmp" />
     <Image Include="Textures\yellowdrawtwo.bmp" />
     <Image Include="Textures\yelloweight.bmp" />
     <Image Include="Textures\yellowfive.bmp" />
