@@ -20,11 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameDisplay.hpp" />
+    <ClInclude Include="Pager.hpp" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameDisplay.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Pager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="blueCards.epp" />
@@ -33,6 +35,7 @@
     <None Include="greenCards.epp" />
     <None Include="redCards.epp" />
     <None Include="setVertAndTexCoords.epp" />
+    <None Include="textures.epp" />
     <None Include="wildCards.epp" />
     <None Include="yellowCards.epp" />
   </ItemGroup>
@@ -40,6 +43,7 @@
     <ClCompile Include="Card.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\mixr-data\textures\UnoRules2048x1024.bmp" />
     <Image Include="..\..\mixr-data\textures\UNO\Cards\drawfour.bmp" />
     <Image Include="..\..\mixr-data\textures\UNO\Cards\reddrawtwo.bmp" />
     <Image Include="..\..\mixr-data\textures\UNO\Cards\redeight.bmp" />

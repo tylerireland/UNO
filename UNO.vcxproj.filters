@@ -23,12 +23,18 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Pager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameDisplay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Pager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -52,6 +58,9 @@
       <Filter>configs</Filter>
     </None>
     <None Include="wildCards.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="textures.epp">
       <Filter>configs</Filter>
     </None>
   </ItemGroup>
@@ -226,6 +235,9 @@
       <Filter>Textures</Filter>
     </Image>
     <Image Include="Textures\greentwo.bmp">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\mixr-data\textures\UnoRules2048x1024.bmp">
       <Filter>Textures</Filter>
     </Image>
   </ItemGroup>
