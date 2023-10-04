@@ -1,0 +1,168 @@
+( Card
+	transform: (Translation -15 7)
+	cardColor: red
+	cardType: zero
+	components:
+	{
+		( Polygon
+			texture: redzero
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+		
+( Card
+	transform: (Translation -12 7)
+	cardColor: red
+	cardType: one
+	components:
+	{
+		( Polygon
+			texture: redone
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation -9 7)
+	cardColor: red
+	cardType: two
+	components:
+	{
+		( Polygon
+			texture: redtwo
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation -6 7)
+	cardColor: red
+	cardType: three
+	components:
+	{
+		( Polygon
+			texture: redthree
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation -3 7)
+	cardColor: red
+	cardType: four
+	components:
+	{
+		( Polygon
+			texture: redfour
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 0 7)
+	cardColor: red
+	cardType: five
+	components:
+	{
+		( Polygon
+			texture: redfive
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 3 7)
+	cardColor: red
+	cardType: six
+	components:
+	{
+		( Polygon
+			texture: redsix
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 6 7)
+	cardColor: red
+	cardType: seven
+	components:
+	{
+		( Polygon
+			texture: redseven
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 9 7)
+	cardColor: red
+	cardType: eight
+	components:
+	{
+		( Polygon
+			texture: redeight
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 12 7)
+	cardColor: red
+	cardType: nine
+	components:
+	{
+		( Polygon
+			texture: rednine
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 15 7)
+	cardColor: red
+	cardType: skip
+	components:
+	{
+		( Polygon
+			texture: redskip
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 18 7)
+	cardColor: red
+	cardType: reverse
+	components:
+	{
+		( Polygon
+			texture: redreverse
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)
+
+( Card
+	transform: (Translation 21 7)
+	cardColor: red
+	cardType: drawTwo
+	components:
+	{
+		( Polygon
+			texture: reddrawtwo
+			#include"setVertAndTexCoords.epp"
+		)
+	}
+)

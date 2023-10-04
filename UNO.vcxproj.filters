@@ -40,6 +40,24 @@
     <None Include="Display.epp">
       <Filter>configs</Filter>
     </None>
+    <None Include="setVertAndTexCoords.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="redCards.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="blueCards.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="greenCards.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="yellowCards.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="wildCards.epp">
+      <Filter>configs</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.hpp">
