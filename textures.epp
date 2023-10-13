@@ -63,4 +63,22 @@
 	   wild: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "wild.bmp" )
 
 	  // Page Textures
-	  //rulez: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "UnoRules2048x1024.bmp" )
+	  rules: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "UnoRules.bmp" )
+	  home: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "HomeScreen.bmp" )
+
+	  //( Button 
+						//	transform: { ( Translation 6.75 -2.25 0.5) ( Scale 1 ) } 
+						//	selectName: 1
+						//	eventId: 1000
+						//	components: { 
+						//		( Polygon 
+						//			color: blue 
+						//			vertices: {
+						//				[ -2.5 -0.1 ]
+						//				[ -2.5  1.8 ]
+						//				[  2.5  1.8 ]
+						//				[  2.5 -0.1 ]
+						//			}
+						//		)
+						//	}
+						//)

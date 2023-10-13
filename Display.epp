@@ -4,6 +4,7 @@ display:
 	textures: 
 	{
 		#include "textures.epp"
+
     }
     
 	name: "UNO"
@@ -33,19 +34,40 @@ display:
 		homeScreen: ( Pager
 					pagingEvent: { n: rulesScreen p: homeScreen }
 						components: {
-							( Graphic
-								transform: { ( Translation -3 2 ) ( Scale 0.8 ) }
-								components:
-								{
-									#include "redCards.epp"
-									#include "blueCards.epp"
-									#include "greenCards.epp"
-									#include "yellowCards.epp"
-									#include "wildCards.epp"
+							( Polygon
+								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
+								texture: home
+								vertices: {
+									[  17  10 ]
+									[  -17 10 ]
+									[  -17  -10 ]
+									[  17  -10 ]
+								}
+								texCoord: {
+									[  1.0  1.0 ]
+									[  0.0  1.0 ]
+									[  0.0  0.0 ]
+									[  1.0  0.0 ]
 								}
 							)
 							// create buttons using button class, look to miniProject1 for reference on how we did it 
-
+							( Button 
+								transform: { ( Translation 9.59 -1.8 0.5) ( Scale 1 ) } 
+								selectName: 1
+								eventId: 1000
+								visible: false
+								components: { 
+									( Polygon 
+										color: blue 
+										vertices: {
+											[ -2.5 0.4 ]
+											[ -2.5  1.795 ]
+											[  4.2  1.795 ]
+											[  4.2 0.4 ]
+										}
+									)
+								}
+							)
 						}
 					)
 		rulesScreen: ( Pager 
@@ -54,12 +76,12 @@ display:
 							( Polygon
 								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
 								color: ( rgb 0 0 0 )
-								//texture: rulez
+								texture: rules
 								vertices: {
-									[  16.5  9.5 ]
-									[  -16.5  9.5 ]
-									[  -16.5  -9.5 ]
-									[  16.5  -9.5 ]
+									[  17  10 ]
+									[  -17 10 ]
+									[  -17  -10 ]
+									[  17  -10 ]
 								}
 								texCoord: {
 									[  1.0  1.0 ]
