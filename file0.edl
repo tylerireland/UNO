@@ -73,6 +73,7 @@ display:
 
 	  rules: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "UnoRules.bmp" )
 	  home: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "HomeScreen.bmp" )
+	  setup: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "setupScreen.bmp" )
 #line 7 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
 
     }
@@ -92,6 +93,22 @@ display:
 	clearDepth: 20.0
 
 	clearColor: ( rgb 0.2 0.2 0.2 )
+
+	normalFont: normal
+
+	fonts: {
+
+      normal:
+      ( FTGLHaloFont
+            fontPosition: [ -10 10 ]
+            path:  "../../mixr-data/fonts/"
+            file: "arialn.ttf"
+
+            linewidth: 2
+            fontWidth: 1.5
+            fontHeight: 0.8
+        )
+    }
 
 
 
@@ -121,11 +138,12 @@ display:
 								}
 							)
 
+
 							( Button
-								transform: { ( Translation 9.59 -1.8 0.5) ( Scale 1 ) }
+								transform: { ( Translation 9.59 -1.8 -0.5) ( Scale 1 ) }
 								selectName: 1
-								eventId: 1000
-								visible: false
+								eventId: 1001
+								visible: true
 								components: {
 									( Polygon
 										color: blue
@@ -138,10 +156,46 @@ display:
 									)
 								}
 							)
+
+							( Button
+								transform: { ( Translation 9.59 -4.75 -0.5) ( Scale 1 ) }
+								selectName: 2
+								eventId: 1002
+								visible: true
+								components: {
+									( Polygon
+										color: blue
+										vertices: {
+											[ -0.9 0.4 ]
+											[ -0.9 1.795 ]
+											[ 2.7 1.795 ]
+											[ 2.7 0.4 ]
+										}
+									)
+								}
+							)
+
+							( Button
+								transform: { ( Translation 9.59 -7.75 -0.5) ( Scale 1 ) }
+								selectName: 4
+								eventId: 1004
+								visible: true
+								components: {
+									( Polygon
+										color: blue
+										vertices: {
+											[ -0.9 0.4 ]
+											[ -0.9 1.795 ]
+											[ 2.7 1.795 ]
+											[ 2.7 0.4 ]
+										}
+									)
+								}
+							)
 						}
 					)
 		rulesScreen: ( Pager
-					 pagingEvent: { n: rulesScreen p: homeScreen }
+					 pagingEvent: { n: setupScreen p: homeScreen }
 						components: {
 							( Polygon
 								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
@@ -158,6 +212,137 @@ display:
 									[ 0.0 1.0 ]
 									[ 0.0 0.0 ]
 									[ 1.0 0.0 ]
+								}
+							)
+
+							( Button
+								transform: { ( Translation -16.25 -1.4 -0.5) ( Scale 1 ) }
+								selectName: 3
+								eventId: 1003
+								visible: true
+								components: {
+									( Polygon
+										color: blue
+										vertices: {
+											[ -0.8 0.8 ]
+											[ -0.8 1.6 ]
+											[ 2.52 1.6 ]
+											[ 2.52 0.8 ]
+										}
+									)
+								}
+							)
+						}
+					 )
+		setupScreen: ( Pager
+					 pagingEvent: { n: setupScreen p: rulesScreen }
+						components: {
+							( Polygon
+								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
+								color: ( rgb 0 0 0 )
+								texture: setup
+								visible: true
+								vertices: {
+									[ 17 10 ]
+									[ -17 10 ]
+									[ -17 -10 ]
+									[ 17 -10 ]
+								}
+								texCoord: {
+									[ 1.0 1.0 ]
+									[ 0.0 1.0 ]
+									[ 0.0 0.0 ]
+									[ 1.0 0.0 ]
+								}
+							)
+
+							( Button
+								transform: { ( Translation -15.78 -10 -0.5) ( Scale 1 ) }
+								selectName: 5
+								eventId: 1005
+								visible: true
+								components: {
+									( Polygon
+										color: blue
+										vertices: {
+											[ -0.8 0.7 ]
+											[ -0.8 1.5 ]
+											[ 3.05 1.5 ]
+											[ 3.05 0.7 ]
+										}
+									)
+								}
+							)
+
+							( Button
+								transform: { ( Translation -3.78 -2.30 0 ) ( Scale 1 ) }
+								selectName: 6
+								eventId: 1006
+								visible: true
+								components: {
+									( Polygon
+										color: blue
+										vertices: {
+											[ -0.83 0.7 ]
+											[ -0.83 1.0 ]
+											[ 2.95 1.0 ]
+											[ 2.95 0.7 ]
+										}
+									)
+									( Polygon
+										color: blue
+										vertices: {
+											[ -0.83 0.7 ]
+											[ -0.83 1.0 ]
+											[ 1.12 2.09 ]
+											[ 1.22 1.8 ]
+										}
+									)
+									( Polygon
+										color: blue
+										vertices: {
+											[ -0.80 0.7 ]
+											[ -0.80 1.0 ]
+											[ 0.868 -0.13 ]
+											[ 0.82 -0.50 ]
+										}
+									)
+								}
+							)
+
+							( Button
+								transform: { ( Translation 1.66 -2.33 0 ) ( Scale 1 ) }
+								selectName: 7
+								eventId: 1007
+								visible: true
+								components: {
+									( Polygon
+										color: blue
+										vertices: {
+											[ -0.83 0.7 ]
+											[ -0.83 1.0 ]
+											[ 2.95 1.0 ]
+											[ 2.95 0.7 ]
+										}
+									)
+									( Polygon
+										color: blue
+										vertices: {
+											[ 1.19 1.81 ]
+											[ 1.31 2.09 ]
+											[ 2.95 1.0 ]
+											[ 2.88 0.7 ]
+										}
+									)
+									( Polygon
+										color: blue
+										vertices: {
+											[ 1.45 -0.28 ]
+											[ 1.31 -0.00 ]
+											[ 2.90 1.0 ]
+											[ 2.88 0.7 ]
+										}
+									)
 								}
 							)
 						}

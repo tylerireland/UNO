@@ -16,10 +16,12 @@ public:
 	void updateData(const double dt = 0.0) final;
 	//bool event(const int event, mixr::base::Object* const obj = nullptr) override;
 	void reset() final;
+	void buttonEvent(const int b) final;
 
 private:
-
-
+	int playerCount {2};
+	
+	SendData playerCountSD{};
 };
 
 #endif

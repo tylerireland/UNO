@@ -65,20 +65,4 @@
 	  // Page Textures
 	  rules: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "UnoRules.bmp" )
 	  home: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "HomeScreen.bmp" )
-
-	  //( Button 
-						//	transform: { ( Translation 6.75 -2.25 0.5) ( Scale 1 ) } 
-						//	selectName: 1
-						//	eventId: 1000
-						//	components: { 
-						//		( Polygon 
-						//			color: blue 
-						//			vertices: {
-						//				[ -2.5 -0.1 ]
-						//				[ -2.5  1.8 ]
-						//				[  2.5  1.8 ]
-						//				[  2.5 -0.1 ]
-						//			}
-						//		)
-						//	}
-						//)
+	  setup: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "setupScreen.bmp" )
