@@ -1,8 +1,0 @@
-<<<<<<< HEAD
-﻿  
-UNO.rc(52): error RC2135: file not found: bitmap1.bmp
-  
-=======
-﻿  Card.cpp
-  UNO.vcxproj -> C:\Apps\mixr\mixr-examples\build\vs2017\Debug\UNO.exe
->>>>>>> 9882b2dd8b55286cec0cc05975411761aba8a301
