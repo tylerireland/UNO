@@ -3,69 +3,8 @@ display:
 
 	textures: 
 	{
-	  // RED CARDS
-       redzero: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redzero.bmp" )
-	   redone: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redone.bmp" )
-	   redtwo: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redtwo.bmp" )
-	   redthree: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redthree.bmp" )
-	   redfour: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redfour.bmp" )
-	   redfive: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redfive.bmp" )
-	   redsix: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redsix.bmp" )
-	   redseven: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redseven.bmp" )
-	   redeight: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redeight.bmp" )
-	   rednine: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "rednine.bmp" )
-	   redskip: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redskip.bmp" )
-	   redreverse: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "redreverse.bmp" )
-	   reddrawtwo: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "reddrawtwo.bmp" )
+		#include "textures.epp"
 
-	  // BLUE CARDS
-	   bluezero: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "bluezero.bmp" )
-	   blueone: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "blueone.bmp" )
-	   bluetwo: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "bluetwo.bmp" )
-	   bluethree: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "bluethree.bmp" )
-	   bluefour: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "bluefour.bmp" )
-	   bluefive: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "bluefive.bmp" )
-	   bluesix: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "bluesix.bmp" )
-	   blueseven: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "blueseven.bmp" )
-	   blueeight: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "blueeight.bmp" )
-	   bluenine: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "bluenine.bmp" )
-	   blueskip: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "blueskip.bmp" )
-	   bluereverse: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "bluereverse.bmp" )
-	   bluedrawtwo: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "bluedrawtwo.bmp" )
-	 
-	 // GREEN CARDS
-	   greenzero: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "greenzero.bmp" )
-	   greenone: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "greenone.bmp" )
-	   greentwo: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "greentwo.bmp" )
-	   greenthree: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "greenthree.bmp" )
-	   greenfour: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "greenfour.bmp" )
-	   greenfive: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "greenfive.bmp" )
-	   greensix: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "greensix.bmp" )
-	   greenseven: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "greenseven.bmp" )
-	   greeneight: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "greeneight.bmp" )
-	   greennine: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "greennine.bmp" )
-	   greenskip: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "greenskip.bmp" )
-	   greenreverse: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "greenreverse.bmp" )
-	   greendrawtwo: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "greendrawtwo.bmp" )
-
-	  // YELLOW CARDS
-	   yellowzero: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "yellowzero.bmp" )
-	   yellowone: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "yellowone.bmp" )
-	   yellowtwo: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "yellowtwo.bmp" )
-	   yellowthree: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "yellowthree.bmp" )
-	   yellowfour: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "yellowfour.bmp" )
-	   yellowfive: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "yellowfive.bmp" )
-	   yellowsix: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "yellowsix.bmp" )
-	   yellowseven: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "yellowseven.bmp" )
-	   yelloweight: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "yelloweight.bmp" )
-	   yellownine: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "yellownine.bmp" )
-	   yellowskip: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "yellowskip.bmp" )
-	   yellowreverse: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "yellowreverse.bmp" )
-	   yellowdrawtwo: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "yellowdrawtwo.bmp" )
-
-	  // WILD CARDS
-	   drawfour: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "drawfour.bmp" )
-	   wild: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "wild.bmp" )
     }
     
 	name: "UNO"
@@ -75,29 +14,267 @@ display:
 	bottom:		-10
 	top:		 10
 	
-	vpX:		 3000
+	vpX:		 10
 	vpY:		 10
-	vpWidth:	 1920
-	vpHeight:	 1080
+	vpWidth:	 2048
+	vpHeight:	 1024
 
 	clearDepth:  20.0
 					
 	clearColor:	 ( rgb 0.2 0.2 0.2 ) // Black
 
-	components:
-	{
+	normalFont: normal
 
-		( Graphic
-			transform: { (Translation -3 2) ( Scale 0.8)}
-			components:
-			{
-				#include "redCards.epp"
-				#include "blueCards.epp"
-				#include "greenCards.epp"
-				#include "yellowCards.epp"
-				#include "wildCards.epp"
-			}
-		)
-	
+	fonts: {
+      // normal font for most display stuff
+      normal:
+      ( FTGLHaloFont
+            fontPosition: [ -10 10 ]
+            path: MIXR_DATA_FONT_PATH
+            file: "arialn.ttf"
+            // facesize is default to 1 inch, so you can maninpulate the norm with font width and height
+            linewidth: 2
+            fontWidth: 1.5
+            fontHeight: 0.8
+        )        
+    }
+
+	//
+	// Page class settings
+	// 
+	page: homeScreen
+	pages: 
+	{
+		// this is the page for the home screen 
+			// right now, it's just the lovely scroll of cards Tyler made and not the actual home screen
+		homeScreen: ( Pager
+					pagingEvent: { n: rulesScreen p: homeScreen }
+						components: {
+							( Polygon
+								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
+								texture: home
+								vertices: {
+									[  17  10 ]
+									[  -17 10 ]
+									[  -17  -10 ]
+									[  17  -10 ]
+								}
+								texCoord: {
+									[  1.0  1.0 ]
+									[  0.0  1.0 ]
+									[  0.0  0.0 ]
+									[  1.0  0.0 ]
+								}
+							)
+							// create buttons using button class, look to miniProject1 for reference on how we did it 
+							// button for "Play Game"
+							( Button 
+								transform: { ( Translation 9.59 -1.8 -0.5) ( Scale 1 ) } 
+								selectName: 1
+								eventId: 1001
+								visible: true
+								components: { 
+									( Polygon 
+										color: blue 
+										vertices: {
+											[ -2.5 0.4 ]
+											[ -2.5  1.795 ]
+											[  4.2  1.795 ]
+											[  4.2 0.4 ]
+										}
+									)
+								}
+							)
+							// button for rules screen
+							( Button 
+								transform: { ( Translation 9.59 -4.75 -0.5) ( Scale 1 ) } 
+								selectName: 2
+								eventId: 1002
+								visible: true
+								components: { 
+									( Polygon 
+										color: blue 
+										vertices: {
+											[ -0.9 0.4 ]
+											[ -0.9  1.795 ]
+											[  2.7  1.795 ]
+											[  2.7 0.4 ]
+										}
+									)
+								}
+							)
+							// button for quit
+							( Button 
+								transform: { ( Translation 9.59 -7.75 -0.5) ( Scale 1 ) } 
+								selectName: 4
+								eventId: 1004
+								visible: true
+								components: { 
+									( Polygon 
+										color: blue 
+										vertices: {
+											[ -0.9 0.4 ]
+											[ -0.9  1.795 ]
+											[  2.7  1.795 ]
+											[  2.7 0.4 ]
+										}
+									)
+								}
+							)
+						}
+					)
+		rulesScreen: ( Pager 
+					 pagingEvent: { n: setupScreen p: homeScreen }
+						components: { 
+							( Polygon
+								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
+								color: ( rgb 0 0 0 )
+								texture: rules
+								vertices: {
+									[  17  10 ]
+									[  -17 10 ]
+									[  -17  -10 ]
+									[  17  -10 ]
+								}
+								texCoord: {
+									[  1.0  1.0 ]
+									[  0.0  1.0 ]
+									[  0.0  0.0 ]
+									[  1.0  0.0 ]
+								}
+							)
+							// back button
+							( Button 
+								transform: { ( Translation -16.25 -1.4 -0.5) ( Scale 1 ) } 
+								selectName: 3
+								eventId: 1003
+								visible: true
+								components: { 
+									( Polygon 
+										color: blue 
+										vertices: {
+											[ -0.8 0.8 ]
+											[ -0.8  1.6 ]
+											[  2.52  1.6 ]
+											[  2.52 0.8 ]
+										}
+									)
+								}
+							)
+						}
+					 )
+		setupScreen: ( Pager 
+					 pagingEvent: { n: setupScreen p: rulesScreen }
+						components: { 
+							( Polygon
+								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
+								color: ( rgb 0 0 0 )
+								texture: setup
+								visible: true
+								vertices: {
+									[  17  10 ]
+									[  -17 10 ]
+									[  -17  -10 ]
+									[  17  -10 ]
+								}
+								texCoord: {
+									[  1.0  1.0 ]
+									[  0.0  1.0 ]
+									[  0.0  0.0 ]
+									[  1.0  0.0 ]
+								}
+							)
+							// back to menu button
+							( Button 
+								transform: { ( Translation -15.78 -10 -0.5) ( Scale 1 ) } 
+								selectName: 5
+								eventId: 1005
+								visible: true
+								components: { 
+									( Polygon 
+										color: blue 
+										vertices: {
+											[ -0.8 0.7 ]
+											[ -0.8  1.5 ]
+											[  3.05  1.5 ]
+											[  3.05 0.7 ]
+										}
+									)
+								}
+							)
+							// left arrow button 
+							( Button 
+								transform: { ( Translation -3.78 -2.30 0 ) ( Scale 1 ) } 
+								selectName: 6
+								eventId: 1006
+								visible: true
+								components: { 
+									( Polygon 
+										color: blue 
+										vertices: {
+											[ -0.83 0.7 ]
+											[ -0.83  1.0 ]
+											[  2.95  1.0 ]
+											[  2.95 0.7 ]
+										}
+									)
+									( Polygon 
+										color: blue 
+										vertices: {
+											[ -0.83 0.7 ]
+											[ -0.83  1.0 ]
+											[  1.12  2.09 ]
+											[  1.22  1.8 ]
+										}
+									)
+									( Polygon 
+										color: blue 
+										vertices: {
+											[ -0.80 0.7 ]
+											[ -0.80  1.0 ]
+											[  0.868  -0.13 ]
+											[  0.82  -0.50 ]
+										}
+									)
+								}
+							)
+							// right arrow button 
+							( Button 
+								transform: { ( Translation 1.66 -2.33 0 ) ( Scale 1 ) } 
+								selectName: 7
+								eventId: 1007
+								visible: true
+								components: { 
+									( Polygon 
+										color: blue 
+										vertices: {
+											[ -0.83 0.7 ]
+											[ -0.83  1.0 ]
+											[  2.95  1.0 ]
+											[  2.95 0.7 ]
+										}
+									)
+									( Polygon 
+										color: blue 
+										vertices: {
+											[ 1.19 1.81 ]
+											[ 1.31  2.09 ]
+											[  2.95  1.0 ]
+											[  2.88 0.7 ]
+										}
+									)
+									( Polygon 
+										color: blue 
+										vertices: {
+											[ 1.45 -0.28 ]
+											[ 1.31  -0.00 ]
+											[  2.90  1.0 ]
+											[  2.88 0.7 ]
+										}
+									)
+								}
+							)
+						}
+					 )
 	}
 )

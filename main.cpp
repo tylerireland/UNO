@@ -1,6 +1,7 @@
 
 #include "GameDisplay.hpp"
 #include "Card.hpp"
+#include "Pager.hpp"
 
 #include "mixr/base/Timers.hpp"
 #include "mixr/base/Pair.hpp"
@@ -40,6 +41,10 @@ mixr::base::Object* factory(const std::string& name)
     }
     if (name == Card::getFactoryName()) {
         obj = new Card();
+    }
+    if (name == Pager::getFactoryName())
+    {
+        obj = new Pager();
     }
 
     // framework libraries
