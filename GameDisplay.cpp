@@ -28,7 +28,6 @@ void GameDisplay::copyData(const GameDisplay& org, const bool)
 
 void GameDisplay::updateTC(const double dt)
 {
-
 	BaseClass::updateTC(dt);
 }
 
