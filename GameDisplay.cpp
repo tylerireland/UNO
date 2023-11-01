@@ -38,6 +38,7 @@ void GameDisplay::buttonEvent(const int b)
 	Pager* homeScreen = static_cast<Pager*>(pageStream->findByName("homeScreen")->object());
 	Pager* rulesScreen = static_cast<Pager*>(pageStream->findByName("rulesScreen")->object());
 	Pager* setupScreen = static_cast<Pager*>(pageStream->findByName("setupScreen")->object());
+	Pager* gameplayScreen = static_cast<Pager*>(pageStream->findByName("gameplayScreen")->object());
 
 	switch (b)
 	{
@@ -102,6 +103,14 @@ void GameDisplay::buttonEvent(const int b)
 			{
 				playerCount = playerCount + 1;
 			}
+		}
+		break;
+
+		case 1008:
+		{
+			// also add in an assignment of the chosen playerCount 
+
+			newSubpage(gameplayScreen, nullptr);
 		}
 		break;
 	}

@@ -46,7 +46,6 @@ display:
 	pages: 
 	{
 		// this is the page for the home screen 
-			// right now, it's just the lovely scroll of cards Tyler made and not the actual home screen
 		homeScreen: ( Pager
 					pagingEvent: { n: rulesScreen p: homeScreen }
 						components: {
@@ -202,6 +201,24 @@ display:
 									)
 								}
 							)
+							// START button
+							( Button 
+								transform: { ( Translation -3.25 -10 -0.5) ( Scale 1 ) } 
+								selectName: 8
+								eventId: 1008
+								visible: true
+								components: { 
+									( Polygon 
+										color: blue 
+										vertices: {
+											[ -0.8 0.7 ]
+											[ -0.8  2.77 ]
+											[  7.30  2.77 ]
+											[  7.30 0.7 ]
+										}
+									)
+								}
+							)
 							// left arrow button 
 							( Button 
 								transform: { ( Translation -3.78 -2.30 0 ) ( Scale 1 ) } 
@@ -275,6 +292,32 @@ display:
 								}
 							)
 						}
-					 )
+					)
+	gameplayScreen:	( Pager 
+						components: {
+						( Card
+							components:
+							{
+								( Button 
+									selectName: 1
+									eventId: 1000
+									components:
+									{
+										( Polygon
+										texture: logo
+										#include"setVertAndTexCoords.epp"
+										)
+									}
+								 )
+							}
+						)
+
+						#include "redCards.epp"
+						#include "blueCards.epp"
+						#include "greenCards.epp"
+						#include "yellowCards.epp"
+						#include "wildCards.epp"
+						}					 
+					)
 	}
 )
