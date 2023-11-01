@@ -20,7 +20,7 @@ public:
 
 private:
 	int playerCount {2};
-	
+
 	SendData playerCountSD{};
 };
 

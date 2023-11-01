@@ -2,6 +2,7 @@
 #define __GameController_H__
 
 #include "mixr/base/Component.hpp"
+#include "Card.hpp"
 
 //------------------------------------------------------------------------------
 // Class: Controller
@@ -16,9 +17,16 @@ public:
 
     GameController();
 
+    bool isCardPlayable(Card* card);
+    void playerDraw();
+    
+    
 private:
 
+    int playerCount{};
+    int currTurn{};
 
+    
 
 };
 
