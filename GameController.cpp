@@ -90,7 +90,7 @@ std::vector<Card*> GameController::shuffleCards(std::vector<Card*> pile)
 		iter_swap(pile.begin() + i, pile.begin() + j); // then the element at i is swapped with the element at j 
 	}
 	// i found this through the algorithm library, so we'll see if this even works. 
-	// there very well might be a much easier way to shuffle the cards, but this seemed fun to explore 
+	// there might be a much easier way to shuffle the cards, but this seemed fun to explore 
 
 	// not sure if this would work but holy crap am I tired right now
 	return pile;
