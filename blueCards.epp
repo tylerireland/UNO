@@ -1,5 +1,5 @@
 ( Card
-	transform: (Translation -15 2.5)
+
 	cardColor: blue
 	cardType: zero
 	components:
@@ -12,7 +12,7 @@
 )
 		
 ( Card
-	transform: (Translation -12 2.5)
+
 	cardColor: blue
 	cardType: one
 	components:
@@ -25,7 +25,7 @@
 )
 
 ( Card
-	transform: (Translation -9 2.5)
+
 	cardColor: blue
 	cardType: two
 	components:
@@ -38,7 +38,7 @@
 )
 
 ( Card
-	transform: (Translation -6 2.5)
+
 	cardColor: blue
 	cardType: three
 	components:
@@ -51,7 +51,7 @@
 )
 
 ( Card
-	transform: (Translation -3 2.5)
+
 	cardColor: blue
 	cardType: four
 	components:
@@ -64,7 +64,7 @@
 )
 
 ( Card
-	transform: (Translation 0 2.5)
+
 	cardColor: blue
 	cardType: five
 	components:
@@ -77,7 +77,7 @@
 )
 
 ( Card
-	transform: (Translation 3 2.5)
+
 	cardColor: blue
 	cardType: six
 	components:
@@ -90,7 +90,7 @@
 )
 
 ( Card
-	transform: (Translation 6 2.5)
+
 	cardColor: blue
 	cardType: seven
 	components:
@@ -103,7 +103,7 @@
 )
 
 ( Card
-	transform: (Translation 9 2.5)
+
 	cardColor: blue
 	cardType: eight
 	components:
@@ -116,7 +116,7 @@
 )
 
 ( Card
-	transform: (Translation 12 2.5)
+
 	cardColor: blue
 	cardType: nine
 	components:
@@ -129,7 +129,7 @@
 )
 
 ( Card
-	transform: (Translation 15 2.5)
+
 	cardColor: blue
 	cardType: skip
 	components:
@@ -142,7 +142,7 @@
 )
 
 ( Card
-	transform: (Translation 18 2.5)
+
 	cardColor: blue
 	cardType: reverse
 	components:
@@ -155,7 +155,7 @@
 )
 
 ( Card
-	transform: (Translation 21 2.5)
+
 	cardColor: blue
 	cardType: drawTwo
 	components:

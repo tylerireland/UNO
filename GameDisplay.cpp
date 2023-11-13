@@ -1,6 +1,7 @@
 #include "GameDisplay.hpp"
 #include "Pager.hpp"
 #include <GL/glut.h>
+#include "GameController.hpp"
 
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/PairStream.hpp"

@@ -1,4 +1,12 @@
 #include "GameController.hpp"
+#include "Pager.hpp"
+#include "GameDisplay.hpp"
+#include <GL/glut.h>
+
+#include "mixr/graphics/Page.hpp"
+#include "mixr/base/Pair.hpp"
+#include "mixr/base/PairStream.hpp"
+#include "mixr/base/Component.hpp"
 
 IMPLEMENT_SUBCLASS(GameController, "GameController")
 
@@ -22,11 +30,31 @@ bool GameController::cardIsPlayable(Card* card)
 	{
 		return true;
 	}
+	else
+	{
+		// to prevent blank output
+		return false;
+	}
+}
+
+void GameController::initializeCardDecks()
+{
+	// doesn't know what subPages is for some reason. Even though Page.hpp is included
+	//const auto pageStream = subPages();
+	// need to find a way to access the cards created on the gameplayScreen
+
+	mixr::glut::GlutDisplay* mainDisplay = dynamic_cast<mixr::glut::GlutDisplay*>(container());
+	const auto pairstream = dynamic_cast<Pager*>(mainDisplay->findSubpageByName("gameplayScreen"));
+
+	//Pager* gameplayScreen = static_cast<Pager*>(pageStream->findByName("gameplayScreen")->object());
+
+	//drawPile = pairstream->getComponents();
 
 }
 
 void GameController::drawCard()
 {
+	// front of drawPile
 	Card* newCard = drawPile.front();
 
 	// there has to be a better way to do this
@@ -73,7 +101,7 @@ void GameController::drawCard()
 		player10Pile.push_back(newCard);
 	}
 
-	// simply putting front() or 0 index did not work. erase() wants something specific. 
+	// simply putting front() or 0 index as a parameter did not work. erase() wants something specific. 
 		// hopefully this removes the front of the drawPile, assuming we are using a sort of shuffled stack for it in the front of vector will always be what is displayed and used during gameplay
 	drawPile.erase(drawPile.begin());
 }
