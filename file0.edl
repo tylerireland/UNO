@@ -96,24 +96,28 @@ display:
 
 	normalFont: normal
 
-	fonts: {
+	fonts:
+	{
+		  normal:
+		  ( FTGLHaloFont
+				fontPosition: [ -10 10 ]
+				path:  "../../mixr-data/fonts/"
+				file: "arialn.ttf"
 
-      normal:
-      ( FTGLHaloFont
-            fontPosition: [ -10 10 ]
-            path:  "../../mixr-data/fonts/"
-            file: "arialn.ttf"
-
-            linewidth: 2
-            fontWidth: 1.5
-            fontHeight: 0.8
-        )
+				linewidth: 2
+				fontWidth: 1.5
+				fontHeight: 0.8
+		  )
     }
 
-
-
+	components:
+	{
+		gameController:
+		(GameController)
+	}
 
 	page: homeScreen
+
 	pages:
 	{
 
@@ -376,7 +380,7 @@ display:
 									{
 										( Polygon
 										texture: logo
-#line 308 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 312 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
 #line 1 "setVertAndTexCoords.epp"
 
 vertices:
@@ -393,13 +397,13 @@ texCoord: {
 	[ 1.0 0.77 ]
 	[ 1.0 0.0 ]
 }
-#line 309 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 313 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
 										)
 									}
 								 )
 							}
 						)
-#line 315 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 319 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
 #line 1 "redCards.epp"
 ( Card
 
@@ -790,7 +794,7 @@ texCoord: {
 		)
 	}
 )
-#line 316 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 320 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
 #line 1 "blueCards.epp"
 ( Card
 
@@ -1181,7 +1185,7 @@ texCoord: {
 		)
 	}
 )
-#line 317 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 321 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
 #line 1 "greenCards.epp"
 ( Card
 
@@ -1572,7 +1576,7 @@ texCoord: {
 		)
 	}
 )
-#line 318 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 322 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
 #line 1 "yellowCards.epp"
 ( Card
 
@@ -1963,7 +1967,7 @@ texCoord: {
 		)
 	}
 )
-#line 319 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 323 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
 #line 1 "wildCards.epp"
 ( Card
 
@@ -2024,7 +2028,7 @@ texCoord: {
 		)
 	}
 )
-#line 320 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 324 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
 						}
 					)
 	}
