@@ -22,19 +22,12 @@ bool GameController::cardIsPlayable(Card* card)
 {
 	// if statement here to check the front of the discardPile vector and compare it to the card being given to the function
 		// it does not like using -> and only likes the "." but I want to avoid object slicing and use pointers, not and instance dependent access function. What do?? 
-	if (drawPile.front()->getCardType() == card->getCardType())
+	if (drawPile.front()->getCardType() == card->getCardType() || drawPile.front()->getCardColor() == card->getCardColor())
 	{
 		return true;
 	}
-	if (drawPile.front()->getCardColor() == card->getCardColor())
-	{
-		return true;
-	}
-	else
-	{
-		// to prevent blank output
+	
 		return false;
-	}
 }
 
 void GameController::initializeCardDecks()
@@ -52,7 +45,7 @@ void GameController::initializeCardDecks()
 
 }
 
-void GameController::drawCard()
+void GameController::drawCard(int player)
 {
 	// front of drawPile
 	Card* newCard = drawPile.front();
@@ -60,7 +53,47 @@ void GameController::drawCard()
 	// there has to be a better way to do this
 		// 
 
-	if (whosTurn == 1)
+	switch (player)
+	{
+	case 1:
+		player1Pile.push_back(newCard);
+		break;
+	case 2:
+		player2Pile.push_back(newCard);
+		break;
+	case 3:
+		player3Pile.push_back(newCard);
+		break;
+	case 4:
+		player4Pile.push_back(newCard);
+		break;
+	case 5:
+		player5Pile.push_back(newCard);
+		break;
+	case 6:
+		player6Pile.push_back(newCard);
+		break;
+	case 7:
+		player7Pile.push_back(newCard);
+		break;
+	case 8:
+		player8Pile.push_back(newCard);
+		break;
+	case 9:
+		player9Pile.push_back(newCard);
+		break;
+	case 10:
+		player10Pile.push_back(newCard);
+		break;
+	default:
+		break;
+	}
+
+	// simply putting front() or 0 index as a parameter did not work. erase() wants something specific. 
+		// hopefully this removes the front of the drawPile, assuming we are using a sort of shuffled stack for it in the front of vector will always be what is displayed and used during gameplay
+	drawPile.erase(drawPile.begin());
+	
+	/*if (whosTurn == 1)
 	{
 		player1Pile.push_back(newCard);
 	}
@@ -99,11 +132,7 @@ void GameController::drawCard()
 	if (whosTurn == 10)
 	{
 		player10Pile.push_back(newCard);
-	}
-
-	// simply putting front() or 0 index as a parameter did not work. erase() wants something specific. 
-		// hopefully this removes the front of the drawPile, assuming we are using a sort of shuffled stack for it in the front of vector will always be what is displayed and used during gameplay
-	drawPile.erase(drawPile.begin());
+	}*/
 }
 
 std::vector<Card*> GameController::shuffleCards(std::vector<Card*> pile)
@@ -122,6 +151,21 @@ std::vector<Card*> GameController::shuffleCards(std::vector<Card*> pile)
 
 	// not sure if this would work but holy crap am I tired right now
 	return pile;
+}
+
+void GameController::dealCards()
+{
+	//  dealCards should only be called inside of initializeCardDecks()!!! We may rename that function to initializeGame().
+	// this function assumes the drawPile has been shuffled.
+	
+
+	for (int i = 0; i < 7; i++)  // deals seven cards
+	{
+		for (int j = 0; j < numPlayers - 1; j++)
+		{
+			drawCard(j);  // using drawCard to give the card to player j
+		}
+	}
 }
 
 void GameController::copyData(const GameController& org, const bool)

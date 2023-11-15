@@ -21,7 +21,7 @@ public:
     bool cardIsPlayable(Card* card);
 
     // moves a card from the drawPile to the selected player's pile
-    void drawCard();
+    void drawCard(int player);
 
     // shuffles the selected card pile
     std::vector<Card*> shuffleCards(std::vector<Card*> pile);
@@ -35,7 +35,7 @@ public:
 
 private:
 
-    int playerCount{};
+    int numPlayers{};
     int whosTurn{};
 
     std::vector<Card*> allCards{};
