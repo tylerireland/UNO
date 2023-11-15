@@ -112,8 +112,8 @@ display:
 
 	components:
 	{
-		gameController:
-		(GameController)
+
+		( GameController )
 	}
 
 	page: homeScreen

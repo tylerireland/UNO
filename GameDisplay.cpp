@@ -32,7 +32,7 @@ void GameDisplay::buttonEvent(const int b)
 	Pager* rulesScreen = static_cast<Pager*>(pageStream->findByName("rulesScreen")->object());
 	Pager* setupScreen = static_cast<Pager*>(pageStream->findByName("setupScreen")->object());
 	Pager* gameplayScreen = static_cast<Pager*>(pageStream->findByName("gameplayScreen")->object());
-	//GameController* controller = static_cast<GameController*>(findByName("gameController")->object());
+	
 
 	//std::cout << get  
 	switch (b)
@@ -123,7 +123,7 @@ void GameDisplay::buttonEvent(const int b)
 }
 void GameDisplay::updateData(const double dt)
 {
-
+	GameController* controller = static_cast<GameController*>(findByName("gameController")->object());
 	const auto page = static_cast<Pager*>(subpage());
 	
 	BaseClass::updateData(dt);
