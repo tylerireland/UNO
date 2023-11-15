@@ -2,6 +2,13 @@
 #define __GameDisplay_H__
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
+#include "Pager.hpp"
+#include <GL/glut.h>
+#include "GameController.hpp"
+#include "mixr/base/Pair.hpp"
+#include "mixr/base/PairStream.hpp"
+#include "mixr/graphics/Page.hpp"
+#include "mixr/base/Component.hpp"
 #include <string>
 
 class GameDisplay : public mixr::glut::GlutDisplay
@@ -20,8 +27,9 @@ public:
 
 private:
 	int playerCount {2};
-
 	SendData playerCountSD{};
+
+	std::vector<Card*> allCards{};
 };
 
 #endif

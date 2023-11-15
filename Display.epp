@@ -25,24 +25,28 @@ display:
 
 	normalFont: normal
 
-	fonts: {
-      // normal font for most display stuff
-      normal:
-      ( FTGLHaloFont
-            fontPosition: [ -10 10 ]
-            path: MIXR_DATA_FONT_PATH
-            file: "arialn.ttf"
-            // facesize is default to 1 inch, so you can maninpulate the norm with font width and height
-            linewidth: 2
-            fontWidth: 1.5
-            fontHeight: 0.8
-        )        
+	fonts: 
+	{
+		  normal:
+		  ( FTGLHaloFont
+				fontPosition: [ -10 10 ]
+				path: MIXR_DATA_FONT_PATH
+				file: "arialn.ttf"
+				// facesize is default to 1 inch, so you can maninpulate the norm with font width and height
+				linewidth: 2
+				fontWidth: 1.5
+				fontHeight: 0.8
+		  )        
     }
-
-	//
-	// Page class settings
-	// 
+	
+	components:
+	{
+		gameController:
+		(GameController)
+	}
+	
 	page: homeScreen
+
 	pages: 
 	{
 		// this is the page for the home screen 

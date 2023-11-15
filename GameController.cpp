@@ -30,15 +30,26 @@ bool GameController::cardIsPlayable(Card* card)
 		return false;
 }
 
-void GameController::initializeCardDecks()
+void GameController::initializeGame(int playerCount, std::vector<Card*> allCards)
 {
+	numPlayers = playerCount; // store total players locally in the class for future use.
+	drawPile = allCards;
+
+	drawPile = shuffleCards(drawPile);
+
+	for (Card* card : drawPile)
+	{
+		std::cout << "color: " << card->getCardColor() << " type: " << card->getCardType() << std::endl;
+	}
+	
+
 	// doesn't know what subPages is for some reason. Even though Page.hpp is included
 	//const auto pageStream = subPages();
 	// need to find a way to access the cards created on the gameplayScreen
 
 	mixr::glut::GlutDisplay* mainDisplay = dynamic_cast<mixr::glut::GlutDisplay*>(container());
 	const auto pairstream = dynamic_cast<Pager*>(mainDisplay->findSubpageByName("gameplayScreen"));
-
+	std::cout << (pairstream != nullptr);
 	//Pager* gameplayScreen = static_cast<Pager*>(pageStream->findByName("gameplayScreen")->object());
 
 	//drawPile = pairstream->getComponents();
