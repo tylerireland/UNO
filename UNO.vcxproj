@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameController.hpp" />
     <ClInclude Include="GameDisplay.hpp" />
     <ClInclude Include="Pager.hpp" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameDisplay.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pager.cpp" />

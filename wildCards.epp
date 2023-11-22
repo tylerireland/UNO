@@ -1,5 +1,5 @@
 ( Card
-	transform: (Translation -15 -11)
+
 	cardColor: default
 	cardType: wild
 	components:
@@ -12,7 +12,7 @@
 )
 
 ( Card
-	transform: (Translation -12 -11)
+
 	cardColor: default
 	cardType: drawfour
 	components:

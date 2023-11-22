@@ -1,11 +1,4 @@
 #include "GameDisplay.hpp"
-#include "Pager.hpp"
-#include <GL/glut.h>
-
-#include "mixr/base/Pair.hpp"
-#include "mixr/base/PairStream.hpp"
-#include "mixr/graphics/Page.hpp"
-#include "mixr/base/Component.hpp"
 
 IMPLEMENT_SUBCLASS(GameDisplay, "GameDisplay")
 EMPTY_SLOTTABLE(GameDisplay)
@@ -38,15 +31,14 @@ void GameDisplay::buttonEvent(const int b)
 	Pager* homeScreen = static_cast<Pager*>(pageStream->findByName("homeScreen")->object());
 	Pager* rulesScreen = static_cast<Pager*>(pageStream->findByName("rulesScreen")->object());
 	Pager* setupScreen = static_cast<Pager*>(pageStream->findByName("setupScreen")->object());
-
+	Pager* gameplayScreen = static_cast<Pager*>(pageStream->findByName("gameplayScreen")->object());
+	  
 	switch (b)
 	{
 		// setup menu button or "Play Game" button
 		case 1001:
 		{
 			newSubpage(setupScreen, nullptr);
-
-			
 		}
 		break;
 
@@ -77,6 +69,7 @@ void GameDisplay::buttonEvent(const int b)
 		}
 		break;
 
+		// remove player buttun
 		case 1006:
 		{
 			if (playerCount == 2)
@@ -91,6 +84,7 @@ void GameDisplay::buttonEvent(const int b)
 		}
 		break;
 
+		// add player button
 		case 1007:
 		{
 			if (playerCount == 10)
@@ -104,15 +98,23 @@ void GameDisplay::buttonEvent(const int b)
 			}
 		}
 		break;
+
+		case 1008:
+		{
+			// also add in an assignment of the chosen playerCount 
+			//controller->initializeGame(playerCount, allCards);
+			newSubpage(gameplayScreen, nullptr);
+		}
+		break;
 	}
 
 
 }
 void GameDisplay::updateData(const double dt)
 {
-
+	
 	const auto page = static_cast<Pager*>(subpage());
-
+	
 	BaseClass::updateData(dt);
 }
 
