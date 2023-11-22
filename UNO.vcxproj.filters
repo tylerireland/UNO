@@ -258,5 +258,8 @@
     <Image Include="..\..\mixr-data\textures\UnoRules2048x1024.bmp">
       <Filter>Textures</Filter>
     </Image>
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\logocard.bmp">
+      <Filter>Textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

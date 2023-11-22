@@ -74,6 +74,9 @@ display:
 	   wild: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "wild.bmp" )
 
 
+	   logo: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "logocard.bmp" )
+
+
 	  rules: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "UnoRules.bmp" )
 	  home: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "HomeScreen.bmp" )
 	  setup: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "setupScreen.bmp" )

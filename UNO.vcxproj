@@ -51,6 +51,7 @@
   <ItemGroup>
     <Image Include="..\..\mixr-data\textures\UnoRules2048x1024.bmp" />
     <Image Include="..\..\mixr-data\textures\UNO\Cards\drawfour.bmp" />
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\logocard.bmp" />
     <Image Include="..\..\mixr-data\textures\UNO\Cards\reddrawtwo.bmp" />
     <Image Include="..\..\mixr-data\textures\UNO\Cards\redeight.bmp" />
     <Image Include="..\..\mixr-data\textures\UNO\Cards\redfive.bmp" />
