@@ -24,7 +24,7 @@ display:
 	clearColor:	 ( rgb 0.2 0.2 0.2 ) // Black
 
 	normalFont: normal
-
+ 
 	fonts: 
 	{
 		  normal:

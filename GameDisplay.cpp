@@ -32,9 +32,7 @@ void GameDisplay::buttonEvent(const int b)
 	Pager* rulesScreen = static_cast<Pager*>(pageStream->findByName("rulesScreen")->object());
 	Pager* setupScreen = static_cast<Pager*>(pageStream->findByName("setupScreen")->object());
 	Pager* gameplayScreen = static_cast<Pager*>(pageStream->findByName("gameplayScreen")->object());
-	
-
-	//std::cout << get  
+	  
 	switch (b)
 	{
 		// setup menu button or "Play Game" button
@@ -103,15 +101,6 @@ void GameDisplay::buttonEvent(const int b)
 
 		case 1008:
 		{
-			mixr::base::PairStream* pairstr = gameplayScreen->getComponents();
-			if (pairstr != nullptr)
-			{
-				for (int i = 1; i < pairstr->entries(); i++)
-				{
-					allCards.push_back(dynamic_cast<Card*>(pairstr->getPosition(i + 1)->object()));
-				}
-			}
-
 			// also add in an assignment of the chosen playerCount 
 			//controller->initializeGame(playerCount, allCards);
 			newSubpage(gameplayScreen, nullptr);
@@ -123,7 +112,7 @@ void GameDisplay::buttonEvent(const int b)
 }
 void GameDisplay::updateData(const double dt)
 {
-	GameController* controller = static_cast<GameController*>(findByName("gameController")->object());
+	
 	const auto page = static_cast<Pager*>(subpage());
 	
 	BaseClass::updateData(dt);

@@ -30,12 +30,12 @@ public:
     void dealCards();
 
     // will create all the necessary card piles required to start the game.
-    void initializeGame(int numPlayers, std::vector<Card*> allCards);
+    void initializeGame();
 
 private:
 
     int numPlayers{};
-    int whosTurn{};
+    int whoTurn{};
 
     std::vector<Card*> allCards{};
     std::vector<Card*> drawPile{};
