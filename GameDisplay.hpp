@@ -1,6 +1,8 @@
 #ifndef __GameDisplay_H__
 #define __GameDisplay_H__
 
+#include "Station.hpp"
+
 #include "mixr/ui/glut/GlutDisplay.hpp"
 #include "Pager.hpp"
 #include <GL/glut.h>
@@ -10,6 +12,7 @@
 #include "mixr/graphics/Page.hpp"
 #include "mixr/base/Component.hpp"
 #include <string>
+
 
 class GameDisplay : public mixr::glut::GlutDisplay
 {
@@ -29,7 +32,7 @@ private:
 	int playerCount {2};
 	SendData playerCountSD{};
 
-	std::vector<Card*> allCards{};
+	Station* stn{}; 
 };
 
 #endif

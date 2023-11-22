@@ -103,6 +103,9 @@ void GameDisplay::buttonEvent(const int b)
 		{
 			// also add in an assignment of the chosen playerCount 
 			//controller->initializeGame(playerCount, allCards);
+			stn = static_cast<Station*>(findContainerByType(typeid(Station)));
+			const auto sim = dynamic_cast<GameController*>(stn->getSimulation());
+			sim->initializeGame();
 			newSubpage(gameplayScreen, nullptr);
 		}
 		break;

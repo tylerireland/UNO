@@ -2,6 +2,8 @@
 #define __GameController_H__
 
 #include "mixr/simulation/Simulation.hpp"
+#include "Station.hpp"
+#include "GameDisplay.hpp"
 #include "Card.hpp"
 #include <vector>
 //------------------------------------------------------------------------------
@@ -32,6 +34,8 @@ public:
     // will create all the necessary card piles required to start the game.
     void initializeGame();
 
+    
+
 private:
 
     int numPlayers{};
@@ -51,7 +55,7 @@ private:
     std::vector<Card*> player9Pile{};
     std::vector<Card*> player10Pile{};
 
-
+    Station* stn{};
 };
 
 #endif
