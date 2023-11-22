@@ -75,6 +75,12 @@
     <None Include="textures.epp">
       <Filter>configs</Filter>
     </None>
+    <None Include="station.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="gamecontroller.epp">
+      <Filter>configs</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.hpp">

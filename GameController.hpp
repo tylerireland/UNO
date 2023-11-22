@@ -1,7 +1,7 @@
 #ifndef __GameController_H__
 #define __GameController_H__
 
-#include "mixr/base/Component.hpp"
+#include "mixr/simulation/Simulation.hpp"
 #include "Card.hpp"
 #include <vector>
 //------------------------------------------------------------------------------
@@ -9,9 +9,9 @@
 //
 // Description: Puzzle controller
 //------------------------------------------------------------------------------
-class GameController final : public mixr::base::Component
+class GameController final : public mixr::simulation::Simulation
 {
-    DECLARE_SUBCLASS(GameController, mixr::base::Component)
+    DECLARE_SUBCLASS(GameController, mixr::simulation::Simulation)
 
 public:
 

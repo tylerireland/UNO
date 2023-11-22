@@ -1,10 +1,13 @@
-#line 1 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 1 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
+( Station
+#line 3 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
+#line 1 "display.epp"
 display:
 ( GameDisplay
 
 	textures:
 	{
-#line 6 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 6 "display.epp"
 #line 1 "textures.epp"
 
 	   redzero: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "redzero.bmp" )
@@ -74,7 +77,7 @@ display:
 	  rules: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "UnoRules.bmp" )
 	  home: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "HomeScreen.bmp" )
 	  setup: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "setupScreen.bmp" )
-#line 7 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 7 "display.epp"
 
     }
 
@@ -380,7 +383,7 @@ display:
 									{
 										( Polygon
 										texture: logo
-#line 312 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 312 "display.epp"
 #line 1 "setVertAndTexCoords.epp"
 
 vertices:
@@ -397,13 +400,13 @@ texCoord: {
 	[ 1.0 0.77 ]
 	[ 1.0 0.0 ]
 }
-#line 313 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 313 "display.epp"
 										)
 									}
 								 )
 							}
 						)
-#line 319 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 319 "display.epp"
 #line 1 "redCards.epp"
 ( Card
 
@@ -794,7 +797,7 @@ texCoord: {
 		)
 	}
 )
-#line 320 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 320 "display.epp"
 #line 1 "blueCards.epp"
 ( Card
 
@@ -1185,7 +1188,7 @@ texCoord: {
 		)
 	}
 )
-#line 321 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 321 "display.epp"
 #line 1 "greenCards.epp"
 ( Card
 
@@ -1576,7 +1579,7 @@ texCoord: {
 		)
 	}
 )
-#line 322 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 322 "display.epp"
 #line 1 "yellowCards.epp"
 ( Card
 
@@ -1967,7 +1970,7 @@ texCoord: {
 		)
 	}
 )
-#line 323 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 323 "display.epp"
 #line 1 "wildCards.epp"
 ( Card
 
@@ -2028,8 +2031,15 @@ texCoord: {
 		)
 	}
 )
-#line 324 "C:/Apps/mixr/mixr-examples/UNO/display.epp"
+#line 324 "display.epp"
 						}
 					)
 	}
+)
+#line 4 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
+#line 5 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
+#line 1 "gamecontroller.epp"
+simulation:
+( GameController )
+#line 6 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
 )

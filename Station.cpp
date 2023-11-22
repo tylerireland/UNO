@@ -2,7 +2,7 @@
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
 
-IMPLEMENT_SUBCLASS(Station, "MapTestStation")
+IMPLEMENT_SUBCLASS(Station, "Station")
 
 BEGIN_SLOTTABLE(Station)
 "display",          // 1) sets our display

@@ -1,3 +1,3 @@
 ::
 call ..\makedefs.cmd
-%mcpp% display.epp > file0.edl %EPPFLAGS%
+%mcpp% station.epp > file0.edl %EPPFLAGS%
