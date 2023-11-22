@@ -1,6 +1,5 @@
 #include "GameController.hpp"
 #include "Pager.hpp"
-#include "GameDisplay.hpp"
 #include <GL/glut.h>
 
 #include "mixr/graphics/Page.hpp"
@@ -36,9 +35,17 @@ void GameController::initializeGame()
 	//const auto pageStream = subPages();
 	// need to find a way to access the cards created on the gameplayScreen
 
-	mixr::glut::GlutDisplay* mainDisplay = dynamic_cast<mixr::glut::GlutDisplay*>(container());
-	const auto pairstream = dynamic_cast<Pager*>(mainDisplay->findSubpageByName("gameplayScreen"));
-	std::cout << (pairstream != nullptr);
+	stn = static_cast<Station*>(findContainerByType(typeid(Station)));
+	if (stn != nullptr)
+	{
+		GameDisplay* display = dynamic_cast<GameDisplay*>(stn->findByName("display"));
+
+	}
+
+
+	//mixr::glut::GlutDisplay* mainDisplay = dynamic_cast<mixr::glut::GlutDisplay*>(container());
+	//const auto pairstream = dynamic_cast<Pager*>(mainDisplay->findSubpageByName("gameplayScreen"));
+	
 	//Pager* gameplayScreen = static_cast<Pager*>(pageStream->findByName("gameplayScreen")->object());
 
 	//drawPile = pairstream->getComponents();
@@ -49,9 +56,6 @@ void GameController::drawCard(int player)
 {
 	// front of drawPile
 	Card* newCard = drawPile.front();
-
-	// there has to be a better way to do this
-		// 
 
 	switch (player)
 	{
