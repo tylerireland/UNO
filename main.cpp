@@ -3,6 +3,7 @@
 #include "Card.hpp"
 #include "Pager.hpp"
 #include "GameController.hpp"
+#include "Station.hpp"
 
 #include "mixr/base/Timers.hpp"
 #include "mixr/base/Pair.hpp"
@@ -20,37 +21,38 @@
 #include "mixr/ui/glut/factory.hpp"
 
 const int frameRate{ 60 };
-GameDisplay* display{};
+Station* station{};
 
 void timerFunc(int)
 {
-    const double dt{ 1.0 / static_cast<double>(frameRate) };
-    const int millis{ static_cast<int>(dt * 1000) };
+    const double dt0{ 1.0 / static_cast<double>(frameRate) };
+    const int millis{ static_cast<int>(dt0 * 1000) };
     glutTimerFunc(millis, timerFunc, 1);
 
-    mixr::base::Timer::updateTimers(static_cast<float>(dt));
-    mixr::graphics::Graphic::flashTimer(static_cast<double>(dt));
-    display->tcFrame(static_cast<double>(dt));
+    // Current time
+    const double time{ mixr::base::getComputerTime() };
+
+    // N-1 Time
+    static double time0{ time };
+
+    // Compute delta time
+    const double dt{ static_cast<double>(time - time0) };
+    time0 = time;
+
+    mixr::base::Timer::updateTimers(dt);
+    mixr::graphics::Graphic::flashTimer(dt);
+    station->updateData(dt);
 }
 
 mixr::base::Object* factory(const std::string& name)
 {
     mixr::base::Object* obj{};
 
-    if (name == GameDisplay::getFactoryName()) {
-        obj = new GameDisplay();
-    }
-    if (name == Card::getFactoryName()) {
-        obj = new Card();
-    }
-    if (name == Pager::getFactoryName())
-    {
-        obj = new Pager();
-    }
-    if (name == GameController::getFactoryName())
-    {
-        obj = new GameController();
-    }
+    if (name == GameDisplay::getFactoryName())           obj = new GameDisplay();
+    else if (name == Card::getFactoryName())             obj = new Card();
+    else if (name == Pager::getFactoryName())            obj = new Pager();
+    else if (name == GameController::getFactoryName())   obj = new GameController();
+    else if (name == Station::getFactoryName())          obj = new Station();
 
     // framework libraries
     if (obj == nullptr) obj = mixr::simulation::factory(name);
@@ -61,7 +63,7 @@ mixr::base::Object* factory(const std::string& name)
 
     return obj;
 }
-GameDisplay* builder(const std::string& filename)
+Station* builder(const std::string& filename)
 {
     // read configuration file
     int num_errors{};
@@ -86,12 +88,12 @@ GameDisplay* builder(const std::string& filename)
     }
 
     // try to cast to proper object, and check
-    const auto display = dynamic_cast<GameDisplay*>(obj);
-    if (display == nullptr) {
+    const auto station = dynamic_cast<Station*>(obj);
+    if (station == nullptr) {
         std::cerr << "Invalid configuration file!" << std::endl;
         std::exit(EXIT_FAILURE);
     }
-    return display;
+    return station;
 }
 
 int main(int argc, char* argv[])
@@ -99,27 +101,28 @@ int main(int argc, char* argv[])
     glutInit(&argc, argv);
 
     // default configuration filename
-    std::string configFilename = "file0.edl";
+    std::string configFilename {"file0.edl"};
 
-    // parse arguments
-    for (int i = 1; i < argc; i++) {
-        if (std::string(argv[i]) == "-f") {
-            configFilename = argv[++i];
-        }
-    }
+    // build a station
+    station = builder(configFilename);
 
-    // build a display
-    display = builder(configFilename);
+    // reset the Simulation
+    station->event(mixr::base::Component::RESET_EVENT);
 
-    // create a display window
-    display->createWindow();
-
-    // set timer
+    // set timer for the background tasks
     const double dt{ 1.0 / static_cast<double>(frameRate) };
     const int millis{ static_cast<int>(dt * 1000) };
+
+    // ensure everything is reset
+    station->updateData(dt);
+    station->updateTC(dt);
+    station->event(mixr::base::Component::RESET_EVENT);
+
     glutTimerFunc(millis, timerFunc, 1);
 
-    // main loop
+    // create the Time Critical Thread (updateTC())
+    station->createTimeCriticalProcess();
+
     glutMainLoop();
     return 0;
 }

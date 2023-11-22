@@ -23,20 +23,24 @@
     <ClInclude Include="GameDisplay.hpp" />
     <ClInclude Include="Pager.hpp" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Station.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameDisplay.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pager.cpp" />
+    <ClCompile Include="Station.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="blueCards.epp" />
     <None Include="Display.epp" />
     <ClInclude Include="Card.hpp" />
+    <None Include="gamecontroller.epp" />
     <None Include="greenCards.epp" />
     <None Include="redCards.epp" />
     <None Include="setVertAndTexCoords.epp" />
+    <None Include="station.epp" />
     <None Include="textures.epp" />
     <None Include="wildCards.epp" />
     <None Include="yellowCards.epp" />
