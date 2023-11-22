@@ -63,7 +63,7 @@
 	   wild: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "wild.bmp" )
 
 	 // LOGO CARD
-	   logo: ( BitmapTexture width: 256 height: 512 path: "C:\Apps\mixr\mixr-data\textures\UNO\Cards" file: "logocard.bmp" )
+	   logo: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "logocard.bmp" )
 
 	  // Page Textures
 	  rules: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "UnoRules.bmp" )
