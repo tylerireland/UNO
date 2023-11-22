@@ -23,12 +23,14 @@
     <ClInclude Include="GameDisplay.hpp" />
     <ClInclude Include="Pager.hpp" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Station.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameDisplay.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pager.cpp" />
+    <ClCompile Include="Station.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="blueCards.epp" />

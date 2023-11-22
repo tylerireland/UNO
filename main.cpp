@@ -3,6 +3,7 @@
 #include "Card.hpp"
 #include "Pager.hpp"
 #include "GameController.hpp"
+#include "Station.hpp"
 
 #include "mixr/base/Timers.hpp"
 #include "mixr/base/Pair.hpp"
@@ -37,20 +38,11 @@ mixr::base::Object* factory(const std::string& name)
 {
     mixr::base::Object* obj{};
 
-    if (name == GameDisplay::getFactoryName()) {
-        obj = new GameDisplay();
-    }
-    if (name == Card::getFactoryName()) {
-        obj = new Card();
-    }
-    if (name == Pager::getFactoryName())
-    {
-        obj = new Pager();
-    }
-    if (name == GameController::getFactoryName())
-    {
-        obj = new GameController();
-    }
+    if (name == GameDisplay::getFactoryName())           obj = new GameDisplay();
+    else if (name == Card::getFactoryName())             obj = new Card();
+    else if (name == Pager::getFactoryName())            obj = new Pager();
+    else if (name == GameController::getFactoryName())   obj = new GameController();
+    else if (name == Station::getFactoryName())          obj = new Station();
 
     // framework libraries
     if (obj == nullptr) obj = mixr::simulation::factory(name);
