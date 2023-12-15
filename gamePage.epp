@@ -1,0 +1,26 @@
+gameplayScreen:	( Pager 
+					components: {
+					( Card
+						components:
+						{
+							( Button 
+								selectName: 1
+								eventId: 1000
+								components:
+								{
+									( Polygon
+									texture: logo
+									#include"setVertAndTexCoords.epp"
+									)
+								}
+								)
+						}
+					)
+
+					#include "redCards.epp"
+					#include "blueCards.epp"
+					#include "greenCards.epp"
+					#include "yellowCards.epp"
+					#include "wildCards.epp"
+					}					 
+				)

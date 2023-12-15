@@ -81,6 +81,12 @@
     <None Include="gamecontroller.epp">
       <Filter>configs</Filter>
     </None>
+    <None Include="setupPage.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="gamePage.epp">
+      <Filter>configs</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.hpp">

@@ -37,8 +37,10 @@
     <None Include="Display.epp" />
     <ClInclude Include="Card.hpp" />
     <None Include="gamecontroller.epp" />
+    <None Include="gamePage.epp" />
     <None Include="greenCards.epp" />
     <None Include="redCards.epp" />
+    <None Include="setupPage.epp" />
     <None Include="setVertAndTexCoords.epp" />
     <None Include="station.epp" />
     <None Include="textures.epp" />

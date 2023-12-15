@@ -3,4 +3,11 @@
 	#include "display.epp"
 
 	#include "gamecontroller.epp"
+
+	components:
+	{
+		#include "gamePage.epp"
+		#include "setupPage.epp"
+	}
+	
 )
