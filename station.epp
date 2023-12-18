@@ -6,8 +6,8 @@
 
 	components:
 	{
-		#include "gamePage.epp"
-		#include "setupPage.epp"
+		//#include "gamePage.epp"
+		//#include "setupPage.epp"
 	}
 	
 )

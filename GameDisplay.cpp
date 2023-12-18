@@ -32,6 +32,13 @@ void GameDisplay::buttonEvent(const int b)
 	Pager* rulesScreen = static_cast<Pager*>(pageStream->findByName("rulesScreen")->object());
 	Pager* setupScreen = static_cast<Pager*>(pageStream->findByName("setupScreen")->object());
 	Pager* gameplayScreen = static_cast<Pager*>(pageStream->findByName("gameplayScreen")->object());
+
+	//stn = static_cast<Station*>(findContainerByType(typeid(Station)));
+
+	//const auto gameplayStream = stn->getComponents();
+
+	//Pager* setupScreen = static_cast<Pager*>(gameplayStream->findByName("setupScreen")->object());
+	//Pager* gameplayScreen = static_cast<Pager*>(gameplayStream->findByName("gameplayScreen")->object());
 	  
 	switch (b)
 	{

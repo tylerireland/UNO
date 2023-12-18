@@ -31,17 +31,38 @@ bool GameController::cardIsPlayable(Card* card)
 
 void GameController::initializeGame()
 {
-	// doesn't know what subPages is for some reason. Even though Page.hpp is included
-	//const auto pageStream = subPages();
+
 	// need to find a way to access the cards created on the gameplayScreen
 
 	stn = static_cast<Station*>(findContainerByType(typeid(Station)));
 	if (stn != nullptr)
 	{
-		GameDisplay* display = dynamic_cast<GameDisplay*>(stn->findByName("display"));
+
+		//GameDisplay* display = dynamic_cast<GameDisplay*>(stn->findByName("display"));
+
+		//Pager* gameplayScreen = static_cast<Pager*>(display->findByName("gameplayScreen")->object());
+
+		// this does successfully return the cards, so at least we're finally accessing them
+			// we're currently accessing them by creating them in gameController (the simulation) so we may need to use functions to change the cards being displayed
+		// also, this pile has been created as a PairStream, not a vector. Why would we want to use vectors again? might need to change this to vector
+		mixr::base::PairStream* cards = getComponents();
+
+
+		std::cout << cards->entries() << std::endl;
+
+		//drawPile.push_back()
+
+		mixr::base::Pair* testCard = findByIndex(1);
+
+		
+
+		std::cout << testCard->getFactoryName() << std::endl;
+
+		// convert piles/hands to pairtreams or get pairstreams to vectors. that is the question. 
 
 	}
 
+	
 
 	//mixr::glut::GlutDisplay* mainDisplay = dynamic_cast<mixr::glut::GlutDisplay*>(container());
 	//const auto pairstream = dynamic_cast<Pager*>(mainDisplay->findSubpageByName("gameplayScreen"));
@@ -152,6 +173,8 @@ std::vector<Card*> GameController::shuffleCards(std::vector<Card*> pile)
 	}
 	// i found this through the algorithm library, so we'll see if this even works. 
 	// there might be a much easier way to shuffle the cards, but this seemed fun to explore 
+
+
 
 	// not sure if this would work but holy crap am I tired right now
 	return pile;
