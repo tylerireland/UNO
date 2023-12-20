@@ -127,5 +127,11 @@ setupScreen: ( Pager
 									)
 								}
 							)
+							playerCount: 
+							( NumericReadout
+								transform: { ( Translation 1.66 -2.33 ) ( Scale 1 ) } 
+								color: white
+								format: "####"
+							)
 						}
 					)

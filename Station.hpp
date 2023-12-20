@@ -31,6 +31,7 @@ private:
 private:
     // slot table helper methods
     bool setSlotDisplay(mixr::glut::GlutDisplay*);
+
 };
 
 #endif

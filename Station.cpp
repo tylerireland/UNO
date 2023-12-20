@@ -84,4 +84,3 @@ bool Station::setSlotDisplay(mixr::glut::GlutDisplay* dis)
 
     return ok;
 }
-

@@ -7,6 +7,8 @@
 #include "mixr/base/PairStream.hpp"
 #include "mixr/base/Component.hpp"
 
+#include "random"
+
 IMPLEMENT_SUBCLASS(GameController, "GameController")
 
 EMPTY_SLOTTABLE(GameController)
@@ -20,156 +22,217 @@ GameController::GameController()
 bool GameController::cardIsPlayable(Card* card)
 {
 	// if statement here to check the front of the discardPile vector and compare it to the card being given to the function
-		// it does not like using -> and only likes the "." but I want to avoid object slicing and use pointers, not and instance dependent access function. What do?? 
-	if (drawPile.front()->getCardType() == card->getCardType() || drawPile.front()->getCardColor() == card->getCardColor())
+		// change this to top of discard instead of draw pile
+	if (dynamic_cast<Card*>(findByIndex(topOfDeck)->object())->getCardType() == card->getCardType() || dynamic_cast<Card*>(findByIndex(topOfDeck)->object())->getCardColor() == card->getCardColor())
 	{
 		return true;
 	}
-	
-		return false;
+
+	return false;
 }
 
 void GameController::initializeGame()
 {
 
-	// need to find a way to access the cards created on the gameplayScreen
-
+	// access station
 	stn = static_cast<Station*>(findContainerByType(typeid(Station)));
+
+	// null pointer check to make sure station is there
 	if (stn != nullptr)
 	{
+		std::cout << "Number of players: ";
 
-		//GameDisplay* display = dynamic_cast<GameDisplay*>(stn->findByName("display"));
+		std::cout << numPlayers << std::endl;
 
-		//Pager* gameplayScreen = static_cast<Pager*>(display->findByName("gameplayScreen")->object());
+		// get all cards (54) created in game controller into a pairStream
+		//allCards = getComponents();
+	
+		// check that 54 are there
+		//std::cout << "Number of total cards: ";
+		//std::cout << allCards->entries() << std::endl;
 
-		// this does successfully return the cards, so at least we're finally accessing them
-			// we're currently accessing them by creating them in gameController (the simulation) so we may need to use functions to change the cards being displayed
-		// also, this pile has been created as a PairStream, not a vector. Why would we want to use vectors again? might need to change this to vector
-		mixr::base::PairStream* cards = getComponents();
+		// to check converion from pairStream to Card object, grab first card pair out of pair stream
+			// should be red zero 
+		//mixr::base::Pair* cardPair = findByIndex(1);
+
+		// convert Pair to Card
+			// we cast the object we pull from the Pair with "->object()"
+			// that seems to be the way we extract objects from Pairs
+		//Card* testCard = dynamic_cast<Card*>(cardPair->object());
+
+		// tests 
+		//std::cout << testCard->getCardColor() << std::endl;
+
+		//std::cout << testCard->getCardType() << std::endl;
+
+		//std::cout << testCard->getFactoryName() << std::endl;
+
+		// debug spacing
+		//std::cout << std::endl;
 
 
-		std::cout << cards->entries() << std::endl;
+		std::cout << "Random test: " << std::endl;
 
-		//drawPile.push_back()
+		// random number checker that we could use for drawing a random card
+		for (int i = 0; i < 10; i++)
+		{
 
-		mixr::base::Pair* testCard = findByIndex(1);
+			// random algortithm from stackOverflow lol
+			std::random_device seed;
+			std::mt19937 gen{seed()}; // seed the generator
+			std::uniform_int_distribution<> dist{1, 54}; // set min and max
+			topOfDeck = dist(gen); // generate number
 
-		
+			std::cout << topOfDeck << std::endl;
 
-		std::cout << testCard->getFactoryName() << std::endl;
+		}
 
-		// convert piles/hands to pairtreams or get pairstreams to vectors. that is the question. 
+		std::random_device seed;
+		std::mt19937 gen{seed()}; // seed the generator
+		std::uniform_int_distribution<> dist{1, 54}; // set min and max
+		topOfDeck = dist(gen); // generate number
+
+		std::cout << "Current topOfDeck number: ";
+
+		std::cout << topOfDeck << std::endl;
+
+		// debug spacing
+		std::cout << std::endl;
+
+		std::cout << "Top of deck card type and color before dealCards(): " << std::endl;
+
+		std::cout << dynamic_cast<Card*>(findByIndex(topOfDeck)->object())->getCardType() << std::endl;
+
+		std::cout << dynamic_cast<Card*>(findByIndex(topOfDeck)->object())->getCardColor() << std::endl;
+
+		// debug spacing
+		std::cout << std::endl;
+
+		dealCards();
+
+		std::cout << "Top of deck card type and color after dealCards(): " << std::endl;
+
+		std::cout << dynamic_cast<Card*>(findByIndex(topOfDeck)->object())->getCardType() << std::endl;
+
+		std::cout << dynamic_cast<Card*>(findByIndex(topOfDeck)->object())->getCardColor() << std::endl;
+
+		whoTurn = 1;
 
 	}
-
-	
-
-	//mixr::glut::GlutDisplay* mainDisplay = dynamic_cast<mixr::glut::GlutDisplay*>(container());
-	//const auto pairstream = dynamic_cast<Pager*>(mainDisplay->findSubpageByName("gameplayScreen"));
-	
-	//Pager* gameplayScreen = static_cast<Pager*>(pageStream->findByName("gameplayScreen")->object());
-
-	//drawPile = pairstream->getComponents();
-
 }
 
 void GameController::drawCard(int player)
 {
+
 	// front of drawPile
-	Card* newCard = drawPile.front();
+	Card* newCard = dynamic_cast<Card*>(findByIndex(topOfDeck));
+
+	// put another random card on top of the deck 
+		// because it was just drawn
+	std::random_device seed;
+	std::mt19937 gen{seed()}; // seed the generator
+	std::uniform_int_distribution<> dist{1, 54}; // set min and max
+	topOfDeck = dist(gen); // generate number
 
 	switch (player)
 	{
 	case 1:
-		player1Pile.push_back(newCard);
+		player1Pile->addTail(newCard);
+
+		std::cout << "Player 1 hand: " << std::endl;
+
+		for (int i = 0; i < player1Pile->entries(); i++)
+		{
+
+			std::cout << dynamic_cast<Card*>(player1Pile->getPosition(i))->getCardType() << std::endl;
+
+			std::cout << dynamic_cast<Card*>(player1Pile->getPosition(i))->getCardColor() << std::endl;
+		}
+		
+		whoTurn = 2;
+
 		break;
 	case 2:
-		player2Pile.push_back(newCard);
+		player2Pile->addTail(newCard);
+
+		whoTurn = 3;
+
 		break;
 	case 3:
-		player3Pile.push_back(newCard);
+		player3Pile->addTail(newCard);
+
+		whoTurn = 4;
+
 		break;
 	case 4:
-		player4Pile.push_back(newCard);
+		player4Pile->addTail(newCard);
+
+		whoTurn = 5;
+
 		break;
 	case 5:
-		player5Pile.push_back(newCard);
+		player5Pile->addTail(newCard);
+
+		whoTurn = 6;
+
 		break;
 	case 6:
-		player6Pile.push_back(newCard);
+		player6Pile->addTail(newCard);
+		
+		whoTurn = 7;
+
 		break;
 	case 7:
-		player7Pile.push_back(newCard);
+		player7Pile->addTail(newCard);
+
+		whoTurn = 8;
+
 		break;
 	case 8:
-		player8Pile.push_back(newCard);
+		player8Pile->addTail(newCard);
+
+		whoTurn = 9;
+
 		break;
 	case 9:
-		player9Pile.push_back(newCard);
+		player9Pile->addTail(newCard);
+
+		whoTurn = 10;
+
 		break;
 	case 10:
-		player10Pile.push_back(newCard);
+		player10Pile->addTail(newCard);
+
+		whoTurn = 1;
+
 		break;
 	default:
 		break;
 	}
 
+	// *** This whole concept might be unncessary because of the random variable i. 
+		// Only if we want ot introduced a finite stack of cards, but why? who wants to do that? *** 
+
 	// simply putting front() or 0 index as a parameter did not work. erase() wants something specific. 
 		// hopefully this removes the front of the drawPile, assuming we are using a sort of shuffled stack for it in the front of vector will always be what is displayed and used during gameplay
-	drawPile.erase(drawPile.begin());
+	//drawPile.erase(drawPile.begin());
 	
-	/*if (whosTurn == 1)
-	{
-		player1Pile.push_back(newCard);
-	}
-	if (whosTurn == 2)
-	{
-		player2Pile.push_back(newCard);
-	}
-	if (whosTurn == 3)
-	{
-		player3Pile.push_back(newCard);
-	}
-	if (whosTurn == 4)
-	{
-		player4Pile.push_back(newCard);
-	}
-	if (whosTurn == 5)
-	{
-		player5Pile.push_back(newCard);
-	}
-	if (whosTurn == 6)
-	{
-		player6Pile.push_back(newCard);
-	}
-	if (whosTurn == 7)
-	{
-		player7Pile.push_back(newCard);
-	}
-	if (whosTurn == 8)
-	{
-		player8Pile.push_back(newCard);
-	}
-	if (whosTurn == 9)
-	{
-		player9Pile.push_back(newCard);
-	}
-	if (whosTurn == 10)
-	{
-		player10Pile.push_back(newCard);
-	}*/
 }
 
-std::vector<Card*> GameController::shuffleCards(std::vector<Card*> pile)
+
+// obsolete now? 
+mixr::base::PairStream* GameController::shuffleCards(mixr::base::PairStream* pile)
 {
-	int size = pile.size();
+	int size = pile->entries();
 	
+	// this no longer works because it was designed for vectors. need to redo this
+
 	// algorithm to swap that may or may not work
 		// iter_swap is supposed swap two elements when give two interators
-	for (int i = 0; i < size - 1; i++) // we iterate through the size of the pile
+	//for (int i = 0; i < size - 1; i++) // we iterate through the size of the pile
 	{
-		int j = i + rand() % (size - i); // j is the current iterator i PLUS a random nunber modulus the pile size, which gives us a random element
-		iter_swap(pile.begin() + i, pile.begin() + j); // then the element at i is swapped with the element at j 
+		//int j = i + rand() % (size - i); // j is the current iterator i PLUS a random nunber modulus the pile size, which gives us a random element
+		//iter_swap(pile->getFirstItem()->getValue() + i, pile->getFirstItem()->getValue() + j); // then the element at i is swapped with the element at j 
 	}
 	// i found this through the algorithm library, so we'll see if this even works. 
 	// there might be a much easier way to shuffle the cards, but this seemed fun to explore 
@@ -193,6 +256,11 @@ void GameController::dealCards()
 			drawCard(j);  // using drawCard to give the card to player j
 		}
 	}
+}
+
+void GameController::setPlayerCount(int num)
+{
+	numPlayers = num;
 }
 
 void GameController::copyData(const GameController& org, const bool)

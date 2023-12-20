@@ -30,6 +30,7 @@ public:
 
 private:
 	int playerCount {2};
+	// need to actually use this if it's better than setPlayerCount() in GameController
 	SendData playerCountSD{};
 
 	Station* stn{}; 

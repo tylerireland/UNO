@@ -5,7 +5,7 @@
 #include "Station.hpp"
 #include "GameDisplay.hpp"
 #include "Card.hpp"
-#include <vector>
+#include "mixr/base/PairStream.hpp"
 //------------------------------------------------------------------------------
 // Class: Controller
 //
@@ -26,7 +26,7 @@ public:
     void drawCard(int player);
 
     // shuffles the selected card pile
-    std::vector<Card*> shuffleCards(std::vector<Card*> pile);
+    mixr::base::PairStream* shuffleCards(mixr::base::PairStream* pile);
 
     // deals the cards to all the players in the game
     void dealCards();
@@ -34,26 +34,33 @@ public:
     // will create all the necessary card piles required to start the game.
     void initializeGame();
 
+    // display can use this function to give us the player count
+        // BUT what if we just tried to use a send function instead?
+    void setPlayerCount(int num);
+
+    int getTurn() { return whoTurn; }
+
     
 
 private:
 
     int numPlayers{};
     int whoTurn{};
+    int topOfDeck{};
 
-    std::vector<Card*> allCards{};
-    std::vector<Card*> drawPile{};
-    std::vector<Card*> discardPile{};
-    std::vector<Card*> player1Pile{};
-    std::vector<Card*> player2Pile{};
-    std::vector<Card*> player3Pile{};
-    std::vector<Card*> player4Pile{};
-    std::vector<Card*> player5Pile{};
-    std::vector<Card*> player6Pile{};
-    std::vector<Card*> player7Pile{};
-    std::vector<Card*> player8Pile{};
-    std::vector<Card*> player9Pile{};
-    std::vector<Card*> player10Pile{};
+    mixr::base::PairStream* allCards{};
+    mixr::base::PairStream* drawPile{};
+    mixr::base::PairStream* discardPile{};
+    mixr::base::PairStream* player1Pile{};
+    mixr::base::PairStream* player2Pile{};
+    mixr::base::PairStream* player3Pile{};
+    mixr::base::PairStream* player4Pile{};
+    mixr::base::PairStream* player5Pile{};
+    mixr::base::PairStream* player6Pile{};
+    mixr::base::PairStream* player7Pile{};
+    mixr::base::PairStream* player8Pile{};
+    mixr::base::PairStream* player9Pile{};
+    mixr::base::PairStream* player10Pile{};
 
     Station* stn{};
 };

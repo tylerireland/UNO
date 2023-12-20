@@ -17,6 +17,7 @@ void GameDisplay::copyData(const GameDisplay& org, const bool)
 	BaseClass::copyData(org);
 
 	playerCount = org.playerCount;
+	playerCountSD.empty();
 }
 
 void GameDisplay::updateTC(const double dt)
@@ -26,20 +27,15 @@ void GameDisplay::updateTC(const double dt)
 
 void GameDisplay::buttonEvent(const int b)
 {
+	// PairStream of all pages 
 	const auto pageStream = subPages();
 
+	// define and put each page in variable
 	Pager* homeScreen = static_cast<Pager*>(pageStream->findByName("homeScreen")->object());
 	Pager* rulesScreen = static_cast<Pager*>(pageStream->findByName("rulesScreen")->object());
 	Pager* setupScreen = static_cast<Pager*>(pageStream->findByName("setupScreen")->object());
 	Pager* gameplayScreen = static_cast<Pager*>(pageStream->findByName("gameplayScreen")->object());
-
-	//stn = static_cast<Station*>(findContainerByType(typeid(Station)));
-
-	//const auto gameplayStream = stn->getComponents();
-
-	//Pager* setupScreen = static_cast<Pager*>(gameplayStream->findByName("setupScreen")->object());
-	//Pager* gameplayScreen = static_cast<Pager*>(gameplayStream->findByName("gameplayScreen")->object());
-	  
+	
 	switch (b)
 	{
 		// setup menu button or "Play Game" button
@@ -106,14 +102,35 @@ void GameDisplay::buttonEvent(const int b)
 		}
 		break;
 
+		// start button
 		case 1008:
 		{
 			// also add in an assignment of the chosen playerCount 
 			//controller->initializeGame(playerCount, allCards);
 			stn = static_cast<Station*>(findContainerByType(typeid(Station)));
+
+			// grab simulation (GameController)
 			const auto sim = dynamic_cast<GameController*>(stn->getSimulation());
+			
+			// set the player count after it has been confirmed by user
+			sim->setPlayerCount(playerCount);
+
+			// initialize everything
 			sim->initializeGame();
+
+			// switch to gameplayScreen
 			newSubpage(gameplayScreen, nullptr);
+		}
+		break;
+
+		// Draw card button (located on draw pile) 
+		case 1009:
+		{
+			stn = static_cast<Station*>(findContainerByType(typeid(Station)));
+			
+			const auto sim = dynamic_cast<GameController*>(stn->getSimulation());
+
+			sim->drawCard(sim->getTurn());
 		}
 		break;
 	}
@@ -122,10 +139,14 @@ void GameDisplay::buttonEvent(const int b)
 }
 void GameDisplay::updateData(const double dt)
 {
-	
+	// can't remember why this is here, maybe it just needs to be
 	const auto page = static_cast<Pager*>(subpage());
 	
 	BaseClass::updateData(dt);
+
+	// this is not displaying on the setupPage for whatever reason
+		// "playerCount" is in the setupPage.epp and all seems well. Not sure why it's not appearing
+	send("playerCount", UPDATE_VALUE, playerCount, playerCountSD);
 }
 
 void GameDisplay::reset()

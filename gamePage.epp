@@ -4,13 +4,22 @@ gameplayScreen:	( Pager
 						components:
 						{
 							( Button 
-								selectName: 1
-								eventId: 1000
+								transform: { ( Translation -3.25 -10 0 ) ( Scale 1 ) } 
+								selectName: 9
+								eventId: 1009
+								visible: true
 								components:
 								{
 									( Polygon
-									texture: logo
-									#include"setVertAndTexCoords.epp"
+										color: blue
+										vertices: {
+											[ -0.8 0.7 ]
+											[ -0.8  2.77 ]
+											[  7.30  2.77 ]
+											[  7.30 0.7 ]
+										}
+										texture: logo
+										#include"setVertAndTexCoords.epp"
 									)
 								}
 								)
