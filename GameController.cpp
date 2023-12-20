@@ -71,30 +71,30 @@ void GameController::initializeGame()
 		//std::cout << std::endl;
 
 
-		std::cout << "Random test: " << std::endl;
+		//std::cout << "Random test: " << std::endl;
 
 		// random number checker that we could use for drawing a random card
-		for (int i = 0; i < 10; i++)
-		{
+		//for (int i = 0; i < 10; i++)
+		//{
 
-			// random algortithm from stackOverflow lol
-			std::random_device seed;
-			std::mt19937 gen{seed()}; // seed the generator
-			std::uniform_int_distribution<> dist{1, 54}; // set min and max
-			topOfDeck = dist(gen); // generate number
+		//	 random algortithm from stackOverflow lol
+		//	std::random_device seed;
+		//	std::mt19937 gen{seed()}; // seed the generator
+		//	std::uniform_int_distribution<> dist{1, 54}; // set min and max
+		//	topOfDeck = dist(gen); // generate number
 
-			std::cout << topOfDeck << std::endl;
+		//	std::cout << topOfDeck << std::endl;
 
-		}
+		//}
 
 		std::random_device seed;
 		std::mt19937 gen{seed()}; // seed the generator
 		std::uniform_int_distribution<> dist{1, 54}; // set min and max
 		topOfDeck = dist(gen); // generate number
 
-		std::cout << "Current topOfDeck number: ";
+		//std::cout << "Current topOfDeck number: ";
 
-		std::cout << topOfDeck << std::endl;
+		//std::cout << topOfDeck << std::endl;
 
 		// debug spacing
 		std::cout << std::endl;
@@ -121,7 +121,7 @@ void GameController::initializeGame()
 	}
 }
 
-void GameController::drawCard(int player)
+void GameController::drawCard()
 {
 
 	// front of drawPile
@@ -134,76 +134,94 @@ void GameController::drawCard(int player)
 	std::uniform_int_distribution<> dist{1, 54}; // set min and max
 	topOfDeck = dist(gen); // generate number
 
-	switch (player)
+	switch (whoTurn)
 	{
 	case 1:
 		player1Pile->addTail(newCard);
 
 		std::cout << "Player 1 hand: " << std::endl;
 
-		for (int i = 0; i < player1Pile->entries(); i++)
+		/*for (int i = 0; i < player1Pile->entries(); i++)
 		{
 
 			std::cout << dynamic_cast<Card*>(player1Pile->getPosition(i))->getCardType() << std::endl;
 
 			std::cout << dynamic_cast<Card*>(player1Pile->getPosition(i))->getCardColor() << std::endl;
-		}
-		
-		whoTurn = 2;
+		}*/
+
+		nextPlayer();
 
 		break;
 	case 2:
 		player2Pile->addTail(newCard);
 
-		whoTurn = 3;
+		std::cout << "Player 2 hand: " << std::endl;
+
+		nextPlayer();
 
 		break;
 	case 3:
 		player3Pile->addTail(newCard);
 
-		whoTurn = 4;
+		std::cout << "Player 3 hand: " << std::endl;
+
+		nextPlayer();
 
 		break;
 	case 4:
 		player4Pile->addTail(newCard);
 
-		whoTurn = 5;
+		std::cout << "Player 4 hand: " << std::endl;
+
+		nextPlayer();
 
 		break;
 	case 5:
 		player5Pile->addTail(newCard);
 
-		whoTurn = 6;
+		std::cout << "Player 5 hand: " << std::endl;
+
+		nextPlayer();
 
 		break;
 	case 6:
 		player6Pile->addTail(newCard);
 		
-		whoTurn = 7;
+		std::cout << "Player 6 hand: " << std::endl;
+
+		nextPlayer();
 
 		break;
 	case 7:
 		player7Pile->addTail(newCard);
 
-		whoTurn = 8;
+		std::cout << "Player 7 hand: " << std::endl;
+
+		nextPlayer();
 
 		break;
 	case 8:
 		player8Pile->addTail(newCard);
 
-		whoTurn = 9;
+		std::cout << "Player 8 hand: " << std::endl;
+
+		nextPlayer();
 
 		break;
 	case 9:
 		player9Pile->addTail(newCard);
 
-		whoTurn = 10;
+		std::cout << "Player 9 hand: " << std::endl;
+
+		nextPlayer();
 
 		break;
 	case 10:
 		player10Pile->addTail(newCard);
 
-		whoTurn = 1;
+		std::cout << "Player 10 hand: " << std::endl;
+
+		nextPlayer();
 
 		break;
 	default:
@@ -251,9 +269,10 @@ void GameController::dealCards()
 
 	for (int i = 0; i < 7; i++)  // deals seven cards
 	{
-		for (int j = 0; j < numPlayers - 1; j++)
+		for (int j = 0; j < numPlayers; j++)
 		{
-			drawCard(j);  // using drawCard to give the card to player j
+			drawCard();  // using drawCard to give the card to player j
+
 		}
 	}
 }
@@ -261,6 +280,19 @@ void GameController::dealCards()
 void GameController::setPlayerCount(int num)
 {
 	numPlayers = num;
+}
+
+void GameController::nextPlayer()
+{
+	if (whoTurn + 1 > numPlayers)
+	{
+		whoTurn = 1;
+	}
+	else
+	{
+		whoTurn++;
+	}
+
 }
 
 void GameController::copyData(const GameController& org, const bool)

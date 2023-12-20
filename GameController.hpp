@@ -23,7 +23,7 @@ public:
     bool cardIsPlayable(Card* card);
 
     // moves a card from the drawPile to the selected player's pile
-    void drawCard(int player);
+    void drawCard();
 
     // shuffles the selected card pile
     mixr::base::PairStream* shuffleCards(mixr::base::PairStream* pile);
@@ -40,12 +40,13 @@ public:
 
     int getTurn() { return whoTurn; }
 
+    void nextPlayer(); 
     
 
 private:
 
     int numPlayers{};
-    int whoTurn{};
+    int whoTurn{1};
     int topOfDeck{};
 
     mixr::base::PairStream* allCards{};

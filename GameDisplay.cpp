@@ -130,7 +130,7 @@ void GameDisplay::buttonEvent(const int b)
 			
 			const auto sim = dynamic_cast<GameController*>(stn->getSimulation());
 
-			sim->drawCard(sim->getTurn());
+			sim->drawCard();
 		}
 		break;
 	}

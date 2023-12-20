@@ -301,8 +301,8 @@ display:
 						components:
 						{
 							( Button 
-								selectName: 1
-								eventId: 1000
+								selectName: 9
+								eventId: 1009
 								components:
 								{
 									( Polygon
