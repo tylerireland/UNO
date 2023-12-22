@@ -295,32 +295,7 @@ display:
 							)
 						}
 					)
-			gameplayScreen:	( Pager 
-					components: {
-					( Card
-						components:
-						{
-							( Button 
-								selectName: 9
-								eventId: 1009
-								components:
-								{
-									( Polygon
-									texture: logo
-									#include"setVertAndTexCoords.epp"
-									)
-								}
-								)
-						}
-					)
-
-					//#include "redCards.epp"
-					//#include "blueCards.epp"
-					//#include "greenCards.epp"
-					//#include "yellowCards.epp"
-					//#include "wildCards.epp"
-					}					 
-				)
+			#include "gamePage.epp"
 
 		
 	}

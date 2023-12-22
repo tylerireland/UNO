@@ -16,6 +16,12 @@ IMPLEMENT_SUBCLASS(GameController, "GameController")
 EMPTY_SLOTTABLE(GameController)
 EMPTY_DELETEDATA(GameController)
 
+BEGIN_EVENT_HANDLER(GameController)
+ON_EVENT(UPDATE_VALUE2, drawCard)
+ON_EVENT(UPDATE_VALUE, initializeGame)
+ON_EVENT_OBJ(UPDATE_VALUE3, setPlayerCount, mixr::base::Number)
+END_EVENT_HANDLER()
+
 GameController::GameController()
 {
 	STANDARD_CONSTRUCTOR()
@@ -33,7 +39,7 @@ bool GameController::cardIsPlayable(Card* card)
 	return false;
 }
 
-void GameController::initializeGame()
+bool GameController::initializeGame()
 {
 
 	// access station
@@ -66,7 +72,7 @@ void GameController::initializeGame()
 
 		std::cout << std::endl;
 
-		std::cout << "Player 3 hand: ";
+		/*std::cout << "Player 3 hand: ";
 
 		std::cout << std::endl;
 
@@ -126,15 +132,17 @@ void GameController::initializeGame()
 
 		std::cout << std::endl;
 
-		showHand(player10Pile);
+		showHand(player10Pile);*/
 
 		whoTurn = 1;
 
 
 	}
+
+	return true;
 }
 
-void GameController::drawCard()
+bool GameController::drawCard()
 {
 	base::Pair* testCard = (findByIndex(topOfDeckIdx));
 
@@ -148,6 +156,7 @@ void GameController::drawCard()
 
 		nextPlayer();
 
+		return true;
 		break;
 	case 2:
 
@@ -157,6 +166,7 @@ void GameController::drawCard()
 
 		nextPlayer();
 
+		return true;
 		break;
 	case 3:
 		player3Pile->put(testCard);
@@ -225,6 +235,8 @@ void GameController::drawCard()
 	default:
 		break;
 	}
+
+	return true;
 }
 
 
@@ -267,9 +279,11 @@ void GameController::dealCards()
 	}
 }
 
-void GameController::setPlayerCount(int num)
+bool GameController::setPlayerCount(const mixr::base::Number* const num)
 {
-	numPlayers = num;
+	numPlayers = num->getInt();
+
+	return true;
 }
 
 void GameController::nextPlayer()

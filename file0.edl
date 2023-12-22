@@ -372,7 +372,9 @@ display:
 							)
 						}
 					)
-			gameplayScreen: ( Pager
+#line 298 "display.epp"
+#line 1 "gamePage.epp"
+gameplayScreen: ( Pager
 					components: {
 					( Card
 						components:
@@ -384,7 +386,7 @@ display:
 								{
 									( Polygon
 									texture: logo
-#line 310 "display.epp"
+#line 13 "gamePage.epp"
 #line 1 "setVertAndTexCoords.epp"
 
 vertices:
@@ -401,28 +403,28 @@ texCoord: {
 	[ 1.0 0.77 ]
 	[ 1.0 0.0 ]
 }
-#line 311 "display.epp"
+#line 14 "gamePage.epp"
 									)
 								}
 								)
 						}
 					)
-
-
-
-
-
-
 					}
 				)
+#line 299 "display.epp"
 
 
 	}
 )
 #line 4 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
-#line 5 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
+
+
+
+	components:
+	{
+#line 9 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
 #line 1 "gamecontroller.epp"
-simulation:
+controller:
 ( GameController
 	components:
 	{
@@ -2054,12 +2056,7 @@ texCoord: {
 #line 10 "gamecontroller.epp"
 	}
 )
-#line 6 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
-
-	components:
-	{
-
-
+#line 10 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
 	}
 
 )

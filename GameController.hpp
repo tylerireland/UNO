@@ -6,6 +6,7 @@
 #include "GameDisplay.hpp"
 #include "Card.hpp"
 #include "mixr/base/PairStream.hpp"
+#include "mixr/base/numeric/Number.hpp"
 
 #include "random"
 //------------------------------------------------------------------------------
@@ -25,7 +26,7 @@ public:
     bool cardIsPlayable(Card* card);
 
     // moves a card from the drawPile to the selected player's pile
-    void drawCard();
+    bool drawCard();
 
     // shuffles the selected card pile
     mixr::base::PairStream* shuffleCards(mixr::base::PairStream* pile);
@@ -34,11 +35,11 @@ public:
     void dealCards();
 
     // will create all the necessary card piles required to start the game.
-    void initializeGame();
+    bool initializeGame();
 
     // display can use this function to give us the player count
         // BUT what if we just tried to use a send function instead?
-    void setPlayerCount(int num);
+    bool setPlayerCount(const mixr::base::Number* const num);
 
     int getTurn() { return whoTurn; }
 
@@ -47,6 +48,8 @@ public:
     int randomNum();
 
     void showHand(mixr::base::PairStream* playerHand);
+
+    bool event(const int event, mixr::base::Object* const obj = nullptr) override;
 
 private:
 

@@ -111,13 +111,19 @@ void GameDisplay::buttonEvent(const int b)
 		{
 
 			// grab simulation (GameController)
-			GameController* sim = dynamic_cast<GameController*>(getSimulation());
+			//GameController* sim = dynamic_cast<GameController*>(getSimulation());
 			
 			// set the player count after it has been confirmed by user
-			sim->setPlayerCount(playerCount);
+			//getStation()->findByName("controller")->setPlayerCount(playerCount);
+
+			getStation()->send("controller", UPDATE_VALUE3, playerCount, playerCountSD);
+
+			getStation()->send("controller", UPDATE_VALUE);
 
 			// initialize everything
-			sim->initializeGame();
+			//sim->initializeGame();
+
+
 
 			// switch to gameplayScreen
 			newSubpage(gameplayScreen, nullptr);
@@ -132,7 +138,9 @@ void GameDisplay::buttonEvent(const int b)
 	
 			GameController* sim = dynamic_cast<GameController*>(getSimulation());
 
-			sim->drawCard();
+			getStation()->send("controller", UPDATE_VALUE2);
+
+			//sim->drawCard();
 
 			//sim->showHand();
 		}
@@ -150,7 +158,7 @@ void GameDisplay::updateData(const double dt)
 
 	// this is not displaying on the setupPage for whatever reason
 		// "playerCount" is in the setupPage.epp and all seems well. Not sure why it's not appearing
-	send("playerCount", UPDATE_VALUE, playerCount, playerCountSD);
+
 }
 
 simulation::Simulation* GameDisplay::getSimulation()
