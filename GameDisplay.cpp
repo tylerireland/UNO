@@ -8,6 +8,9 @@ IMPLEMENT_SUBCLASS(GameDisplay, "GameDisplay")
 EMPTY_SLOTTABLE(GameDisplay)
 EMPTY_DELETEDATA(GameDisplay)
 
+BEGIN_EVENT_HANDLER(GameDisplay)
+END_EVENT_HANDLER()
+
 GameDisplay::GameDisplay()
 {
 	STANDARD_CONSTRUCTOR()
@@ -118,11 +121,11 @@ void GameDisplay::buttonEvent(const int b)
 
 			getStation()->send("controller", UPDATE_VALUE3, playerCount, playerCountSD);
 
+			// initialize game
 			getStation()->send("controller", UPDATE_VALUE);
 
 			// initialize everything
 			//sim->initializeGame();
-
 
 
 			// switch to gameplayScreen
@@ -135,8 +138,6 @@ void GameDisplay::buttonEvent(const int b)
 		// Draw card button (located on draw pile) 
 		case 1009:
 		{
-	
-			GameController* sim = dynamic_cast<GameController*>(getSimulation());
 
 			getStation()->send("controller", UPDATE_VALUE2);
 
@@ -156,8 +157,7 @@ void GameDisplay::updateData(const double dt)
 	
 	BaseClass::updateData(dt);
 
-	// this is not displaying on the setupPage for whatever reason
-		// "playerCount" is in the setupPage.epp and all seems well. Not sure why it's not appearing
+	
 
 }
 

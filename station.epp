@@ -2,8 +2,6 @@
 
 	#include "display.epp"
 
-	
-
 	components:
 	{
 		#include "gamecontroller.epp"

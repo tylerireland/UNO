@@ -55,25 +55,25 @@ private:
 
     int numPlayers{};
     int whoTurn{1};
-    int topOfDeckIdx{};
+    int topOfDrawIdx{};
+    int topOfDiscIdx{};
 
     std::random_device seed;
     std::mt19937 gen{seed()}; // seed the generator
     std::uniform_int_distribution<> dist{1, 54}; // set min and max
 
-    mixr::base::PairStream* allCards{};
-    mixr::base::PairStream* drawPile{};
-    mixr::base::PairStream discardPile[1]{};
-    mixr::base::PairStream player1Pile[1]{};
-    mixr::base::PairStream player2Pile[1]{};
-    mixr::base::PairStream player3Pile[1]{};
-    mixr::base::PairStream player4Pile[1]{};
-    mixr::base::PairStream player5Pile[1]{};
-    mixr::base::PairStream player6Pile[1]{};
-    mixr::base::PairStream player7Pile[1]{};
-    mixr::base::PairStream player8Pile[1]{};
-    mixr::base::PairStream player9Pile[1]{};
-    mixr::base::PairStream player10Pile[1]{};
+    //mixr::base::PairStream* playerHands[10]{};
+
+    mixr::base::PairStream* player1Pile{};
+    mixr::base::PairStream* player2Pile{};
+    mixr::base::PairStream* player3Pile{};
+    mixr::base::PairStream* player4Pile{};
+    mixr::base::PairStream* player5Pile{};
+    mixr::base::PairStream* player6Pile{};
+    mixr::base::PairStream* player7Pile{};
+    mixr::base::PairStream* player8Pile{};
+    mixr::base::PairStream* player9Pile{};
+    mixr::base::PairStream* player10Pile{};
 
     Station* stn{};
 };

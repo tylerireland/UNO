@@ -35,6 +35,8 @@ public:
 	void reset() final;
 	void buttonEvent(const int b) final;
 
+	bool event(const int event, mixr::base::Object* const obj = nullptr) override;
+
 private:
 	int playerCount {2};
 	// need to actually use this if it's better than setPlayerCount() in GameController

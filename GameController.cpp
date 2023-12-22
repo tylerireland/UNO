@@ -1,3 +1,7 @@
+#define p1Hand  0
+#define p2Hand  1
+
+
 #include "GameController.hpp"
 #include "Pager.hpp"
 #include <GL/glut.h>
@@ -17,9 +21,9 @@ EMPTY_SLOTTABLE(GameController)
 EMPTY_DELETEDATA(GameController)
 
 BEGIN_EVENT_HANDLER(GameController)
-ON_EVENT(UPDATE_VALUE2, drawCard)
-ON_EVENT(UPDATE_VALUE, initializeGame)
-ON_EVENT_OBJ(UPDATE_VALUE3, setPlayerCount, mixr::base::Number)
+	ON_EVENT_OBJ(UPDATE_VALUE3, setPlayerCount, mixr::base::Number)
+	ON_EVENT(UPDATE_VALUE2, drawCard)
+	ON_EVENT(UPDATE_VALUE, initializeGame)
 END_EVENT_HANDLER()
 
 GameController::GameController()
@@ -31,7 +35,8 @@ bool GameController::cardIsPlayable(Card* card)
 {
 	// if statement here to check the front of the discardPile vector and compare it to the card being given to the function
 		// change this to top of discard instead of draw pile
-	if (dynamic_cast<Card*>(findByIndex(topOfDeckIdx)->object())->getCardType() == card->getCardType() || dynamic_cast<Card*>(findByIndex(topOfDeckIdx)->object())->getCardColor() == card->getCardColor())
+	if (dynamic_cast<Card*>(findByIndex(topOfDiscIdx)->object())->getCardType() == card->getCardType() || 
+		dynamic_cast<Card*>(findByIndex(topOfDiscIdx)->object())->getCardColor() == card->getCardColor())
 	{
 		return true;
 	}
@@ -41,110 +46,119 @@ bool GameController::cardIsPlayable(Card* card)
 
 bool GameController::initializeGame()
 {
-
-	// access station
-	stn = static_cast<Station*>(findContainerByType(typeid(Station)));
-
-	// null pointer check to make sure station is there
-	if (stn != nullptr)
+	for (int i = 1; i < numPlayers + 1; i++)
 	{
-		std::cout << "Number of players: ";
+		switch(i)
+		{
+		case 1: 
+			player1Pile = new mixr::base::PairStream();
+			break;
+		case 2: 
+			player2Pile = new mixr::base::PairStream();
+			break;
 
-		std::cout << numPlayers << std::endl;
+		// do the rest
 
-		std::cout << std::endl;
-
-		topOfDeckIdx = randomNum(); // generate number
-			
-		dealCards();
-
-		std::cout << "Player 1 hand: ";
-
-		std::cout << std::endl;
-
-		showHand(player1Pile);
-
-		std::cout << "Player 2 hand: ";
-
-		std::cout << std::endl;
-
-		showHand(player2Pile);
-
-		std::cout << std::endl;
-
-		/*std::cout << "Player 3 hand: ";
-
-		std::cout << std::endl;
-
-		showHand(player3Pile);
-
-		std::cout << std::endl;
-
-		std::cout << "Player 4 hand: ";
-
-		std::cout << std::endl;
-
-		showHand(player4Pile);
-
-		std::cout << std::endl;
-
-		std::cout << "Player 5 hand: ";
-
-		std::cout << std::endl;
-
-		showHand(player5Pile);
-
-		std::cout << std::endl;
-
-		std::cout << "Player 6 hand: ";
-
-		std::cout << std::endl;
-
-		showHand(player6Pile);
-
-		std::cout << std::endl;
-
-		std::cout << "Player 7 hand: ";
-
-		std::cout << std::endl;
-
-		showHand(player7Pile);
-
-		std::cout << std::endl;
-
-		std::cout << "Player 8 hand: ";
-
-		std::cout << std::endl;
-
-		showHand(player8Pile);
-
-		std::cout << std::endl;
-
-		std::cout << "Player 9 hand: ";
-
-		std::cout << std::endl;
-
-		showHand(player9Pile);
-
-		std::cout << std::endl;
-
-		std::cout << "Player 10 hand: ";
-
-		std::cout << std::endl;
-
-		showHand(player10Pile);*/
-
-		whoTurn = 1;
-
+		default:
+			break;
+		}
 
 	}
+
+	std::cout << "Number of players: ";
+
+	std::cout << numPlayers << std::endl;
+
+	std::cout << std::endl;
+
+	topOfDrawIdx = randomNum(); // generate number
+		
+	dealCards();
+
+	std::cout << "Player 1 hand: ";
+
+	std::cout << std::endl;
+
+	showHand(player1Pile);
+
+	std::cout << "Player 2 hand: ";
+
+	std::cout << std::endl;
+
+	showHand(player2Pile);
+
+	std::cout << std::endl;
+
+	/*std::cout << "Player 3 hand: ";
+
+	std::cout << std::endl;
+
+	showHand(player3Pile);
+
+	std::cout << std::endl;
+
+	std::cout << "Player 4 hand: ";
+
+	std::cout << std::endl;
+
+	showHand(player4Pile);
+
+	std::cout << std::endl;
+
+	std::cout << "Player 5 hand: ";
+
+	std::cout << std::endl;
+
+	showHand(player5Pile);
+
+	std::cout << std::endl;
+
+	std::cout << "Player 6 hand: ";
+
+	std::cout << std::endl;
+
+	showHand(player6Pile);
+
+	std::cout << std::endl;
+
+	std::cout << "Player 7 hand: ";
+
+	std::cout << std::endl;
+
+	showHand(player7Pile);
+
+	std::cout << std::endl;
+
+	std::cout << "Player 8 hand: ";
+
+	std::cout << std::endl;
+
+	showHand(player8Pile);
+
+	std::cout << std::endl;
+
+	std::cout << "Player 9 hand: ";
+
+	std::cout << std::endl;
+
+	showHand(player9Pile);
+
+	std::cout << std::endl;
+
+	std::cout << "Player 10 hand: ";
+
+	std::cout << std::endl;
+
+	showHand(player10Pile);*/
+
+	whoTurn = 1;
 
 	return true;
 }
 
 bool GameController::drawCard()
 {
-	base::Pair* testCard = (findByIndex(topOfDeckIdx));
+	base::Pair* testCard = (findByIndex(topOfDrawIdx));
 
 	switch (whoTurn)
 	{
@@ -152,7 +166,7 @@ bool GameController::drawCard()
 
 		player1Pile->put(testCard);
 
-		topOfDeckIdx = randomNum();
+		topOfDrawIdx = randomNum();
 
 		nextPlayer();
 
@@ -162,7 +176,7 @@ bool GameController::drawCard()
 
 		player2Pile->put(testCard);
 
-		topOfDeckIdx = randomNum();
+		topOfDrawIdx = randomNum();
 
 		nextPlayer();
 
@@ -171,7 +185,7 @@ bool GameController::drawCard()
 	case 3:
 		player3Pile->put(testCard);
 
-		topOfDeckIdx = randomNum();
+		topOfDrawIdx = randomNum();
 
 		nextPlayer();
 
@@ -179,7 +193,7 @@ bool GameController::drawCard()
 	case 4:
 		player4Pile->put(testCard);
 
-		topOfDeckIdx = randomNum();
+		topOfDrawIdx = randomNum();
 
 		nextPlayer();
 
@@ -187,7 +201,7 @@ bool GameController::drawCard()
 	case 5:
 		player5Pile->put(testCard);
 
-		topOfDeckIdx = randomNum();
+		topOfDrawIdx = randomNum();
 
 		nextPlayer();
 
@@ -195,7 +209,7 @@ bool GameController::drawCard()
 	case 6:
 		player6Pile->put(testCard);
 
-		topOfDeckIdx = randomNum();
+		topOfDrawIdx = randomNum();
 
 		nextPlayer();
 
@@ -203,7 +217,7 @@ bool GameController::drawCard()
 	case 7:
 		player7Pile->put(testCard);
 
-		topOfDeckIdx = randomNum();
+		topOfDrawIdx = randomNum();
 
 		nextPlayer();
 
@@ -211,7 +225,7 @@ bool GameController::drawCard()
 	case 8:
 		player8Pile->put(testCard);
 
-		topOfDeckIdx = randomNum();
+		topOfDrawIdx = randomNum();
 
 		nextPlayer();
 
@@ -219,7 +233,7 @@ bool GameController::drawCard()
 	case 9:
 		player9Pile->put(testCard);
 
-		topOfDeckIdx = randomNum();
+		topOfDrawIdx = randomNum();
 
 		nextPlayer();
 
@@ -227,7 +241,7 @@ bool GameController::drawCard()
 	case 10:
 		player10Pile->put(testCard);
 
-		topOfDeckIdx = randomNum();
+		topOfDrawIdx = randomNum();
 
 		nextPlayer();
 
