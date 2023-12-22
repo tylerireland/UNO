@@ -1,4 +1,8 @@
 #include "GameDisplay.hpp"
+#include "Station.hpp"
+
+
+using namespace mixr;
 
 IMPLEMENT_SUBCLASS(GameDisplay, "GameDisplay")
 EMPTY_SLOTTABLE(GameDisplay)
@@ -105,12 +109,9 @@ void GameDisplay::buttonEvent(const int b)
 		// start button
 		case 1008:
 		{
-			// also add in an assignment of the chosen playerCount 
-			//controller->initializeGame(playerCount, allCards);
-			stn = static_cast<Station*>(findContainerByType(typeid(Station)));
 
 			// grab simulation (GameController)
-			const auto sim = dynamic_cast<GameController*>(stn->getSimulation());
+			GameController* sim = dynamic_cast<GameController*>(getSimulation());
 			
 			// set the player count after it has been confirmed by user
 			sim->setPlayerCount(playerCount);
@@ -120,17 +121,20 @@ void GameDisplay::buttonEvent(const int b)
 
 			// switch to gameplayScreen
 			newSubpage(gameplayScreen, nullptr);
+
+
 		}
 		break;
 
 		// Draw card button (located on draw pile) 
 		case 1009:
 		{
-			stn = static_cast<Station*>(findContainerByType(typeid(Station)));
-			
-			const auto sim = dynamic_cast<GameController*>(stn->getSimulation());
+	
+			GameController* sim = dynamic_cast<GameController*>(getSimulation());
 
 			sim->drawCard();
+
+			//sim->showHand();
 		}
 		break;
 	}
@@ -147,6 +151,23 @@ void GameDisplay::updateData(const double dt)
 	// this is not displaying on the setupPage for whatever reason
 		// "playerCount" is in the setupPage.epp and all seems well. Not sure why it's not appearing
 	send("playerCount", UPDATE_VALUE, playerCount, playerCountSD);
+}
+
+simulation::Simulation* GameDisplay::getSimulation()
+{
+	simulation::Simulation* s{};
+	simulation::Station* sta{getStation()};
+	if (sta != nullptr) s = sta->getSimulation();
+	return s;
+}
+
+simulation::Station* GameDisplay::getStation()
+{
+	if (stn == nullptr) {
+		const auto s = dynamic_cast<simulation::Station*>(findContainerByType(typeid(simulation::Station)));
+		if (s != nullptr) stn = s;
+	}
+	return stn;
 }
 
 void GameDisplay::reset()
