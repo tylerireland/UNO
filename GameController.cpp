@@ -21,14 +21,16 @@ EMPTY_SLOTTABLE(GameController)
 EMPTY_DELETEDATA(GameController)
 
 BEGIN_EVENT_HANDLER(GameController)
-	ON_EVENT_OBJ(UPDATE_VALUE3, setPlayerCount, mixr::base::Number)
-	ON_EVENT(UPDATE_VALUE2, drawCard)
-	ON_EVENT(UPDATE_VALUE, initializeGame)
+	ON_EVENT_OBJ(2001, setPlayerCount, mixr::base::Number)
+	ON_EVENT(2002, initializeGame)
+	ON_EVENT(2003, drawCard)
+	
 END_EVENT_HANDLER()
 
 GameController::GameController()
 {
 	STANDARD_CONSTRUCTOR()
+	testCardSD.empty();
 }
 
 bool GameController::cardIsPlayable(Card* card)
@@ -158,8 +160,9 @@ bool GameController::initializeGame()
 
 bool GameController::drawCard()
 {
-	base::Pair* testCard = (findByIndex(topOfDrawIdx));
+	testCard = (findByIndex(topOfDrawIdx));
 
+	getStation()->send("display", 3001, testCard, testCardSD);
 	switch (whoTurn)
 	{
 	case 1:

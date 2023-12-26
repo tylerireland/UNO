@@ -7,6 +7,7 @@
 #include "Card.hpp"
 #include "mixr/base/PairStream.hpp"
 #include "mixr/base/numeric/Number.hpp"
+#include "mixr/base/Component.hpp"
 
 #include "random"
 //------------------------------------------------------------------------------
@@ -76,6 +77,9 @@ private:
     mixr::base::PairStream* player10Pile{};
 
     Station* stn{};
+
+    mixr::base::Pair* testCard{};
+    SendData testCardSD{};
 };
 
 #endif
