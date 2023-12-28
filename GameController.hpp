@@ -29,9 +29,6 @@ public:
     // moves a card from the drawPile to the selected player's pile
     bool drawCard();
 
-    // shuffles the selected card pile
-    mixr::base::PairStream* shuffleCards(mixr::base::PairStream* pile);
-
     // deals the cards to all the players in the game
     void dealCards();
 
@@ -76,7 +73,8 @@ private:
     mixr::base::PairStream* player9Pile{};
     mixr::base::PairStream* player10Pile{};
 
-    Station* stn{};
+    //getting error when initilizing this but we don't even use it because of getStation()
+    //Station* stn{};
 
     mixr::base::Pair* testCard{};
     SendData testCardSD{};

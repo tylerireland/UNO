@@ -377,8 +377,7 @@ display:
 gameplayScreen: ( Pager
 					components: {
 					( Card
-						components:
-						{
+						components: {
 							( Button
 								selectName: 9
 								eventId: 1009
@@ -386,7 +385,7 @@ gameplayScreen: ( Pager
 								{
 									( Polygon
 									texture: logo
-#line 13 "gamePage.epp"
+#line 12 "gamePage.epp"
 #line 1 "setVertAndTexCoords.epp"
 
 vertices:
@@ -403,13 +402,110 @@ texCoord: {
 	[ 1.0 0.77 ]
 	[ 1.0 0.0 ]
 }
-#line 14 "gamePage.epp"
+#line 13 "gamePage.epp"
 									)
 								}
-								)
+							)
 						}
 					)
-					}
+					( Card
+						cardColor: zero
+						cardType: red
+						components: {
+							( Polygon
+								transform: { ( Translation -7 -5 0 ) }
+								texture: redzero
+#line 25 "gamePage.epp"
+#line 1 "setVertAndTexCoords.epp"
+
+vertices:
+{
+	[-1.25 -1.9375]
+	[-1.25 1.9375]
+	[1.25 1.9375]
+	[1.25 -1.9375]
+}
+
+texCoord: {
+	[ 0.0 0.0 ]
+	[ 0.0 0.77 ]
+	[ 1.0 0.77 ]
+	[ 1.0 0.0 ]
+}
+#line 26 "gamePage.epp"
+							)
+						}
+					)
+					( AsciiText
+						color: white
+						text: "Prev"
+						transform: { ( Translation -8.22 -7.50 0 ) ( Scale 0.38 ) }
+					)
+					( AsciiText
+						color: white
+						text: "Next"
+						transform: { ( Translation -6.78 -7.50 0 ) ( Scale 0.38 ) }
+					)
+					( AsciiText
+						color: white
+						text: "Play"
+						transform: { ( Translation -7.83 -8.45 0 ) ( Scale 0.70 ) }
+					)
+					( AsciiText
+						color: white
+						text: "0/7"
+						transform: { ( Translation -7.65 -2.65 0 ) ( Scale 0.70 ) }
+					)
+					( Button
+						selectName: 10
+						eventId: 1010
+						components: {
+							( Polygon
+								transform: ( Translation 0 0 -1 )
+								color: blue
+								vertices: {
+									[ -8.25 -7.0 ]
+									[ -8.25 -7.8 ]
+									[ -7.2 -7.8 ]
+									[ -7.2 -7.0 ]
+								}
+							)
+						}
+					)
+					( Button
+						selectName: 11
+						eventId: 1011
+						components: {
+							( Polygon
+								transform: ( Translation 0 0 -1 )
+								color: blue
+								vertices: {
+									[ -6.8 -7.0 ]
+									[ -6.8 -7.8 ]
+									[ -5.75 -7.8 ]
+									[ -5.75 -7.0 ]
+								}
+							)
+						}
+					)
+					( Button
+						selectName: 12
+						eventId: 1012
+						components: {
+							( Polygon
+								transform: ( Translation 0 0 -1 )
+								color: blue
+								 vertices: {
+									[ -7.9 -7.9 ]
+									[ -7.9 -8.7 ]
+									[ -6.1 -8.7 ]
+									[ -6.1 -7.9 ]
+								 }
+							)
+						}
+					)
+
+				}
 				)
 #line 299 "display.epp"
 
@@ -418,11 +514,9 @@ texCoord: {
 )
 #line 4 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
 
-
-
 	components:
 	{
-#line 9 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
+#line 7 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
 #line 1 "gamecontroller.epp"
 controller:
 ( GameController
@@ -2056,7 +2150,7 @@ texCoord: {
 #line 10 "gamecontroller.epp"
 	}
 )
-#line 10 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
+#line 8 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
 	}
 
 )

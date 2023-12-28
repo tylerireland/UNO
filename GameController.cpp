@@ -1,6 +1,3 @@
-#define p1Hand  0
-#define p2Hand  1
-
 
 #include "GameController.hpp"
 #include "Pager.hpp"
@@ -58,9 +55,23 @@ bool GameController::initializeGame()
 		case 2: 
 			player2Pile = new mixr::base::PairStream();
 			break;
-
-		// do the rest
-
+		case 3:
+			player3Pile = new mixr::base::PairStream();
+			break;
+		case 4:
+			player4Pile = new mixr::base::PairStream();
+		case 5:
+			player5Pile = new mixr::base::PairStream();
+		case 6:
+			player6Pile = new mixr::base::PairStream();
+		case 7:
+			player7Pile = new mixr::base::PairStream();
+		case 8: 
+			player8Pile = new mixr::base::PairStream();
+		case 9:
+			player9Pile = new mixr::base::PairStream();
+		case 10: 
+			player10Pile = new mixr::base::PairStream();
 		default:
 			break;
 		}
@@ -162,7 +173,16 @@ bool GameController::drawCard()
 {
 	testCard = (findByIndex(topOfDrawIdx));
 
+	// shows null, station doesn't know a GameDisplay through components at least
+	std::cout << getStation()->findByType(typeid(GameDisplay*)) << std::endl;
+	std::cout << getStation()->getNumberOfComponents() << std::endl;
+
+	// how do we access the slots of station? 
+
+
 	getStation()->send("display", 3001, testCard, testCardSD);
+
+
 	switch (whoTurn)
 	{
 	case 1:
@@ -254,30 +274,6 @@ bool GameController::drawCard()
 	}
 
 	return true;
-}
-
-
-// obsolete now? 
-mixr::base::PairStream* GameController::shuffleCards(mixr::base::PairStream* pile)
-{
-	int size = pile->entries();
-	
-	// this no longer works because it was designed for vectors. need to redo this
-
-	// algorithm to swap that may or may not work
-		// iter_swap is supposed swap two elements when give two interators
-	//for (int i = 0; i < size - 1; i++) // we iterate through the size of the pile
-	{
-		//int j = i + rand() % (size - i); // j is the current iterator i PLUS a random nunber modulus the pile size, which gives us a random element
-		//iter_swap(pile->getFirstItem()->getValue() + i, pile->getFirstItem()->getValue() + j); // then the element at i is swapped with the element at j 
-	}
-	// i found this through the algorithm library, so we'll see if this even works. 
-	// there might be a much easier way to shuffle the cards, but this seemed fun to explore 
-
-
-
-	// not sure if this would work but holy crap am I tired right now
-	return pile;
 }
 
 void GameController::dealCards()

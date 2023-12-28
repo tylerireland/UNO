@@ -143,6 +143,33 @@ void GameDisplay::buttonEvent(const int b)
 			//sim->showHand();
 		}
 		break;
+
+		// below are the events for each of the buttons under the card for the player to use
+			// however, we will likely need to do some thing else to account for which player's turn it is and how
+			// that will operate
+		// prev button
+		case 1010:
+		{
+			std::cout << "Prev " << std::endl;
+
+		}
+		break;
+
+		// next button
+		case 1011:
+		{
+			std::cout << "Next " << std::endl;
+
+		}
+		break;
+
+		// play button
+		case 1012: 
+		{
+			std::cout << "Play " << std::endl;
+
+		}
+		break;
 	}
 
 
