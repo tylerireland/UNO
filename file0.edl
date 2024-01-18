@@ -1,6 +1,9 @@
 #line 1 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
 ( Station
-#line 3 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
+
+	components:
+	{
+#line 5 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
 #line 1 "display.epp"
 display:
 ( GameDisplay
@@ -512,11 +515,7 @@ texCoord: {
 
 	}
 )
-#line 4 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
-
-	components:
-	{
-#line 7 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
+#line 6 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
 #line 1 "gamecontroller.epp"
 controller:
 ( GameController
@@ -2150,7 +2149,7 @@ texCoord: {
 #line 10 "gamecontroller.epp"
 	}
 )
-#line 8 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
+#line 7 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
 	}
 
 )

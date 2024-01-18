@@ -25,12 +25,6 @@ public:
     void reset() final;
 
 private:
-    mixr::glut::GlutDisplay* display{}; // this is our main display that
-    bool displayInit{};               // is our display created?
-
-private:
-    // slot table helper methods
-    bool setSlotDisplay(mixr::glut::GlutDisplay*);
 
 };
 
