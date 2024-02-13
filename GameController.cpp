@@ -190,17 +190,17 @@ bool GameController::drawCard()
 		mixr::graphics::Polygon* cardPoly = dynamic_cast<mixr::graphics::Polygon*>(testCardObj->findByIndex(1)->object());
 
 		// get name of the texture from polygon
-		mixr::base::String* textureName = new mixr::base::String();
+		mixr::base::String* textureName = new mixr::base::String(testCardObj->getCardColor().c_str());
 
-		textureName = testCardObj->getCardColor() + testCardObj->getCardType();
+		//textureName = testCardObj->getCardColor() + testCardObj->getCardType();
 
-		std::cout << cardPoly << std::endl;
+		std::cout << textureName->getString() << std::endl;
 
 		// convert char to mixr::base::String so we can send it as an object
 			// it doesn't seem like you can properly (or easily, at least) send a char* with the send function
 			// an array of char, maybe. But for sending informatin, the ON_EVEN_OBJ seems 
 			// to be desireable, so we have converted that char to String* object
-		mixr::base::String* textureName = new mixr::base::String(textureChar);
+		//mixr::base::String* textureName = new mixr::base::String(textureChar);
 			
 		// send that number over to the display so it can change the top of the hand to the drawn card
 			// work on populating player ahdn and showing it change on display

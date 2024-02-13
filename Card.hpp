@@ -25,16 +25,16 @@ public:
 	void updateData(const double dt = 0.0) final;
 	void reset() final;
 	
-	mixr::base::String* getCardColor() { return cardColor; }
-	mixr::base::String* getCardType() { return cardType; }
+	std::string getCardColor() { return cardColor; }
+	std::string getCardType() { return cardType; }
 
-	void setCardType(mixr::base::String* newType) { cardType = newType; }
-	void setCardColor(mixr::base::String* newColor) { cardColor = newColor; }
+	void setCardType(std::string newType) { cardType = newType; }
+	void setCardColor(std::string newColor) { cardColor = newColor; }
 
 private:
 
-	mixr::base::String* cardType;
-	mixr::base::String* cardColor;
+	std::string cardType;
+	std::string cardColor;
 
 	bool setSlotCardType(const mixr::base::String* const);
 
