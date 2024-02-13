@@ -110,68 +110,6 @@ bool GameController::initializeGame()
 
 	std::cout << std::endl;
 
-	/*std::cout << "Player 3 hand: ";
-
-	std::cout << std::endl;
-
-	showHand(player3Pile);
-
-	std::cout << std::endl;
-
-	std::cout << "Player 4 hand: ";
-
-	std::cout << std::endl;
-
-	showHand(player4Pile);
-
-	std::cout << std::endl;
-
-	std::cout << "Player 5 hand: ";
-
-	std::cout << std::endl;
-
-	showHand(player5Pile);
-
-	std::cout << std::endl;
-
-	std::cout << "Player 6 hand: ";
-
-	std::cout << std::endl;
-
-	showHand(player6Pile);
-
-	std::cout << std::endl;
-
-	std::cout << "Player 7 hand: ";
-
-	std::cout << std::endl;
-
-	showHand(player7Pile);
-
-	std::cout << std::endl;
-
-	std::cout << "Player 8 hand: ";
-
-	std::cout << std::endl;
-
-	showHand(player8Pile);
-
-	std::cout << std::endl;
-
-	std::cout << "Player 9 hand: ";
-
-	std::cout << std::endl;
-
-	showHand(player9Pile);
-
-	std::cout << std::endl;
-
-	std::cout << "Player 10 hand: ";
-
-	std::cout << std::endl;
-
-	showHand(player10Pile);*/
-
 	whoTurn = 1;
 
 	return true;
@@ -184,26 +122,12 @@ bool GameController::drawCard()
  	if (cardsDealt == true)
 	{
 		// get card from pair 
-		Card* testCardObj = dynamic_cast<Card*>(drawnCard->object());
+		Card* currentCard = dynamic_cast<Card*>(drawnCard->object());
 
-		// get polygon from card
-		mixr::graphics::Polygon* cardPoly = dynamic_cast<mixr::graphics::Polygon*>(testCardObj->findByIndex(1)->object());
+		// create a string of the texture name by getting the currentCard's color and type
+		mixr::base::String* textureName = new mixr::base::String(currentCard->getCardColor().c_str(), currentCard->getCardType().c_str());
 
-		// get name of the texture from polygon
-		mixr::base::String* textureName = new mixr::base::String(testCardObj->getCardColor().c_str());
-
-		//textureName = testCardObj->getCardColor() + testCardObj->getCardType();
-
-		std::cout << textureName->getString() << std::endl;
-
-		// convert char to mixr::base::String so we can send it as an object
-			// it doesn't seem like you can properly (or easily, at least) send a char* with the send function
-			// an array of char, maybe. But for sending informatin, the ON_EVEN_OBJ seems 
-			// to be desireable, so we have converted that char to String* object
-		//mixr::base::String* textureName = new mixr::base::String(textureChar);
-			
-		// send that number over to the display so it can change the top of the hand to the drawn card
-			// work on populating player ahdn and showing it change on display
+		// send that texture string over to the display so it can change the top of the hand to the drawn card
 		getStation()->send("display", 3001, textureName, textureNameSD);
 
 		// unref here, yes?

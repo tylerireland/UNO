@@ -37,7 +37,6 @@ private:
 	std::string cardColor;
 
 	bool setSlotCardType(const mixr::base::String* const);
-
 	bool setSlotCardColor(const mixr::base::String* const);
 	
 };
