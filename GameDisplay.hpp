@@ -2,7 +2,6 @@
 #define __GameDisplay_H__
 
 #include "Station.hpp"
-
 #include "mixr/ui/glut/GlutDisplay.hpp"
 #include "Pager.hpp"
 #include <GL/glut.h>
@@ -15,13 +14,11 @@
 
 namespace mixr {
 	namespace simulation { class simulation; class station; }
-
 }
 
 class GameDisplay : public mixr::glut::GlutDisplay
 {
 	DECLARE_SUBCLASS(GameDisplay, mixr::glut::GlutDisplay)
-
 
 public:
 	GameDisplay();
@@ -40,10 +37,10 @@ public:
 	bool onSendCard(mixr::base::String* textureName);
 
 private:
-	int playerCount {2};
-	// need to actually use this if it's better than setPlayerCount() in GameController
-	SendData playerCountSD{};
 
+	int playerCount {2};
+
+	SendData playerCountSD{};
 	mixr::base::safe_ptr<mixr::simulation::Station> stn;
 };
 

@@ -7,14 +7,6 @@ namespace mixr {
     namespace glut { class GlutDisplay; }
 }
 
-// -------------------------------------------------------------------------------
-// Class: Station
-//
-// Description:
-//      Derived Station that will know it has a display and can be accessed through
-//      it.  This also runs the simulation, and acts as the interface between the
-//      graphics and simulation.
-// -------------------------------------------------------------------------------
 class Station final : public mixr::simulation::Station
 {
     DECLARE_SUBCLASS(Station, mixr::simulation::Station)

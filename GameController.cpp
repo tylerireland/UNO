@@ -86,29 +86,9 @@ bool GameController::initializeGame()
 
 	}
 
-	std::cout << "Number of players: ";
-
-	std::cout << numPlayers << std::endl;
-
-	std::cout << std::endl;
-
 	topOfDrawIdx = randomNum(); // generate number
 		
 	dealCards();
-
-	std::cout << "Player 1 hand: ";
-
-	std::cout << std::endl;
-
-	showHand(player1Pile);
-
-	std::cout << "Player 2 hand: ";
-
-	std::cout << std::endl;
-
-	showHand(player2Pile);
-
-	std::cout << std::endl;
 
 	whoTurn = 1;
 
@@ -230,10 +210,6 @@ bool GameController::drawCard()
 
 void GameController::dealCards()
 {
-	//  dealCards should only be called inside of initializeCardDecks()!!! We may rename that function to initializeGame().
-	// this function assumes the drawPile has been shuffled.
-	
-
 	for (int i = 0; i < 7; i++)  // deals seven cards
 	{
 		for (int j = 0; j < numPlayers; j++)
@@ -263,7 +239,6 @@ void GameController::nextPlayer()
 	{
 		whoTurn++;
 	}
-
 }
 
 int GameController::randomNum()
@@ -273,7 +248,6 @@ int GameController::randomNum()
 
 void GameController::showHand(base::PairStream* playerHand)
 {
-
 	std::cout << std::endl;
 
 	for (size_t i = 1; i < playerHand->entries() + 1; i++)
@@ -288,17 +262,6 @@ void GameController::showHand(base::PairStream* playerHand)
 
 		std::cout << std::endl;
 	}
-
-	//std::cout << "Number of cards: " << player1Pile->entries() << std::endl;
-
-	//std::cout << "Test: " << player1Pile->getPosition(0);
-
-	//std::cout << "Index = 1: " << dynamic_cast<Card*>(player1Pile->getPosition(1)->object())->getCardType() << std::endl;
-
-	//std::cout << "Index = 5: " << dynamic_cast<Card*>(player1Pile->getPosition(5)->object())->getCardType() << std::endl;
-
-	//std::cout << "Index = 7: " << dynamic_cast<Card*>(player1Pile->getPosition(7)->object())->getCardType() << std::endl;
-
 }
 
 void GameController::copyData(const GameController& org, const bool)

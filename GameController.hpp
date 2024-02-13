@@ -8,13 +8,9 @@
 #include "mixr/base/PairStream.hpp"
 #include "mixr/base/numeric/Number.hpp"
 #include "mixr/base/Component.hpp"
-
 #include "random"
-//------------------------------------------------------------------------------
-// Class: Controller
-//
-// Description: Puzzle controller
-//------------------------------------------------------------------------------
+
+
 class GameController final : public mixr::simulation::Simulation
 {
     DECLARE_SUBCLASS(GameController, mixr::simulation::Simulation)
@@ -62,8 +58,6 @@ private:
     std::mt19937 gen{seed()}; // seed the generator
     std::uniform_int_distribution<> dist{1, 54}; // set min and max
 
-    //mixr::base::PairStream* playerHands[10]{};
-
     mixr::base::PairStream* player1Pile{};
     mixr::base::PairStream* player2Pile{};
     mixr::base::PairStream* player3Pile{};
@@ -74,9 +68,6 @@ private:
     mixr::base::PairStream* player8Pile{};
     mixr::base::PairStream* player9Pile{};
     mixr::base::PairStream* player10Pile{};
-
-    //getting error when initilizing this but we don't even use it because of getStation()
-    //Station* stn{};
 
     mixr::base::Pair* drawnCard{};
     SendData textureNameSD{};

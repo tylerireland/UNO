@@ -1,6 +1,5 @@
 #include "GameDisplay.hpp"
 #include "Station.hpp"
-
 #include "mixr/graphics/Polygon.hpp"
 #include "random"
 
@@ -17,9 +16,7 @@ END_EVENT_HANDLER()
 GameDisplay::GameDisplay()
 {
 	STANDARD_CONSTRUCTOR()
-
 	playerCountSD.empty();
-
 }
 
 void GameDisplay::copyData(const GameDisplay& org, const bool)
@@ -115,45 +112,33 @@ void GameDisplay::buttonEvent(const int b)
 		// start button
 		case 1008:
 		{
-
 			// sends the number of players to the controller
 			getStation()->send("controller", 2001, playerCount, playerCountSD);
 
 			// initialize game
 			getStation()->send("controller", 2002);
 
-			// initialize everything
-			//sim->initializeGame();
-
-
 			// switch to gameplayScreen
 			newSubpage(gameplayScreen, nullptr);
-
-
 		}
 		break;
 
 		// Draw card button (located on draw pile) 
 		case 1009:
 		{
-
 			// call controller->DrawCard() function 
 			getStation()->send("controller", 2003);
-
-			//sim->drawCard();
-
-			//sim->showHand();
 		}
 		break;
 
 		// below are the events for each of the buttons under the card for the player to use
 			// however, we will likely need to do some thing else to account for which player's turn it is and how
 			// that will operate
+			// 
 		// prev button
 		case 1010:
 		{
 			std::cout << "Prev " << std::endl;
-
 		}
 		break;
 
@@ -161,7 +146,6 @@ void GameDisplay::buttonEvent(const int b)
 		case 1011:
 		{
 			std::cout << "Next " << std::endl;
-
 		}
 		break;
 
@@ -169,7 +153,6 @@ void GameDisplay::buttonEvent(const int b)
 		case 1012: 
 		{
 			std::cout << "Play " << std::endl;
-
 		}
 		break;
 	}
@@ -178,13 +161,8 @@ void GameDisplay::buttonEvent(const int b)
 }
 void GameDisplay::updateData(const double dt)
 {
-	// can't remember why this is here, maybe it just needs to be
 	const auto page = static_cast<Pager*>(subpage());
-	
 	BaseClass::updateData(dt);
-
-	
-
 }
 
 simulation::Simulation* GameDisplay::getSimulation()
@@ -211,7 +189,6 @@ void GameDisplay::reset()
 
 bool GameDisplay::onSendCard(mixr::base::String* textName)
 {
-	
 	const auto pageStream = subPages();
 	const auto textureList = getTextures();
 
@@ -222,7 +199,6 @@ bool GameDisplay::onSendCard(mixr::base::String* textName)
 	mixr::graphics::Polygon* testPoly = dynamic_cast<mixr::graphics::Polygon*>(displayCard->findByIndex(1)->object());
 
 	mixr::base::Pair* testText = textureList->findByName(textName->getString());
-
 
 	// this works! passing in a pair instead of object yieled the result we wanted
 		// which was the index of the texture being returned
