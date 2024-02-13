@@ -56,6 +56,8 @@ private:
     int topOfDrawIdx{};
     int topOfDiscIdx{};
 
+    bool cardsDealt = false;
+
     std::random_device seed;
     std::mt19937 gen{seed()}; // seed the generator
     std::uniform_int_distribution<> dist{1, 54}; // set min and max
@@ -76,8 +78,9 @@ private:
     //getting error when initilizing this but we don't even use it because of getStation()
     //Station* stn{};
 
-    mixr::base::Pair* testCard{};
-    SendData testCardSD{};
+    mixr::base::Pair* drawnCard{};
+    SendData textureNameSD{};
+    
 };
 
 #endif

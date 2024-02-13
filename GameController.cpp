@@ -7,6 +7,7 @@
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/PairStream.hpp"
 #include "mixr/base/Component.hpp"
+#include "mixr/graphics/Polygon.hpp"
 
 #include "random"
 
@@ -27,7 +28,7 @@ END_EVENT_HANDLER()
 GameController::GameController()
 {
 	STANDARD_CONSTRUCTOR()
-	testCardSD.empty();
+	textureNameSD.empty();
 }
 
 bool GameController::cardIsPlayable(Card* card)
@@ -60,18 +61,25 @@ bool GameController::initializeGame()
 			break;
 		case 4:
 			player4Pile = new mixr::base::PairStream();
+			break;
 		case 5:
 			player5Pile = new mixr::base::PairStream();
+			break;
 		case 6:
 			player6Pile = new mixr::base::PairStream();
+			break;
 		case 7:
 			player7Pile = new mixr::base::PairStream();
+			break;
 		case 8: 
 			player8Pile = new mixr::base::PairStream();
+			break;
 		case 9:
 			player9Pile = new mixr::base::PairStream();
+			break;
 		case 10: 
 			player10Pile = new mixr::base::PairStream();
+			break;
 		default:
 			break;
 		}
@@ -171,23 +179,43 @@ bool GameController::initializeGame()
 
 bool GameController::drawCard()
 {
-	testCard = (findByIndex(topOfDrawIdx));
+	drawnCard = (findByIndex(topOfDrawIdx));
 
-	// shows null, station doesn't know a GameDisplay through components at least
-	std::cout << getStation()->findByType(typeid(GameDisplay*)) << std::endl;
-	std::cout << getStation()->getNumberOfComponents() << std::endl;
+ 	if (cardsDealt == true)
+	{
+		// get card from pair 
+		Card* testCardObj = dynamic_cast<Card*>(drawnCard->object());
 
-	// how do we access the slots of station? 
+		// get polygon from card
+		mixr::graphics::Polygon* cardPoly = dynamic_cast<mixr::graphics::Polygon*>(testCardObj->findByIndex(1)->object());
 
+		// get name of the texture from polygon
+		mixr::base::String* textureName = new mixr::base::String();
 
-	getStation()->send("display", 3001, testCard, testCardSD);
+		textureName = testCardObj->getCardColor() + testCardObj->getCardType();
 
+		std::cout << cardPoly << std::endl;
+
+		// convert char to mixr::base::String so we can send it as an object
+			// it doesn't seem like you can properly (or easily, at least) send a char* with the send function
+			// an array of char, maybe. But for sending informatin, the ON_EVEN_OBJ seems 
+			// to be desireable, so we have converted that char to String* object
+		mixr::base::String* textureName = new mixr::base::String(textureChar);
+			
+		// send that number over to the display so it can change the top of the hand to the drawn card
+			// work on populating player ahdn and showing it change on display
+		getStation()->send("display", 3001, textureName, textureNameSD);
+
+		// unref here, yes?
+		textureName->unref();
+
+	}
 
 	switch (whoTurn)
 	{
 	case 1:
 
-		player1Pile->put(testCard);
+		player1Pile->put(drawnCard);
 
 		topOfDrawIdx = randomNum();
 
@@ -197,7 +225,7 @@ bool GameController::drawCard()
 		break;
 	case 2:
 
-		player2Pile->put(testCard);
+		player2Pile->put(drawnCard);
 
 		topOfDrawIdx = randomNum();
 
@@ -206,7 +234,7 @@ bool GameController::drawCard()
 		return true;
 		break;
 	case 3:
-		player3Pile->put(testCard);
+		player3Pile->put(drawnCard);
 
 		topOfDrawIdx = randomNum();
 
@@ -214,7 +242,7 @@ bool GameController::drawCard()
 
 		break;
 	case 4:
-		player4Pile->put(testCard);
+		player4Pile->put(drawnCard);
 
 		topOfDrawIdx = randomNum();
 
@@ -222,7 +250,7 @@ bool GameController::drawCard()
 
 		break;
 	case 5:
-		player5Pile->put(testCard);
+		player5Pile->put(drawnCard);
 
 		topOfDrawIdx = randomNum();
 
@@ -230,7 +258,7 @@ bool GameController::drawCard()
 
 		break;
 	case 6:
-		player6Pile->put(testCard);
+		player6Pile->put(drawnCard);
 
 		topOfDrawIdx = randomNum();
 
@@ -238,7 +266,7 @@ bool GameController::drawCard()
 
 		break;
 	case 7:
-		player7Pile->put(testCard);
+		player7Pile->put(drawnCard);
 
 		topOfDrawIdx = randomNum();
 
@@ -246,7 +274,7 @@ bool GameController::drawCard()
 
 		break;
 	case 8:
-		player8Pile->put(testCard);
+		player8Pile->put(drawnCard);
 
 		topOfDrawIdx = randomNum();
 
@@ -254,7 +282,7 @@ bool GameController::drawCard()
 
 		break;
 	case 9:
-		player9Pile->put(testCard);
+		player9Pile->put(drawnCard);
 
 		topOfDrawIdx = randomNum();
 
@@ -262,7 +290,7 @@ bool GameController::drawCard()
 
 		break;
 	case 10:
-		player10Pile->put(testCard);
+		player10Pile->put(drawnCard);
 
 		topOfDrawIdx = randomNum();
 
@@ -290,6 +318,8 @@ void GameController::dealCards()
 
 		}
 	}
+
+	cardsDealt = true;
 }
 
 bool GameController::setPlayerCount(const mixr::base::Number* const num)

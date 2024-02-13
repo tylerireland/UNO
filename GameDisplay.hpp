@@ -37,7 +37,7 @@ public:
 
 	bool event(const int event, mixr::base::Object* const obj = nullptr) override;
 
-	bool onSendCard(mixr::base::Pair* pair);
+	bool onSendCard(mixr::base::String* textureName);
 
 private:
 	int playerCount {2};

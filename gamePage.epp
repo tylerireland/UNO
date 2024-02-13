@@ -15,13 +15,13 @@ gameplayScreen:	( Pager
 							)
 						}
 					)
-					( Card 
-						cardColor: zero
-						cardType: red
+					p1Top: ( Card 
+						cardColor: red
+						cardType: one
 						components: {
 							( Polygon
 								transform: { ( Translation -7 -5 0 ) }
-								texture: redzero
+								texture: redone
 								#include "setVertAndTexCoords.epp"
 							)
 						}

@@ -1,6 +1,8 @@
 #include "GameDisplay.hpp"
 #include "Station.hpp"
 
+#include "mixr/graphics/Polygon.hpp"
+#include "random"
 
 using namespace mixr;
 
@@ -9,7 +11,7 @@ EMPTY_SLOTTABLE(GameDisplay)
 EMPTY_DELETEDATA(GameDisplay)
 
 BEGIN_EVENT_HANDLER(GameDisplay)
-	ON_EVENT_OBJ(3001, onSendCard, mixr::base::Pair)
+	ON_EVENT_OBJ(3001, onSendCard, mixr::base::String)
 END_EVENT_HANDLER()
 
 GameDisplay::GameDisplay()
@@ -207,8 +209,27 @@ void GameDisplay::reset()
 	BaseClass::reset();
 }
 
-bool GameDisplay::onSendCard(base::Pair* pair)
+bool GameDisplay::onSendCard(mixr::base::String* textName)
 {
-	std::cout << "I was called!!\n";
+	
+	const auto pageStream = subPages();
+	const auto textureList = getTextures();
+
+	Pager* gameplayScreen = static_cast<Pager*>(pageStream->findByName("gameplayScreen")->object());
+
+	Card* displayCard = dynamic_cast<Card*>(gameplayScreen->findByName("p1Top")->object());
+
+	mixr::graphics::Polygon* testPoly = dynamic_cast<mixr::graphics::Polygon*>(displayCard->findByIndex(1)->object());
+
+	mixr::base::Pair* testText = textureList->findByName(textName->getString());
+
+
+	// this works! passing in a pair instead of object yieled the result we wanted
+		// which was the index of the texture being returned
+	const auto testNum = textureList->getIndex(testText);
+
+	// why can we get the texture number here just fine but not over at gamecontroller?
+	testPoly->setTexture(testNum);
+
 	return true;
 }
