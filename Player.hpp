@@ -29,6 +29,8 @@ public:
 
 	void setTurn(bool turn) { myTurn = turn; }
 
+	void showHand();
+
 private:
 
 	// The players number (Player 1, 2, etc.)

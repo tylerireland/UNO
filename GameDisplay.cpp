@@ -3,8 +3,6 @@
 #include "mixr/graphics/Polygon.hpp"
 #include "random"
 
-using namespace mixr;
-
 IMPLEMENT_SUBCLASS(GameDisplay, "GameDisplay")
 EMPTY_SLOTTABLE(GameDisplay)
 EMPTY_DELETEDATA(GameDisplay)
@@ -170,7 +168,7 @@ void GameDisplay::updateData(const double dt)
 
 simulation::Simulation* GameDisplay::getSimulation()
 {
-	simulation::Simulation* s{};
+	mixr::simulation::Simulation* s{};
 	simulation::Station* sta{getStation()};
 	if (sta != nullptr) s = sta->getSimulation();
 	return s;

@@ -23,3 +23,12 @@ void Player::removeCard(Pair* card)
 	if(card != nullptr)
 		hand->remove(card);
 }
+
+void Player::showHand()
+{
+	for (int i = 1; i < hand->entries(); i++)
+	{
+		std::cout << "Card " << i << ": " << dynamic_cast<Card*>(hand->getPosition(i)->object())->getCardType() << " "
+			<< dynamic_cast<Card*>(hand->getPosition(i)->object())->getCardColor() << std::endl;
+	} 
+}

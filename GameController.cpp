@@ -79,15 +79,8 @@ bool GameController::drawCard()
 
 	}
 
-	// find the player and add the card to their hand
-	for (int i = 1; i < numPlayers + 1, i++;)
-	{
-		Player* player = dynamic_cast<Player*>(playerList->getPosition(i));
-		if (player->isMyTurn())
-		{
-			player->addCard(drawnCard);
-		}
-	}
+	// add card to the player's hand
+	getPlayer()->addCard(drawnCard);
 
 	return true;
 }
@@ -114,13 +107,22 @@ bool GameController::setPlayerCount(const mixr::base::Number* const num)
 
 void GameController::nextPlayer()
 {
-	if (whoTurn + 1 > numPlayers)
+	for (int i = 1; i < numPlayers + 1, i++;)
 	{
-		whoTurn = 1;
-	}
-	else
-	{
-		whoTurn++;
+		Player* player = dynamic_cast<Player*>(playerList->getPosition(i));
+		if (player->isMyTurn())
+		{
+			player->setTurn(false);
+
+			if (i + 1 > numPlayers + 1)
+				player = dynamic_cast<Player*>(playerList->getPosition(1));
+			else
+				player = dynamic_cast<Player*>(playerList->getPosition(i+1));
+			
+			player->setTurn(true);
+
+			return;
+		}
 	}
 }
 
@@ -129,22 +131,9 @@ int GameController::randomNum()
 	return dist(gen);
 }
 
-void GameController::showHand(base::PairStream* playerHand)
+void GameController::showHand()
 {
-	std::cout << std::endl;
-
-	for (size_t i = 1; i < playerHand->entries() + 1; i++)
-	{
-		std::cout << "Card type: ";
-
-		std::cout << dynamic_cast<Card*>(playerHand->getPosition(i)->object())->getCardType() << std::endl;
-
-		std::cout << "Card color: ";
-
-		std::cout << dynamic_cast<Card*>(playerHand->getPosition(i)->object())->getCardColor() << std::endl;
-
-		std::cout << std::endl;
-	}
+	getPlayer()->showHand();
 }
 
 void GameController::copyData(const GameController& org, const bool)
@@ -152,5 +141,16 @@ void GameController::copyData(const GameController& org, const bool)
 	BaseClass::copyData(org);
 }
 
+Player* GameController::getPlayer()
+{
+	for (int i = 1; i < numPlayers + 1, i++;)
+	{
+		Player* player = dynamic_cast<Player*>(playerList->getPosition(i));
+		if (player->isMyTurn())
+		{
+			return player;
+		}
+	}
+}
 
 

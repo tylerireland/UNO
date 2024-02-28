@@ -12,9 +12,6 @@
 #include "mixr/base/Component.hpp"
 #include <string>
 
-namespace mixr {
-	namespace simulation { class simulation; class station; }
-}
 
 class GameDisplay : public mixr::glut::GlutDisplay
 {

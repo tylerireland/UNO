@@ -11,11 +11,7 @@
 #include "Player.hpp"
 #include "random"
 
-using namespace mixr;
-using namespace base;
-using namespace simulation;
-
-class GameController final : public Simulation
+class GameController final : public mixr::simulation::Simulation
 {
     DECLARE_SUBCLASS(GameController, Simulation)
 
@@ -35,17 +31,22 @@ public:
     // will create all the necessary card piles required to start the game.
     bool initializeGame();
 
-    // display can use this function to give us the player count
-        // BUT what if we just tried to use a send function instead?
+    // sets the player count from display
     bool setPlayerCount(const Number* const num);
-
-    void nextPlayer(); 
     
+    // generate a random number
     int randomNum();
 
-    void showHand(PairStream* playerHand);
+    // show current players hand
+    void showHand();
 
     bool event(const int event, Object* const obj = nullptr) override;
+
+    // returns the player whose turn it is
+    Player* getPlayer();
+
+    // move to the next player
+    void nextPlayer();
 
 private:
 
