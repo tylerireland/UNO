@@ -1,4 +1,3 @@
-
 #include "GameDisplay.hpp"
 #include "Card.hpp"
 #include "Pager.hpp"
@@ -79,7 +78,7 @@ Station* builder(const std::string& filename)
     if (obj == nullptr) {
         std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
         std::exit(EXIT_FAILURE);
-    } 
+    }
 
     // do we have a base::Pair, if so, point to object in Pair, not Pair itself
     const auto pair = dynamic_cast<mixr::base::Pair*>(obj);
