@@ -439,77 +439,61 @@ texCoord: {
 							)
 						}
 					)
-					( AsciiText
-						color: white
-						text: "Prev"
-						transform: { ( Translation -8.22 -7.50 0 ) ( Scale 0.38 ) }
-					)
-					( AsciiText
-						color: white
-						text: "Next"
-						transform: { ( Translation -6.78 -7.50 0 ) ( Scale 0.38 ) }
-					)
-					( AsciiText
-						color: white
-						text: "Play"
-						transform: { ( Translation -7.83 -8.45 0 ) ( Scale 0.70 ) }
-					)
-					( AsciiText
-						color: white
-						text: "0/7"
-						transform: { ( Translation -7.65 -2.65 0 ) ( Scale 0.70 ) }
-					)
+
 					( Button
 						selectName: 10
 						eventId: 1010
-						components: {
-							( Polygon
-								transform: ( Translation 0 0 -1 )
-								color: blue
-								vertices: {
-									[ -8.25 -7.0 ]
-									[ -8.25 -7.8 ]
-									[ -7.2 -7.8 ]
-									[ -7.2 -7.0 ]
-								}
-							)
-						}
-					)
-					( Button
-						selectName: 11
-						eventId: 1011
-						components: {
-							( Polygon
-								transform: ( Translation 0 0 -1 )
-								color: blue
-								vertices: {
-									[ -6.8 -7.0 ]
-									[ -6.8 -7.8 ]
-									[ -5.75 -7.8 ]
-									[ -5.75 -7.0 ]
-								}
-							)
-						}
-					)
-					( Button
-						selectName: 12
-						eventId: 1012
-						components: {
-							( Polygon
-								transform: ( Translation 0 0 -1 )
-								color: blue
-								 vertices: {
-									[ -7.9 -7.9 ]
-									[ -7.9 -8.7 ]
-									[ -6.1 -8.7 ]
-									[ -6.1 -7.9 ]
-								 }
+						components:
+						{
+							( AsciiText
+								color: white
+								text: "Prev"
+								transform: { ( Translation -8.22 -7.50 0 ) ( Scale 0.38 ) }
 							)
 						}
 					)
 
+					( Button
+						selectName: 11
+						eventId: 1011
+						components:
+						{
+							( AsciiText
+								color: white
+								text: "Next"
+								transform: { ( Translation -6.78 -7.50 0 ) ( Scale 0.38 ) }
+							)
+						}
+					)
+
+					( Button
+						selectName: 12
+						eventId: 1012
+						components:
+						{
+							( AsciiText
+								color: white
+								text: "Play"
+								transform: { ( Translation -7.83 -8.45 0 ) ( Scale 0.70 ) }
+							)
+						}
+					)
+
+
+
+
+
+
+
+					cardNum:
+					( NumericReadout
+						color: white
+						transform: { ( Translation -7.65 -2.65 0 ) ( Scale 0.70 ) }
+						format: #
+					)
+
 				}
-				)
+			)
 #line 299 "display.epp"
 
 

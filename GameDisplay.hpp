@@ -41,6 +41,10 @@ private:
 	int playerCount {2};
 
 	SendData playerCountSD{};
+
+	int currentCard{1};
+	SendData currentCardSD{};
+
 	mixr::base::safe_ptr<mixr::simulation::Station> stn;
 };
 

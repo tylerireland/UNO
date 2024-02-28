@@ -123,6 +123,7 @@ bool GameController::drawCard()
 
 		topOfDrawIdx = randomNum();
 
+		std::cout << "P1 Total Cards: " << player1Pile->entries() << std::endl;
 		nextPlayer();
 
 		return true;
@@ -132,7 +133,7 @@ bool GameController::drawCard()
 		player2Pile->put(drawnCard);
 
 		topOfDrawIdx = randomNum();
-
+		std::cout << "P2 Total Cards: " << player2Pile->entries() << std::endl;
 		nextPlayer();
 
 		return true;
@@ -215,7 +216,6 @@ void GameController::dealCards()
 		for (int j = 0; j < numPlayers; j++)
 		{
 			drawCard();  // using drawCard to give the card to player j
-
 		}
 	}
 

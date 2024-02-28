@@ -25,6 +25,7 @@ void GameDisplay::copyData(const GameDisplay& org, const bool)
 
 	playerCount = org.playerCount;
 	playerCountSD.empty();
+	currentCardSD.empty();
 }
 
 void GameDisplay::updateTC(const double dt)
@@ -146,6 +147,7 @@ void GameDisplay::buttonEvent(const int b)
 		case 1011:
 		{
 			std::cout << "Next " << std::endl;
+			currentCard++;
 		}
 		break;
 
@@ -161,6 +163,7 @@ void GameDisplay::buttonEvent(const int b)
 }
 void GameDisplay::updateData(const double dt)
 {
+	send("cardNum", UPDATE_VALUE, currentCard, currentCardSD);
 	const auto page = static_cast<Pager*>(subpage());
 	BaseClass::updateData(dt);
 }
