@@ -46,6 +46,7 @@ public:
 
     // returns the player whose turn it is
     Player* getPlayer();
+    Player* getPlayer(int index);
 
     // move to the next player
     void nextPlayer();
@@ -66,6 +67,7 @@ private:
 
     mixr::base::Pair* drawnCard{};
     SendData textureNameSD{};
+    SendData playerTurnSD{};
 
     // variables for random number generator
     std::random_device seed;

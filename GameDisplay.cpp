@@ -10,12 +10,14 @@ EMPTY_DELETEDATA(GameDisplay)
 
 BEGIN_EVENT_HANDLER(GameDisplay)
 	ON_EVENT_OBJ(SET_TEXTURE, onSendCard, mixr::base::String)
+	ON_EVENT_OBJ(NEXT_PLAYER, onNextPlayer, mixr::base::Number)
 END_EVENT_HANDLER()
 
 GameDisplay::GameDisplay()
 {
 	STANDARD_CONSTRUCTOR()
 	playerCountSD.empty();
+	playerTurnSD.empty();
 }
 
 void GameDisplay::copyData(const GameDisplay& org, const bool)
@@ -164,8 +166,7 @@ void GameDisplay::buttonEvent(const int b)
 }
 void GameDisplay::updateData(const double dt)
 {
-	send("cardNum", UPDATE_VALUE, currentCard, currentCardSD);
-	const auto page = static_cast<Pager*>(subpage());
+	std::cout << subpageName() << std::endl;
 	BaseClass::updateData(dt);
 }
 
@@ -211,5 +212,11 @@ bool GameDisplay::onSendCard(mixr::base::String* textName)
 	// why can we get the texture number here just fine but not over at gamecontroller?
 	testPoly->setTexture(testNum);
 
+	return true;
+}
+
+bool GameDisplay::onNextPlayer(mixr::base::Number* playerNum)
+{
+	playerTurn = playerNum->getInt();
 	return true;
 }

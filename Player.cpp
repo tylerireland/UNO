@@ -60,9 +60,9 @@ void Player::removeCard(mixr::base::Pair* card)
 
 void Player::showHand()
 {
-	for (int i = 1; i < hand->entries(); i++)
+	for (int i = 1; i < hand->entries()+1; i++)
 	{
-		std::cout << "Card " << i << ": " << dynamic_cast<Card*>(hand->getPosition(i)->object())->getCardType() << " "
-			<< dynamic_cast<Card*>(hand->getPosition(i)->object())->getCardColor() << std::endl;
+		std::cout << "Card " << i << ": " << dynamic_cast<Card*>(hand->getPosition(i)->object())->getCardColor() << " "
+			<< dynamic_cast<Card*>(hand->getPosition(i)->object())->getCardType() << std::endl;
 	} 
 }

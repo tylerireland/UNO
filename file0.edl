@@ -479,13 +479,13 @@ texCoord: {
 						}
 					)
 
+					playerTurn:
+					( NumericReadout
+						color: white
+						transform: { ( Translation -7.65 0 0 ) }
+						format: #
+					)
 
-
-
-
-
-
-					(Player)
 					cardNum:
 					( NumericReadout
 						color: white

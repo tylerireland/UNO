@@ -31,6 +31,7 @@ GameController::GameController()
 {
 	STANDARD_CONSTRUCTOR()
 	textureNameSD.empty();
+	playerTurnSD.empty();
 	//playerList = new mixr::base::PairStream();
 }
 
@@ -97,6 +98,7 @@ bool GameController::drawCard()
 	// add card to the player's hand
 	getPlayer()->addCard(drawnCard);
 	nextPlayer();
+	send("display", NEXT_PLAYER, getPlayer()->getPlayerNum(), playerTurnSD);
 
 	return true;
 }
@@ -167,8 +169,8 @@ int GameController::randomNum()
 
 bool GameController::showHand()
 {
-	std::cout << "Player " << getPlayer()->getPlayerNum() << "'s Hand: " << std::endl;
-	getPlayer()->showHand();
+	std::cout << "Player " << getPlayer(0)->getPlayerNum() << "'s Hand: " << std::endl;
+	getPlayer(0)->showHand();
 	return true;
 }
 
@@ -197,6 +199,11 @@ Player* GameController::getPlayer()
 		}
 	}
 	*/
+}
+
+Player* GameController::getPlayer(int index)
+{
+	return playerList.at(index);
 }
 
 

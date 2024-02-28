@@ -32,12 +32,15 @@ public:
 	bool event(const int event, mixr::base::Object* const obj = nullptr) override;
 
 	bool onSendCard(mixr::base::String* textureName);
+	bool onNextPlayer(mixr::base::Number* playerNum);
 
 private:
 
 	int playerCount {2};
-
 	SendData playerCountSD{};
+
+	int playerTurn{ 0 };
+	SendData playerTurnSD{};
 
 	int currentCard{1};
 	SendData currentCardSD{};

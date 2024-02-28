@@ -65,12 +65,13 @@ gameplayScreen:	( Pager
 							)
 						}
 					)
-										
-					//( AsciiText
-					//	color: white
-					//	text: "0/7"
-					//	transform: { ( Translation -7.65 -2.65 0 ) ( Scale 0.70 ) } 
-					//)
+					
+					playerTurn:
+					( NumericReadout
+						color: white
+						transform: { ( Translation -7.65 0 0 ) } 
+						format: #
+					)
 					
 					cardNum:
 					( NumericReadout
