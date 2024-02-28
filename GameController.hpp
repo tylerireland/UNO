@@ -32,7 +32,7 @@ public:
     bool initializeGame();
 
     // sets the player count from display
-    bool setPlayerCount(const Number* const num);
+    bool setPlayerCount(const mixr::base::Number* const num);
     
     // generate a random number
     int randomNum();
@@ -57,10 +57,10 @@ private:
     bool cardsDealt = false;
 
     // list of all the players in game
-    PairStream* playerList{};
+    mixr::base::PairStream* playerList{};
 
 
-    Pair* drawnCard{};
+    mixr::base::Pair* drawnCard{};
     SendData textureNameSD{};
 
     // variables for random number generator

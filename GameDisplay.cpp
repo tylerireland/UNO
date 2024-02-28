@@ -166,18 +166,18 @@ void GameDisplay::updateData(const double dt)
 	BaseClass::updateData(dt);
 }
 
-simulation::Simulation* GameDisplay::getSimulation()
+mixr::simulation::Simulation* GameDisplay::getSimulation()
 {
 	mixr::simulation::Simulation* s{};
-	simulation::Station* sta{getStation()};
+	mixr::simulation::Station* sta{getStation()};
 	if (sta != nullptr) s = sta->getSimulation();
 	return s;
 }
 
-simulation::Station* GameDisplay::getStation()
+mixr::simulation::Station* GameDisplay::getStation()
 {
 	if (stn == nullptr) {
-		const auto s = dynamic_cast<simulation::Station*>(findContainerByType(typeid(simulation::Station)));
+		const auto s = dynamic_cast<mixr::simulation::Station*>(findContainerByType(typeid(mixr::simulation::Station)));
 		if (s != nullptr) stn = s;
 	}
 	return stn;

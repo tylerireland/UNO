@@ -49,7 +49,7 @@ bool GameController::initializeGame()
 	for (int i = 1; i < numPlayers + 1; i++)
 	{
 		Player* newPlayer = new Player(numPlayers, 10, 10);
-		playerList->put(dynamic_cast<Pair*>(newPlayer));
+		playerList->put(dynamic_cast<mixr::base::Pair*>(newPlayer));
 	}
 
 	topOfDrawIdx = randomNum(); // generate number

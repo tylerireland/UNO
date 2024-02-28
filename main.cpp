@@ -3,6 +3,7 @@
 #include "Pager.hpp"
 #include "GameController.hpp"
 #include "Station.hpp"
+#include "Player.hpp"
 
 #include "mixr/base/Timers.hpp"
 #include "mixr/base/Pair.hpp"
@@ -54,7 +55,7 @@ mixr::base::Object* factory(const std::string& name)
     else if (name == Pager::getFactoryName())            obj = new Pager();
     else if (name == GameController::getFactoryName())   obj = new GameController();
     else if (name == Station::getFactoryName())          obj = new Station();
-
+   
     // framework libraries
     if (obj == nullptr) obj = mixr::simulation::factory(name);
     if (obj == nullptr) obj = mixr::instruments::factory(name);
@@ -64,6 +65,7 @@ mixr::base::Object* factory(const std::string& name)
 
     return obj;
 }
+
 Station* builder(const std::string& filename)
 {
     // read configuration file

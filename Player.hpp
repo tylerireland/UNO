@@ -6,21 +6,19 @@
 #include "mixr/base/Pair.hpp"
 #include "Card.hpp"
 
-using namespace mixr;
-using namespace base;
-
-class Player : public Component
+class Player : public mixr::base::Component
 {
 	DECLARE_SUBCLASS(Player, Component)
 
 public:
+
 	Player(int playerNum, float cardXPos, float cardYPos);
 
 	// add card to the players hand
-	void addCard(Pair* card);
+	void addCard(mixr::base::Pair* card);
 
 	// remove card from the players hand
-	void removeCard(Pair* card);
+	void removeCard(mixr::base::Pair* card);
 
 	// returns total cards  in players hand
 	int getTotalCards() { return hand->entries(); }
@@ -44,10 +42,10 @@ private:
 	float cardYPos;
 
 	// Players hand
-	PairStream* hand{};
+	mixr::base::PairStream* hand{};
 
 	// The current card displayed on the screen
-	Pair* currentCard;
+	mixr::base::Pair* currentCard;
 
 
 

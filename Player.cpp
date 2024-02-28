@@ -12,13 +12,13 @@ Player::Player(int newPlayerNum, float newCardXPos, float newCardYPos) :
 	STANDARD_CONSTRUCTOR()
 }
 
-void Player::addCard(Pair* card)
+void Player::addCard(mixr::base::Pair* card)
 {
 	if(card != nullptr)
 		hand->put(card);
 }
 
-void Player::removeCard(Pair* card)
+void Player::removeCard(mixr::base::Pair* card)
 {
 	if(card != nullptr)
 		hand->remove(card);
