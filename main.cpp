@@ -55,7 +55,7 @@ mixr::base::Object* factory(const std::string& name)
     else if (name == Pager::getFactoryName())            obj = new Pager();
     else if (name == GameController::getFactoryName())   obj = new GameController();
     else if (name == Station::getFactoryName())          obj = new Station();
-   
+    else if (name == Player::getFactoryName())           obj = new Player();
     // framework libraries
     if (obj == nullptr) obj = mixr::simulation::factory(name);
     if (obj == nullptr) obj = mixr::instruments::factory(name);

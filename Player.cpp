@@ -6,10 +6,44 @@ EMPTY_DELETEDATA(Player)
 
 // EVENT HANDLER
 
-Player::Player(int newPlayerNum, float newCardXPos, float newCardYPos) :
-	playerNum(newPlayerNum), cardXPos(newCardXPos), cardYPos(newCardYPos)
+Player::Player()
 {
 	STANDARD_CONSTRUCTOR()
+}
+
+Player::Player(int newPlayerNum, float newCardXPos, float newCardYPos)	
+{
+	playerNum =newPlayerNum;
+	cardXPos = newCardXPos;
+	cardYPos = newCardYPos;
+	hand = new mixr::base::PairStream();
+	STANDARD_CONSTRUCTOR()
+}
+
+void Player::copyData(const Player& org, const bool)
+{
+	BaseClass::copyData(org);
+	playerNum = org.playerNum;
+	myTurn = org.myTurn;
+	cardXPos = org.cardXPos;
+	cardYPos = org.cardYPos;
+	hand = org.hand;
+	currentCard = org.currentCard;
+}
+
+void Player::updateTC(const double dt)
+{
+	BaseClass::updateTC(dt);
+}
+
+void Player::updateData(const double dt)
+{
+	BaseClass::updateData(dt);
+}
+
+void Player::reset()
+{
+	BaseClass::reset();
 }
 
 void Player::addCard(mixr::base::Pair* card)

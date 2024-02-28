@@ -8,8 +8,10 @@
 #include "mixr/base/PairStream.hpp"
 #include "mixr/base/numeric/Number.hpp"
 #include "mixr/base/Component.hpp"
+#include "mixr/base/Pair.hpp"
 #include "Player.hpp"
 #include "random"
+#include <vector>
 
 class GameController final : public mixr::simulation::Simulation
 {
@@ -57,8 +59,10 @@ private:
     bool cardsDealt = false;
 
     // list of all the players in game
-    mixr::base::PairStream* playerList{};
+    //mixr::base::PairStream* playerList{};
 
+    // temp vector to store player objects
+    std::vector<Player*> playerList{};
 
     mixr::base::Pair* drawnCard{};
     SendData textureNameSD{};

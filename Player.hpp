@@ -8,11 +8,15 @@
 
 class Player : public mixr::base::Component
 {
-	DECLARE_SUBCLASS(Player, Component)
+	DECLARE_SUBCLASS(Player, mixr::base::Component)
 
 public:
-
+	Player();
 	Player(int playerNum, float cardXPos, float cardYPos);
+
+	void updateTC(const double dt = 0.0) final;
+	void updateData(const double dt = 0.0) final;
+	void reset() final;
 
 	// add card to the players hand
 	void addCard(mixr::base::Pair* card);

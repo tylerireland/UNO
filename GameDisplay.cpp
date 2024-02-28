@@ -2,6 +2,7 @@
 #include "Station.hpp"
 #include "mixr/graphics/Polygon.hpp"
 #include "random"
+#include "MyMacros.cpp"
 
 IMPLEMENT_SUBCLASS(GameDisplay, "GameDisplay")
 EMPTY_SLOTTABLE(GameDisplay)
@@ -45,41 +46,42 @@ void GameDisplay::buttonEvent(const int b)
 	switch (b)
 	{
 		// setup menu button or "Play Game" button
-		case 1001:
+		case PLAY_GAME_BUTTON:
 		{
 			newSubpage(setupScreen, nullptr);
 		}
 		break;
 
 		// rules button
-		case 1002:
+		case RULES_BUTTON:
 		{
 			newSubpage(rulesScreen, nullptr);
 		}
 		break;
 
-		//back button to home screen
-		case 1003:
+		//back button to home screen (from rules screen)
+		case BACK_BUTTON:
 		{
 			newSubpage(homeScreen, nullptr);
 		}
 		break;
 
 		// quit button on home screen
-		case 1004:
+		case QUIT_BUTTON:
 		{
 			exit(EXIT_SUCCESS);
 		}
 		break;
 
-		case 1005:
+		// menu button (from setup screen)
+		case MENU_BUTTON:
 		{
 			newSubpage(homeScreen, nullptr);
 		}
 		break;
 
 		// remove player buttun
-		case 1006:
+		case REMOVE_PLAYER_BUTTON:
 		{
 			if (playerCount == 2)
 			{
@@ -94,7 +96,7 @@ void GameDisplay::buttonEvent(const int b)
 		break;
 
 		// add player button
-		case 1007:
+		case ADD_PLAYER_BUTTON:
 		{
 			if (playerCount == 10)
 			{
@@ -109,13 +111,13 @@ void GameDisplay::buttonEvent(const int b)
 		break;
 
 		// start button
-		case 1008:
+		case START_GAME_BUTTON:
 		{
 			// sends the number of players to the controller
-			getStation()->send("controller", 2001, playerCount, playerCountSD);
+			getStation()->send("controller", SET_PLAYER_COUNT, playerCount, playerCountSD);
 
 			// initialize game
-			getStation()->send("controller", 2002);
+			getStation()->send("controller", INIT_GAME);
 
 			// switch to gameplayScreen
 			newSubpage(gameplayScreen, nullptr);
@@ -123,10 +125,10 @@ void GameDisplay::buttonEvent(const int b)
 		break;
 
 		// Draw card button (located on draw pile) 
-		case 1009:
+		case DRAW_CARD_BUTTON:
 		{
 			// call controller->DrawCard() function 
-			getStation()->send("controller", 2003);
+			getStation()->send("controller", DRAW_CARD);
 		}
 		break;
 
@@ -135,14 +137,15 @@ void GameDisplay::buttonEvent(const int b)
 			// that will operate
 			// 
 		// prev button
-		case 1010:
+
+		case PREVIOUS_CARD_BUTTON:
 		{
 			std::cout << "Prev " << std::endl;
 		}
 		break;
 
 		// next button
-		case 1011:
+		case NEXT_CARD_BUTTON:
 		{
 			std::cout << "Next " << std::endl;
 			currentCard++;
@@ -150,7 +153,7 @@ void GameDisplay::buttonEvent(const int b)
 		break;
 
 		// play button
-		case 1012: 
+		case PLAY_CARD_BUTTON: 
 		{
 			std::cout << "Play " << std::endl;
 		}

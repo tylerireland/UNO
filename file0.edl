@@ -485,6 +485,7 @@ texCoord: {
 
 
 
+					(Player)
 					cardNum:
 					( NumericReadout
 						color: white

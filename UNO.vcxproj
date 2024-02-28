@@ -30,6 +30,7 @@
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameDisplay.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MyMacros.cpp" />
     <ClCompile Include="Pager.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Station.cpp" />

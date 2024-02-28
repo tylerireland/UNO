@@ -8,6 +8,7 @@
 #include "mixr/base/PairStream.hpp"
 #include "mixr/base/Component.hpp"
 #include "mixr/graphics/Polygon.hpp"
+#include "MyMacros.cpp"
 
 #include "random"
 
@@ -19,9 +20,9 @@ EMPTY_SLOTTABLE(GameController)
 EMPTY_DELETEDATA(GameController)
 
 BEGIN_EVENT_HANDLER(GameController)
-	ON_EVENT_OBJ(2001, setPlayerCount, mixr::base::Number)
-	ON_EVENT(2002, initializeGame)
-	ON_EVENT(2003, drawCard)
+	ON_EVENT_OBJ(SET_PLAYER_COUNT, setPlayerCount, mixr::base::Number)
+	ON_EVENT(INIT_GAME, initializeGame)
+	ON_EVENT(DRAW_CARD, drawCard)
 	
 END_EVENT_HANDLER()
 
@@ -29,6 +30,7 @@ GameController::GameController()
 {
 	STANDARD_CONSTRUCTOR()
 	textureNameSD.empty();
+	//playerList = new mixr::base::PairStream();
 }
 
 bool GameController::cardIsPlayable(Card* card)
@@ -48,8 +50,18 @@ bool GameController::initializeGame()
 {
 	for (int i = 1; i < numPlayers + 1; i++)
 	{
-		Player* newPlayer = new Player(numPlayers, 10, 10);
-		playerList->put(dynamic_cast<mixr::base::Pair*>(newPlayer));
+		Player* newPlayer = new Player(i, 10, 10);
+
+		// sets player 1's turn
+		if (i == 1) newPlayer->setTurn(true);
+
+
+		// temp bc pair cast returns null
+		//mixr::base::Pair* playerPair = dynamic_cast<mixr::base::Pair*>(newPlayer);
+		//playerList->put(playerPair);
+
+
+		playerList.push_back(newPlayer);
 	}
 
 	topOfDrawIdx = randomNum(); // generate number
@@ -81,6 +93,7 @@ bool GameController::drawCard()
 
 	// add card to the player's hand
 	getPlayer()->addCard(drawnCard);
+	nextPlayer();
 
 	return true;
 }
@@ -107,8 +120,10 @@ bool GameController::setPlayerCount(const mixr::base::Number* const num)
 
 void GameController::nextPlayer()
 {
+	/*
 	for (int i = 1; i < numPlayers + 1, i++;)
 	{
+		
 		Player* player = dynamic_cast<Player*>(playerList->getPosition(i));
 		if (player->isMyTurn())
 		{
@@ -120,6 +135,22 @@ void GameController::nextPlayer()
 				player = dynamic_cast<Player*>(playerList->getPosition(i+1));
 			
 			player->setTurn(true);
+
+			return;
+		}
+	}
+	*/
+
+	for (int i = 0; i < playerList.size(); i++)
+	{
+		if (playerList.at(i)->isMyTurn())
+		{
+			playerList.at(i)->setTurn(false);
+
+			if (i + 1 <= playerList.size() - 1)
+				playerList.at(i+1)->setTurn(true);
+			else
+				playerList.at(0)->setTurn(true);
 
 			return;
 		}
@@ -143,6 +174,15 @@ void GameController::copyData(const GameController& org, const bool)
 
 Player* GameController::getPlayer()
 {
+	for (Player* player : playerList)
+	{
+		if (player->isMyTurn())
+		{
+			return player;
+		}
+	}
+	
+	/*
 	for (int i = 1; i < numPlayers + 1, i++;)
 	{
 		Player* player = dynamic_cast<Player*>(playerList->getPosition(i));
@@ -151,6 +191,7 @@ Player* GameController::getPlayer()
 			return player;
 		}
 	}
+	*/
 }
 
 
