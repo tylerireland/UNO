@@ -9,7 +9,7 @@ EMPTY_SLOTTABLE(GameDisplay)
 EMPTY_DELETEDATA(GameDisplay)
 
 BEGIN_EVENT_HANDLER(GameDisplay)
-	ON_EVENT_OBJ(3001, onSendCard, mixr::base::String)
+	ON_EVENT_OBJ(SET_TEXTURE, onSendCard, mixr::base::String)
 END_EVENT_HANDLER()
 
 GameDisplay::GameDisplay()
@@ -155,7 +155,7 @@ void GameDisplay::buttonEvent(const int b)
 		// play button
 		case PLAY_CARD_BUTTON: 
 		{
-			std::cout << "Play " << std::endl;
+			getStation()->send("controller", SHOW_HAND);
 		}
 		break;
 	}

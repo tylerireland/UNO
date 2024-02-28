@@ -23,6 +23,7 @@ BEGIN_EVENT_HANDLER(GameController)
 	ON_EVENT_OBJ(SET_PLAYER_COUNT, setPlayerCount, mixr::base::Number)
 	ON_EVENT(INIT_GAME, initializeGame)
 	ON_EVENT(DRAW_CARD, drawCard)
+	ON_EVENT(SHOW_HAND, showHand)
 	
 END_EVENT_HANDLER()
 
@@ -73,9 +74,11 @@ bool GameController::initializeGame()
 
 bool GameController::drawCard()
 {
+	topOfDrawIdx = randomNum(); // generate number
 	drawnCard = (findByIndex(topOfDrawIdx));
 
- 	if (cardsDealt == true)
+
+	if (getPlayer()->getPlayerNum() == 1)
 	{
 		// get card from pair 
 		Card* currentCard = dynamic_cast<Card*>(drawnCard->object());
@@ -84,12 +87,12 @@ bool GameController::drawCard()
 		mixr::base::String* textureName = new mixr::base::String(currentCard->getCardColor().c_str(), currentCard->getCardType().c_str());
 
 		// send that texture string over to the display so it can change the top of the hand to the drawn card
-		getStation()->send("display", 3001, textureName, textureNameSD);
+		getStation()->send("display", SET_TEXTURE, textureName, textureNameSD);
 
 		// unref here, yes?
 		textureName->unref();
-
 	}
+	
 
 	// add card to the player's hand
 	getPlayer()->addCard(drawnCard);
@@ -162,9 +165,11 @@ int GameController::randomNum()
 	return dist(gen);
 }
 
-void GameController::showHand()
+bool GameController::showHand()
 {
+	std::cout << "Player " << getPlayer()->getPlayerNum() << "'s Hand: " << std::endl;
 	getPlayer()->showHand();
+	return true;
 }
 
 void GameController::copyData(const GameController& org, const bool)

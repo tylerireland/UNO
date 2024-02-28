@@ -40,7 +40,7 @@ public:
     int randomNum();
 
     // show current players hand
-    void showHand();
+    bool showHand();
 
     bool event(const int event, Object* const obj = nullptr) override;
 

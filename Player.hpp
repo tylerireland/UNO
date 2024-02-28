@@ -33,6 +33,8 @@ public:
 
 	void showHand();
 
+	int getPlayerNum() { return playerNum; }
+
 private:
 
 	// The players number (Player 1, 2, etc.)
