@@ -8,12 +8,16 @@
 #include "mixr/base/PairStream.hpp"
 #include "mixr/base/numeric/Number.hpp"
 #include "mixr/base/Component.hpp"
+#include "Player.hpp"
 #include "random"
 
+using namespace mixr;
+using namespace base;
+using namespace simulation;
 
-class GameController final : public mixr::simulation::Simulation
+class GameController final : public Simulation
 {
-    DECLARE_SUBCLASS(GameController, mixr::simulation::Simulation)
+    DECLARE_SUBCLASS(GameController, Simulation)
 
 public:
 
@@ -33,45 +37,35 @@ public:
 
     // display can use this function to give us the player count
         // BUT what if we just tried to use a send function instead?
-    bool setPlayerCount(const mixr::base::Number* const num);
-
-    int getTurn() { return whoTurn; }
+    bool setPlayerCount(const Number* const num);
 
     void nextPlayer(); 
     
     int randomNum();
 
-    void showHand(mixr::base::PairStream* playerHand);
+    void showHand(PairStream* playerHand);
 
-    bool event(const int event, mixr::base::Object* const obj = nullptr) override;
+    bool event(const int event, Object* const obj = nullptr) override;
 
 private:
 
     int numPlayers{};
-    int whoTurn{1};
     int topOfDrawIdx{};
     int topOfDiscIdx{};
 
     bool cardsDealt = false;
 
+    // list of all the players in game
+    PairStream* playerList{};
+
+
+    Pair* drawnCard{};
+    SendData textureNameSD{};
+
+    // variables for random number generator
     std::random_device seed;
     std::mt19937 gen{seed()}; // seed the generator
     std::uniform_int_distribution<> dist{1, 54}; // set min and max
-
-    mixr::base::PairStream* player1Pile{};
-    mixr::base::PairStream* player2Pile{};
-    mixr::base::PairStream* player3Pile{};
-    mixr::base::PairStream* player4Pile{};
-    mixr::base::PairStream* player5Pile{};
-    mixr::base::PairStream* player6Pile{};
-    mixr::base::PairStream* player7Pile{};
-    mixr::base::PairStream* player8Pile{};
-    mixr::base::PairStream* player9Pile{};
-    mixr::base::PairStream* player10Pile{};
-
-    mixr::base::Pair* drawnCard{};
-    SendData textureNameSD{};
-    
 };
 
 #endif

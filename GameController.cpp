@@ -48,49 +48,13 @@ bool GameController::initializeGame()
 {
 	for (int i = 1; i < numPlayers + 1; i++)
 	{
-		switch(i)
-		{
-		case 1: 
-			player1Pile = new mixr::base::PairStream();
-			break;
-		case 2: 
-			player2Pile = new mixr::base::PairStream();
-			break;
-		case 3:
-			player3Pile = new mixr::base::PairStream();
-			break;
-		case 4:
-			player4Pile = new mixr::base::PairStream();
-			break;
-		case 5:
-			player5Pile = new mixr::base::PairStream();
-			break;
-		case 6:
-			player6Pile = new mixr::base::PairStream();
-			break;
-		case 7:
-			player7Pile = new mixr::base::PairStream();
-			break;
-		case 8: 
-			player8Pile = new mixr::base::PairStream();
-			break;
-		case 9:
-			player9Pile = new mixr::base::PairStream();
-			break;
-		case 10: 
-			player10Pile = new mixr::base::PairStream();
-			break;
-		default:
-			break;
-		}
-
+		Player* newPlayer = new Player(numPlayers, 10, 10);
+		playerList->put(dynamic_cast<Pair*>(newPlayer));
 	}
 
 	topOfDrawIdx = randomNum(); // generate number
 		
 	dealCards();
-
-	whoTurn = 1;
 
 	return true;
 }
@@ -115,95 +79,14 @@ bool GameController::drawCard()
 
 	}
 
-	switch (whoTurn)
+	// find the player and add the card to their hand
+	for (int i = 1; i < numPlayers + 1, i++;)
 	{
-	case 1:
-
-		player1Pile->put(drawnCard);
-
-		topOfDrawIdx = randomNum();
-
-		std::cout << "P1 Total Cards: " << player1Pile->entries() << std::endl;
-		nextPlayer();
-
-		return true;
-		break;
-	case 2:
-
-		player2Pile->put(drawnCard);
-
-		topOfDrawIdx = randomNum();
-		std::cout << "P2 Total Cards: " << player2Pile->entries() << std::endl;
-		nextPlayer();
-
-		return true;
-		break;
-	case 3:
-		player3Pile->put(drawnCard);
-
-		topOfDrawIdx = randomNum();
-
-		nextPlayer();
-
-		break;
-	case 4:
-		player4Pile->put(drawnCard);
-
-		topOfDrawIdx = randomNum();
-
-		nextPlayer();
-
-		break;
-	case 5:
-		player5Pile->put(drawnCard);
-
-		topOfDrawIdx = randomNum();
-
-		nextPlayer();
-
-		break;
-	case 6:
-		player6Pile->put(drawnCard);
-
-		topOfDrawIdx = randomNum();
-
-		nextPlayer();
-
-		break;
-	case 7:
-		player7Pile->put(drawnCard);
-
-		topOfDrawIdx = randomNum();
-
-		nextPlayer();
-
-		break;
-	case 8:
-		player8Pile->put(drawnCard);
-
-		topOfDrawIdx = randomNum();
-
-		nextPlayer();
-
-		break;
-	case 9:
-		player9Pile->put(drawnCard);
-
-		topOfDrawIdx = randomNum();
-
-		nextPlayer();
-
-		break;
-	case 10:
-		player10Pile->put(drawnCard);
-
-		topOfDrawIdx = randomNum();
-
-		nextPlayer();
-
-		break;
-	default:
-		break;
+		Player* player = dynamic_cast<Player*>(playerList->getPosition(i));
+		if (player->isMyTurn())
+		{
+			player->addCard(drawnCard);
+		}
 	}
 
 	return true;
