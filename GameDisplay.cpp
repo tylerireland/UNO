@@ -10,61 +10,48 @@ EMPTY_DELETEDATA(GameDisplay)
 
 BEGIN_EVENT_HANDLER(GameDisplay)
 	ON_EVENT_OBJ(SET_TEXTURE, onSendCard, mixr::base::String)
-	ON_EVENT_OBJ(NEXT_PLAYER, onNextPlayer, mixr::base::Number)
+	ON_EVENT_OBJ(UPDATE_PLAYER_NUM, onUpdatePlayerNum, mixr::base::Number)
 END_EVENT_HANDLER()
 
 GameDisplay::GameDisplay()
 {
 	STANDARD_CONSTRUCTOR()
-	playerCountSD.empty();
-	playerTurnSD.empty();
 }
 
 void GameDisplay::copyData(const GameDisplay& org, const bool)
 {
 	BaseClass::copyData(org);
-
-	playerCount = org.playerCount;
-	playerCountSD.empty();
 	currentCardSD.empty();
 }
 
 void GameDisplay::updateTC(const double dt)
 {
+
 	BaseClass::updateTC(dt);
 }
 
 void GameDisplay::buttonEvent(const int b)
 {
-	// PairStream of all pages 
-	const auto pageStream = subPages();
-
-	// define and put each page in variable
-	Pager* homeScreen = static_cast<Pager*>(pageStream->findByName("homeScreen")->object());
-	Pager* rulesScreen = static_cast<Pager*>(pageStream->findByName("rulesScreen")->object());
-	Pager* setupScreen = static_cast<Pager*>(pageStream->findByName("setupScreen")->object());
-	Pager* gameplayScreen = static_cast<Pager*>(pageStream->findByName("gameplayScreen")->object());
-	
 	switch (b)
 	{
 		// setup menu button or "Play Game" button
 		case PLAY_GAME_BUTTON:
 		{
-			newSubpage(setupScreen, nullptr);
+			newSubpage("setupScreen", nullptr);
 		}
 		break;
 
 		// rules button
 		case RULES_BUTTON:
 		{
-			newSubpage(rulesScreen, nullptr);
+			newSubpage("rulesScreen", nullptr);
 		}
 		break;
 
 		//back button to home screen (from rules screen)
 		case BACK_BUTTON:
 		{
-			newSubpage(homeScreen, nullptr);
+			newSubpage("homeScreen", nullptr);
 		}
 		break;
 
@@ -78,51 +65,32 @@ void GameDisplay::buttonEvent(const int b)
 		// menu button (from setup screen)
 		case MENU_BUTTON:
 		{
-			newSubpage(homeScreen, nullptr);
+			newSubpage("homeScreen", nullptr);
 		}
 		break;
 
 		// remove player buttun
 		case REMOVE_PLAYER_BUTTON:
 		{
-			if (playerCount == 2)
-			{
-				std::cout << "Cannot have less than two players!" << std::endl;
-				break;
-			}
-			else
-			{
-				playerCount = playerCount - 1;
-			}
+			getStation()->send("controller", REMOVE_PLAYER);
 		}
 		break;
 
 		// add player button
 		case ADD_PLAYER_BUTTON:
 		{
-			if (playerCount == 10)
-			{
-				std::cout << "Cannot exceed 10 players!" << std::endl;
-				break;
-			}
-			else
-			{
-				playerCount = playerCount + 1;
-			}
+			getStation()->send("controller", ADD_PLAYER);
 		}
 		break;
 
 		// start button
 		case START_GAME_BUTTON:
 		{
-			// sends the number of players to the controller
-			getStation()->send("controller", SET_PLAYER_COUNT, playerCount, playerCountSD);
-
 			// initialize game
 			getStation()->send("controller", INIT_GAME);
 
 			// switch to gameplayScreen
-			newSubpage(gameplayScreen, nullptr);
+			newSubpage("gameplayScreen", nullptr);
 		}
 		break;
 
@@ -161,12 +129,10 @@ void GameDisplay::buttonEvent(const int b)
 		}
 		break;
 	}
-
-
 }
+
 void GameDisplay::updateData(const double dt)
 {
-	std::cout << subpageName() << std::endl;
 	BaseClass::updateData(dt);
 }
 
@@ -215,8 +181,13 @@ bool GameDisplay::onSendCard(mixr::base::String* textName)
 	return true;
 }
 
-bool GameDisplay::onNextPlayer(mixr::base::Number* playerNum)
+bool GameDisplay::onUpdatePlayerNum(mixr::base::Number* playerNumber)
 {
-	playerTurn = playerNum->getInt();
+	SendData playerNumSD;
+	playerNumSD.empty();
+
+	subpage()->send("playerCountNumber", UPDATE_VALUE, playerNumber, playerNumSD);
+	
 	return true;
 }
+

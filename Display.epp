@@ -49,7 +49,6 @@ display:
 	{
 		// this is the page for the home screen 
 		homeScreen: ( Pager
-					pagingEvent: { n: rulesScreen p: homeScreen }
 						components: {
 							( Polygon
 								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
@@ -125,7 +124,6 @@ display:
 						}
 					)
 		rulesScreen: ( Pager 
-					 pagingEvent: { n: setupScreen p: homeScreen }
 						components: { 
 							( Polygon
 								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
@@ -165,8 +163,16 @@ display:
 						}
 					 )
 		setupScreen: ( Pager 
-					 pagingEvent: { n: setupScreen p: rulesScreen }
 						components: { 
+
+							playerCountNumber:
+							( NumericReadout
+								color: white
+								value: 2
+								transform: { ( Translation -3 2 0 ) ( Scale 5 ) }
+								format: ##
+							)
+
 							( Polygon
 								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
 								color: ( rgb 0 0 0 )

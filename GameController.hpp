@@ -21,6 +21,9 @@ public:
 
     GameController();
 
+    void updateTC(const double dt = 0.0) final;
+    void updateData(const double dt = 0.0) final;
+
     // returns true if the selected card can play on the discard pile
     bool cardIsPlayable(Card* card);
 
@@ -51,9 +54,14 @@ public:
     // move to the next player
     void nextPlayer();
 
+    bool addPlayer();
+    bool removePlayer();
+
 private:
 
-    int numPlayers{};
+    int numPlayers{2};
+    SendData numPlayersSD;
+
     int topOfDrawIdx{};
     int topOfDiscIdx{};
 

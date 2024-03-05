@@ -129,7 +129,6 @@ display:
 	{
 
 		homeScreen: ( Pager
-					pagingEvent: { n: rulesScreen p: homeScreen }
 						components: {
 							( Polygon
 								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
@@ -205,7 +204,6 @@ display:
 						}
 					)
 		rulesScreen: ( Pager
-					 pagingEvent: { n: setupScreen p: homeScreen }
 						components: {
 							( Polygon
 								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
@@ -245,8 +243,16 @@ display:
 						}
 					 )
 		setupScreen: ( Pager
-					 pagingEvent: { n: setupScreen p: rulesScreen }
 						components: {
+
+							playerCountNumber:
+							( NumericReadout
+								color: white
+								value: 2
+								transform: { ( Translation -3 2 0 ) ( Scale 5 ) }
+								format: ##
+							)
+
 							( Polygon
 								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
 								color: ( rgb 0 0 0 )
@@ -375,7 +381,7 @@ display:
 							)
 						}
 					)
-#line 298 "display.epp"
+#line 304 "display.epp"
 #line 1 "gamePage.epp"
 gameplayScreen: ( Pager
 					components: {
@@ -495,7 +501,7 @@ texCoord: {
 
 				}
 			)
-#line 299 "display.epp"
+#line 305 "display.epp"
 
 
 	}

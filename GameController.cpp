@@ -24,6 +24,8 @@ BEGIN_EVENT_HANDLER(GameController)
 	ON_EVENT(INIT_GAME, initializeGame)
 	ON_EVENT(DRAW_CARD, drawCard)
 	ON_EVENT(SHOW_HAND, showHand)
+	ON_EVENT(ADD_PLAYER, addPlayer)
+	ON_EVENT(REMOVE_PLAYER, removePlayer)
 	
 END_EVENT_HANDLER()
 
@@ -179,6 +181,17 @@ void GameController::copyData(const GameController& org, const bool)
 	BaseClass::copyData(org);
 }
 
+void GameController::updateTC(const double dt)
+{
+	BaseClass::updateTC(dt);
+}
+
+void GameController::updateData(const double dt)
+{
+	getStation()->send("display", UPDATE_PLAYER_NUM, numPlayers, numPlayersSD);
+	BaseClass::updateData(dt);
+}
+
 Player* GameController::getPlayer()
 {
 	for (Player* player : playerList)
@@ -206,4 +219,24 @@ Player* GameController::getPlayer(int index)
 	return playerList.at(index);
 }
 
+bool GameController::addPlayer()
+{
+	if (numPlayers < 10)
+	{
+		numPlayers++;
+		return true;
+	}
+	return false;
+}
+
+bool GameController::removePlayer()
+{
+	if (numPlayers > 2)
+	{
+		numPlayers--;
+		return true;
+		// send the setupscreen the number of players
+	}
+	return false;
+}
 

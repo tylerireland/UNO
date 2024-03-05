@@ -15,9 +15,12 @@
 #define PLAY_CARD_BUTTON			1012
 #define SET_TEXTURE					3001
 #define NEXT_PLAYER					3002
+#define UPDATE_PLAYER_NUM			3003
 
 // GAME CONTROLLER MACROS
 #define SET_PLAYER_COUNT			2001
 #define INIT_GAME					2002
 #define DRAW_CARD					2003
 #define SHOW_HAND					2004
+#define ADD_PLAYER					2005
+#define REMOVE_PLAYER				2006
