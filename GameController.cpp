@@ -26,6 +26,7 @@ BEGIN_EVENT_HANDLER(GameController)
 	ON_EVENT(SHOW_HAND, showHand)
 	ON_EVENT(ADD_PLAYER, addPlayer)
 	ON_EVENT(REMOVE_PLAYER, removePlayer)
+	ON_EVENT_OBJ(GET_CARD, getPlayersCard, mixr::base::Number)
 	
 END_EVENT_HANDLER()
 
@@ -83,7 +84,7 @@ bool GameController::drawCard()
 
 	if (getPlayer()->getPlayerNum() == 1)
 	{
-		// get card from pair 
+		// get a random card from the deck 
 		Card* currentCard = dynamic_cast<Card*>(drawnCard->object());
 
 		// create a string of the texture name by getting the currentCard's color and type
@@ -99,8 +100,8 @@ bool GameController::drawCard()
 
 	// add card to the player's hand
 	getPlayer()->addCard(drawnCard);
+	// move to the next player
 	nextPlayer();
-	send("display", NEXT_PLAYER, getPlayer()->getPlayerNum(), playerTurnSD);
 
 	return true;
 }
@@ -243,5 +244,16 @@ bool GameController::removePlayer()
 		// send the setupscreen the number of players
 	}
 	return false;
+}
+
+bool GameController::getPlayersCard(mixr::base::Number* nextOrPrev)
+{
+	Card* currentCard = getPlayer()->getCard(nextOrPrev->getInt());
+	// create a string of the texture name by getting the currentCard's color and type
+	mixr::base::String* textureName = new mixr::base::String(currentCard->getCardColor().c_str(), currentCard->getCardType().c_str());
+	// send that texture string over to the display so it can change the top of the hand to the drawn card
+	getStation()->send("display", SET_TEXTURE, textureName, textureNameSD);
+
+	return true;
 }
 

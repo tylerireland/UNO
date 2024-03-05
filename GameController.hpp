@@ -56,6 +56,7 @@ public:
 
     bool addPlayer();
     bool removePlayer();
+    bool getPlayersCard(mixr::base::Number* nextOrPrev);
 
 private:
 

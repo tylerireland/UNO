@@ -25,3 +25,4 @@
 #define SHOW_HAND					2004
 #define ADD_PLAYER					2005
 #define REMOVE_PLAYER				2006
+#define GET_CARD					2007

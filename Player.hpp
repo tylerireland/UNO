@@ -35,6 +35,12 @@ public:
 
 	int getPlayerNum() { return playerNum; }
 
+	// returns the next card in the deck
+		// -1 == previous
+		// 1 == next
+		// 0 == current
+	Card* getCard(int nextOrPrev);
+
 private:
 
 	// The players number (Player 1, 2, etc.)
@@ -50,8 +56,8 @@ private:
 	// Players hand
 	mixr::base::PairStream* hand{};
 
-	// The current card displayed on the screen
-	mixr::base::Pair* currentCard;
+	// The current card that is displayed on the screen
+	int cardIndex{1};
 
 
 

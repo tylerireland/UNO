@@ -111,15 +111,14 @@ void GameDisplay::buttonEvent(const int b)
 
 		case PREVIOUS_CARD_BUTTON:
 		{
-			std::cout << "Prev " << std::endl;
+			getStation()->send("controller", GET_CARD, -1, currentCardSD);
 		}
 		break;
 
 		// next button
 		case NEXT_CARD_BUTTON:
 		{
-			std::cout << "Next " << std::endl;
-			currentCard++;
+			getStation()->send("controller", GET_CARD, 1, currentCardSD);
 		}
 		break;
 
