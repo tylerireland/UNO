@@ -66,8 +66,9 @@ gameplayScreen:	( Pager
 						}
 					)
 					
-					playerTurn:
+					playerTurnNumber:
 					( NumericReadout
+					    value: 1
 						color: white
 						transform: { ( Translation -7.65 0 0 ) } 
 						format: #

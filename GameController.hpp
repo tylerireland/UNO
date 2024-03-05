@@ -61,6 +61,7 @@ private:
 
     int numPlayers{2};
     SendData numPlayersSD;
+    SendData playerTurnSD{};
 
     int topOfDrawIdx{};
     int topOfDiscIdx{};
@@ -75,7 +76,7 @@ private:
 
     mixr::base::Pair* drawnCard{};
     SendData textureNameSD{};
-    SendData playerTurnSD{};
+    
 
     // variables for random number generator
     std::random_device seed;

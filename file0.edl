@@ -94,9 +94,9 @@ display:
 	top: 10
 
 	vpX: 10
-	vpY: 10
-	vpWidth: 2048
-	vpHeight: 1024
+	vpY: 100
+	vpWidth: 1024
+	vpHeight: 512
 
 	clearDepth: 20.0
 
@@ -485,8 +485,9 @@ texCoord: {
 						}
 					)
 
-					playerTurn:
+					playerTurnNumber:
 					( NumericReadout
+					    value: 1
 						color: white
 						transform: { ( Translation -7.65 0 0 ) }
 						format: #

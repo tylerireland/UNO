@@ -188,6 +188,11 @@ void GameController::updateTC(const double dt)
 
 void GameController::updateData(const double dt)
 {
+	if (getPlayer())
+	{
+		playerTurnSD.empty();
+		getStation()->send("display", UPDATE_PLAYER_TURN, getPlayer()->getPlayerNum(), playerTurnSD);
+	}
 	getStation()->send("display", UPDATE_PLAYER_NUM, numPlayers, numPlayersSD);
 	BaseClass::updateData(dt);
 }

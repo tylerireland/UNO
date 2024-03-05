@@ -33,6 +33,7 @@ public:
 
 	bool onSendCard(mixr::base::String* textureName);
 	bool onUpdatePlayerNum(mixr::base::Number* playerNumber);
+	bool onUpdatePlayerTurnNum(mixr::base::Number* playerTurnNum);
 
 private:
 

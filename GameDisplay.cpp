@@ -11,6 +11,7 @@ EMPTY_DELETEDATA(GameDisplay)
 BEGIN_EVENT_HANDLER(GameDisplay)
 	ON_EVENT_OBJ(SET_TEXTURE, onSendCard, mixr::base::String)
 	ON_EVENT_OBJ(UPDATE_PLAYER_NUM, onUpdatePlayerNum, mixr::base::Number)
+	ON_EVENT_OBJ(UPDATE_PLAYER_TURN, onUpdatePlayerTurnNum, mixr::base::Number)
 END_EVENT_HANDLER()
 
 GameDisplay::GameDisplay()
@@ -188,6 +189,16 @@ bool GameDisplay::onUpdatePlayerNum(mixr::base::Number* playerNumber)
 
 	subpage()->send("playerCountNumber", UPDATE_VALUE, playerNumber, playerNumSD);
 	
+	return true;
+}
+
+bool GameDisplay::onUpdatePlayerTurnNum(mixr::base::Number* playerTurnNum)
+{
+	SendData playerTurnNumSD;
+	playerTurnNumSD.empty();
+
+	subpage()->send("playerTurnNumber", UPDATE_VALUE, playerTurnNum, playerTurnNumSD);
+
 	return true;
 }
 
