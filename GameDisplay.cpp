@@ -118,6 +118,7 @@ void GameDisplay::buttonEvent(const int b)
 		// next button
 		case NEXT_CARD_BUTTON:
 		{
+			
 			getStation()->send("controller", GET_CARD, 1, currentCardSD);
 		}
 		break;
@@ -133,6 +134,9 @@ void GameDisplay::buttonEvent(const int b)
 
 void GameDisplay::updateData(const double dt)
 {
+	currentCardSD.empty();
+	playerTurnNumSD.empty();
+	playerNumSD.empty();
 	BaseClass::updateData(dt);
 }
 
@@ -183,9 +187,6 @@ bool GameDisplay::onSendCard(mixr::base::String* textName)
 
 bool GameDisplay::onUpdatePlayerNum(mixr::base::Number* playerNumber)
 {
-	SendData playerNumSD;
-	playerNumSD.empty();
-
 	subpage()->send("playerCountNumber", UPDATE_VALUE, playerNumber, playerNumSD);
 	
 	return true;
@@ -193,9 +194,6 @@ bool GameDisplay::onUpdatePlayerNum(mixr::base::Number* playerNumber)
 
 bool GameDisplay::onUpdatePlayerTurnNum(mixr::base::Number* playerTurnNum)
 {
-	SendData playerTurnNumSD;
-	playerTurnNumSD.empty();
-
 	subpage()->send("playerTurnNumber", UPDATE_VALUE, playerTurnNum, playerTurnNumSD);
 
 	return true;

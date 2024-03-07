@@ -39,6 +39,8 @@ private:
 
 	int currentCard{1};
 	SendData currentCardSD{};
+	SendData playerNumSD{};
+	SendData playerTurnNumSD{};
 
 	mixr::base::safe_ptr<mixr::simulation::Station> stn;
 
