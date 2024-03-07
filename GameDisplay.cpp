@@ -12,6 +12,8 @@ BEGIN_EVENT_HANDLER(GameDisplay)
 	ON_EVENT_OBJ(SET_TEXTURE, onSendCard, mixr::base::String)
 	ON_EVENT_OBJ(UPDATE_PLAYER_NUM, onUpdatePlayerNum, mixr::base::Number)
 	ON_EVENT_OBJ(UPDATE_PLAYER_TURN, onUpdatePlayerTurnNum, mixr::base::Number)
+	ON_EVENT_OBJ(UPDATE_TOTAL_CARD_COUNT, onUpdateTotalCards, mixr::base::Number)
+	ON_EVENT_OBJ(UPDATE_CURRENT_CARD_NUM, onUpdateCurrentCard, mixr::base::Number)
 END_EVENT_HANDLER()
 
 GameDisplay::GameDisplay()
@@ -137,6 +139,8 @@ void GameDisplay::updateData(const double dt)
 	currentCardSD.empty();
 	playerTurnNumSD.empty();
 	playerNumSD.empty();
+	totalCardsSD.empty();
+	currentCardNumSD.empty();
 	BaseClass::updateData(dt);
 }
 
@@ -196,6 +200,18 @@ bool GameDisplay::onUpdatePlayerTurnNum(mixr::base::Number* playerTurnNum)
 {
 	subpage()->send("playerTurnNumber", UPDATE_VALUE, playerTurnNum, playerTurnNumSD);
 
+	return true;
+}
+
+bool GameDisplay::onUpdateTotalCards(mixr::base::Number* totalCards)
+{
+	subpage()->send("totalCards", UPDATE_VALUE, totalCards, totalCardsSD);
+	return true;
+}
+
+bool GameDisplay::onUpdateCurrentCard(mixr::base::Number* currentCard)
+{
+	subpage()->send("cardNum", UPDATE_VALUE, currentCard, currentCardSD);
 	return true;
 }
 

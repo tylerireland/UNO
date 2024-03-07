@@ -35,6 +35,8 @@ GameController::GameController()
 	STANDARD_CONSTRUCTOR()
 	textureNameSD.empty();
 	playerTurnSD.empty();
+	cardCountSD.empty();
+	currentCardSD.empty();
 	//playerList = new mixr::base::PairStream();
 }
 
@@ -192,8 +194,13 @@ void GameController::updateData(const double dt)
 	if (getPlayer())
 	{
 		playerTurnSD.empty();
+		cardCountSD.empty();
+		currentCardSD.empty();
 		getStation()->send("display", UPDATE_PLAYER_TURN, getPlayer()->getPlayerNum(), playerTurnSD);
+		getStation()->send("display", UPDATE_TOTAL_CARD_COUNT, getPlayer()->getTotalCards(), cardCountSD);
+		getStation()->send("display", UPDATE_CURRENT_CARD_NUM, getPlayer()->getCurrentCardIndex(), currentCardSD);
 	}
+
 	getStation()->send("display", UPDATE_PLAYER_NUM, numPlayers, numPlayersSD);
 	BaseClass::updateData(dt);
 }

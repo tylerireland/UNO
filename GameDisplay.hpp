@@ -34,6 +34,8 @@ public:
 	bool onSendCard(mixr::base::String* textureName);
 	bool onUpdatePlayerNum(mixr::base::Number* playerNumber);
 	bool onUpdatePlayerTurnNum(mixr::base::Number* playerTurnNum);
+	bool onUpdateTotalCards(mixr::base::Number* totalCards);
+	bool onUpdateCurrentCard(mixr::base::Number* currentCard);
 
 private:
 
@@ -41,7 +43,8 @@ private:
 	SendData currentCardSD{};
 	SendData playerNumSD{};
 	SendData playerTurnNumSD{};
-
+	SendData totalCardsSD{};
+	SendData currentCardNumSD{};
 	mixr::base::safe_ptr<mixr::simulation::Station> stn;
 
 };

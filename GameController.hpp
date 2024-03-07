@@ -63,6 +63,8 @@ private:
     int numPlayers{2};
     SendData numPlayersSD;
     SendData playerTurnSD{};
+    SendData cardCountSD{};
+    SendData currentCardSD{};
 
     int topOfDrawIdx{};
     int topOfDiscIdx{};
