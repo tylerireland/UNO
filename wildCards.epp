@@ -5,7 +5,7 @@
 	components:
 	{
 		( Polygon
-			texture: wild
+			texture: defaultwild
 			#include"setVertAndTexCoords.epp"
 		)
 	}
@@ -18,7 +18,7 @@
 	components:
 	{
 		( Polygon
-			texture: drawfour
+			texture: defaultdrawfour
 			#include"setVertAndTexCoords.epp"
 		)
 	}

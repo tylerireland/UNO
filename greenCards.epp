@@ -157,7 +157,7 @@
 ( Card
 
 	cardColor: green
-	cardType: drawTwo
+	cardType: drawtwo
 	components:
 	{
 		( Polygon

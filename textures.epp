@@ -59,8 +59,8 @@
 	   yellowdrawtwo: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "yellowdrawtwo.bmp" )
 
 	  // WILD CARDS
-	   drawfour: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "drawfour.bmp" )
-	   wild: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "wild.bmp" )
+	   defaultdrawfour: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "drawfour.bmp" )
+	   defaultwild: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "wild.bmp" )
 
 	 // LOGO CARD
 	   logo: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "logocard.bmp" )

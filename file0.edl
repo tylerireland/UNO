@@ -73,8 +73,8 @@ display:
 	   yellowdrawtwo: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "yellowdrawtwo.bmp" )
 
 
-	   drawfour: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "drawfour.bmp" )
-	   wild: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "wild.bmp" )
+	   defaultdrawfour: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "drawfour.bmp" )
+	   defaultwild: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "wild.bmp" )
 
 
 	   logo: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "logocard.bmp" )
@@ -921,7 +921,7 @@ texCoord: {
 ( Card
 
 	cardColor: red
-	cardType: drawTwo
+	cardType: drawtwo
 	components:
 	{
 		( Polygon
@@ -1312,7 +1312,7 @@ texCoord: {
 ( Card
 
 	cardColor: blue
-	cardType: drawTwo
+	cardType: drawtwo
 	components:
 	{
 		( Polygon
@@ -1703,7 +1703,7 @@ texCoord: {
 ( Card
 
 	cardColor: green
-	cardType: drawTwo
+	cardType: drawtwo
 	components:
 	{
 		( Polygon
@@ -2094,7 +2094,7 @@ texCoord: {
 ( Card
 
 	cardColor: yellow
-	cardType: drawTwo
+	cardType: drawtwo
 	components:
 	{
 		( Polygon
@@ -2129,7 +2129,7 @@ texCoord: {
 	components:
 	{
 		( Polygon
-			texture: wild
+			texture: defaultwild
 #line 9 "wildCards.epp"
 #line 1 "setVertAndTexCoords.epp"
 
@@ -2159,7 +2159,7 @@ texCoord: {
 	components:
 	{
 		( Polygon
-			texture: drawfour
+			texture: defaultdrawfour
 #line 22 "wildCards.epp"
 #line 1 "setVertAndTexCoords.epp"
 
