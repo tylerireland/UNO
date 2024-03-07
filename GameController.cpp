@@ -42,7 +42,7 @@ GameController::GameController()
 
 bool GameController::cardIsPlayable()
 {
-
+	return true;
 }
 
 bool GameController::initializeGame()
@@ -83,10 +83,7 @@ bool GameController::drawCard()
 
 	// send that texture string over to the display so it can change the top of the hand to the drawn card
 	getStation()->send("display", SET_TEXTURE, textureName, textureNameSD);
-
-	// unref here, yes?
-	textureName->unref();
-
+	
 	// add card to the player's hand
 	getPlayer()->addCard(drawnCard);
 

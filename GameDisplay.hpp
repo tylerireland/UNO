@@ -31,7 +31,7 @@ public:
 
 	bool event(const int event, mixr::base::Object* const obj = nullptr) override;
 
-	bool onSendCard(mixr::base::String* textureName);
+	bool onChangePlayerCardTexture(mixr::base::String* textureName);
 	bool onUpdatePlayerNum(mixr::base::Number* playerNumber);
 	bool onUpdatePlayerTurnNum(mixr::base::Number* playerTurnNum);
 	bool onUpdateTotalCards(mixr::base::Number* totalCards);

@@ -9,7 +9,7 @@ EMPTY_SLOTTABLE(GameDisplay)
 EMPTY_DELETEDATA(GameDisplay)
 
 BEGIN_EVENT_HANDLER(GameDisplay)
-	ON_EVENT_OBJ(SET_TEXTURE, onSendCard, mixr::base::String)
+	ON_EVENT_OBJ(SET_TEXTURE, onChangePlayerCardTexture, mixr::base::String)
 	ON_EVENT_OBJ(UPDATE_PLAYER_NUM, onUpdatePlayerNum, mixr::base::Number)
 	ON_EVENT_OBJ(UPDATE_PLAYER_TURN, onUpdatePlayerTurnNum, mixr::base::Number)
 	ON_EVENT_OBJ(UPDATE_TOTAL_CARD_COUNT, onUpdateTotalCards, mixr::base::Number)
@@ -166,8 +166,9 @@ void GameDisplay::reset()
 	BaseClass::reset();
 }
 
-bool GameDisplay::onSendCard(mixr::base::String* textName)
+bool GameDisplay::onChangePlayerCardTexture(mixr::base::String* textName)
 {
+	Card* playerCard = dynamic_cast<Card*>(subpage()->findByName("p1Top")->object()))
 
 	const auto pageStream = subPages();
 	const auto textureList = getTextures();
@@ -186,7 +187,6 @@ bool GameDisplay::onSendCard(mixr::base::String* textName)
 
 	// why can we get the texture number here just fine but not over at gamecontroller?
 	testPoly->setTexture(testNum);
-
 	return true;
 }
 
