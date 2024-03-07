@@ -35,6 +35,8 @@ public:
 
 	int getPlayerNum() { return playerNum; }
 
+	int getCurrentCardIndex() { return cardIndex; }
+
 	// returns the next card in the deck
 		// -1 == previous
 		// 1 == next
