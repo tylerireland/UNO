@@ -86,6 +86,7 @@ Card* Player::getCard(int nextOrPrev)
 			cardIndex--;
 	}
 
+	std::cout << cardIndex << std::endl;
 	//return the card
 	return dynamic_cast<Card*>(hand->getPosition(cardIndex)->object());
 }
