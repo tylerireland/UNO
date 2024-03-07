@@ -82,8 +82,6 @@ bool GameController::drawCard()
 	drawnCard = (findByIndex(topOfDrawIdx));
 
 
-	if (getPlayer()->getPlayerNum() == 1)
-	{
 		// get a random card from the deck 
 		Card* currentCard = dynamic_cast<Card*>(drawnCard->object());
 
@@ -95,7 +93,6 @@ bool GameController::drawCard()
 
 		// unref here, yes?
 		textureName->unref();
-	}
 	
 
 	// add card to the player's hand
@@ -172,8 +169,8 @@ int GameController::randomNum()
 
 bool GameController::showHand()
 {
-	std::cout << "Player " << getPlayer(0)->getPlayerNum() << "'s Hand: " << std::endl;
-	getPlayer(0)->showHand();
+	std::cout << "Player " << getPlayer()->getPlayerNum() << "'s Hand: " << std::endl;
+	getPlayer()->showHand();
 	return true;
 }
 

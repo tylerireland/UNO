@@ -1,6 +1,7 @@
 gameplayScreen:	( Pager 
 					components: {
 					( Card
+						transform: { ( Translation 10 0 ) ( Scale 2.5 ) }
 						components: {
 							( Button 
 								selectName: 9
@@ -20,7 +21,17 @@ gameplayScreen:	( Pager
 						cardType: one
 						components: {
 							( Polygon
-								transform: { ( Translation -7 -5 0 ) }
+								transform: { ( Translation -10 0 0 ) ( Scale 2.5 ) }
+								#include "setVertAndTexCoords.epp"
+							)
+						}
+					)
+					discardTop: ( Card 
+						cardColor: red
+						cardType: one
+						components: {
+							( Polygon
+								transform: { ( Translation 0 0 ) ( Scale 2.5 ) }
 								texture: redone
 								#include "setVertAndTexCoords.epp"
 							)
@@ -35,7 +46,7 @@ gameplayScreen:	( Pager
 							( AsciiText 
 								color: white
 								text: "Prev"
-								transform: { ( Translation -8.22 -7.50 0 ) ( Scale 0.38 ) } 
+								transform: { ( Translation -13.2 -7.5 ) ( Scale 1 ) } 
 							)
 						}
 					)
@@ -48,7 +59,7 @@ gameplayScreen:	( Pager
 							( AsciiText 
 								color: white
 								text: "Next"
-								transform: { ( Translation -6.78 -7.50 0 ) ( Scale 0.38 ) } 
+								transform: { ( Translation -9.35 -7.5 ) ( Scale 1 ) } 
 							)
 						}
 					)
@@ -61,7 +72,7 @@ gameplayScreen:	( Pager
 							( AsciiText 
 								color: white
 								text: "Play"
-								transform: { ( Translation -7.83 -8.45 0 ) ( Scale 0.70 ) } 
+								transform: { ( Translation -12.45 -6.4 ) ( Scale 2 ) } 
 							)
 						}
 					)
@@ -70,15 +81,30 @@ gameplayScreen:	( Pager
 					( NumericReadout
 					    value: 1
 						color: white
-						transform: { ( Translation -7.65 0 0 ) } 
-						format: #
+						transform: { ( Translation -8.5 7 ) (Scale 1 ) } 
+						format: ##
 					)
-					
+					( AsciiText 
+						color: white
+						text: "Player: "
+						transform: { ( Translation -12.5 7 ) ( Scale 1 ) } 
+					)
 					cardNum:
 					( NumericReadout
 						color: white
-						transform: { ( Translation -7.65 -2.65 0 ) ( Scale 0.70 ) }
-						format: #
+						transform: { ( Translation -11.75 5.5 ) ( Scale 1 ) }
+						format: ##
+					)
+					( AsciiText 
+						color: white
+						text: "/"
+						transform: { ( Translation -10.25 5.5 ) ( Scale 1 ) } 
+					)
+					totalCards: 
+					( NumericReadout
+						color: white
+						transform: { ( Translation -9.75 5.5 ) ( Scale 1 ) }
+						format: ##
 					)
 
 				}					 
