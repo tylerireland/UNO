@@ -1,9 +1,9 @@
-
 #include "GameDisplay.hpp"
 #include "Card.hpp"
 #include "Pager.hpp"
 #include "GameController.hpp"
 #include "Station.hpp"
+#include "Player.hpp"
 
 #include "mixr/base/Timers.hpp"
 #include "mixr/base/Pair.hpp"
@@ -22,6 +22,7 @@
 
 const int frameRate{ 60 };
 Station* station{};
+GameDisplay* display{};
 
 void timerFunc(int)
 {
@@ -42,6 +43,7 @@ void timerFunc(int)
     mixr::base::Timer::updateTimers(dt);
     mixr::graphics::Graphic::flashTimer(dt);
     station->updateData(dt);
+    display->tcFrame(static_cast<double>(dt));
 }
 
 mixr::base::Object* factory(const std::string& name)
@@ -53,7 +55,7 @@ mixr::base::Object* factory(const std::string& name)
     else if (name == Pager::getFactoryName())            obj = new Pager();
     else if (name == GameController::getFactoryName())   obj = new GameController();
     else if (name == Station::getFactoryName())          obj = new Station();
-
+    else if (name == Player::getFactoryName())           obj = new Player();
     // framework libraries
     if (obj == nullptr) obj = mixr::simulation::factory(name);
     if (obj == nullptr) obj = mixr::instruments::factory(name);
@@ -63,6 +65,7 @@ mixr::base::Object* factory(const std::string& name)
 
     return obj;
 }
+
 Station* builder(const std::string& filename)
 {
     // read configuration file
@@ -77,7 +80,7 @@ Station* builder(const std::string& filename)
     if (obj == nullptr) {
         std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
         std::exit(EXIT_FAILURE);
-    } 
+    }
 
     // do we have a base::Pair, if so, point to object in Pair, not Pair itself
     const auto pair = dynamic_cast<mixr::base::Pair*>(obj);
@@ -106,19 +109,24 @@ int main(int argc, char* argv[])
     // build a station
     station = builder(configFilename);
 
+    // get display from component list of station
+    display = static_cast<GameDisplay*>(station->findByName("display")->object());
+
+    // create a display window
+    display->createWindow();
+
     // reset the Simulation
     station->event(mixr::base::Component::RESET_EVENT);
 
     // set timer for the background tasks
     const double dt{ 1.0 / static_cast<double>(frameRate) };
     const int millis{ static_cast<int>(dt * 1000) };
+    glutTimerFunc(millis, timerFunc, 1);
 
     // ensure everything is reset
     station->updateData(dt);
     station->updateTC(dt);
     station->event(mixr::base::Component::RESET_EVENT);
-
-    glutTimerFunc(millis, timerFunc, 1);
 
     // create the Time Critical Thread (updateTC())
     station->createTimeCriticalProcess();

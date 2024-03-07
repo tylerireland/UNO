@@ -22,6 +22,7 @@
     <ClInclude Include="GameController.hpp" />
     <ClInclude Include="GameDisplay.hpp" />
     <ClInclude Include="Pager.hpp" />
+    <ClInclude Include="Player.hpp" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Station.hpp" />
   </ItemGroup>
@@ -29,7 +30,9 @@
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameDisplay.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MyMacros.cpp" />
     <ClCompile Include="Pager.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Station.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -37,8 +40,10 @@
     <None Include="Display.epp" />
     <ClInclude Include="Card.hpp" />
     <None Include="gamecontroller.epp" />
+    <None Include="gamePage.epp" />
     <None Include="greenCards.epp" />
     <None Include="redCards.epp" />
+    <None Include="setupPage.epp" />
     <None Include="setVertAndTexCoords.epp" />
     <None Include="station.epp" />
     <None Include="textures.epp" />
@@ -51,6 +56,7 @@
   <ItemGroup>
     <Image Include="..\..\mixr-data\textures\UnoRules2048x1024.bmp" />
     <Image Include="..\..\mixr-data\textures\UNO\Cards\drawfour.bmp" />
+    <Image Include="..\..\mixr-data\textures\UNO\Cards\logocard.bmp" />
     <Image Include="..\..\mixr-data\textures\UNO\Cards\reddrawtwo.bmp" />
     <Image Include="..\..\mixr-data\textures\UNO\Cards\redeight.bmp" />
     <Image Include="..\..\mixr-data\textures\UNO\Cards\redfive.bmp" />

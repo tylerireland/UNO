@@ -4,7 +4,6 @@ display:
 	textures: 
 	{
 		#include "textures.epp"
-
     }
     
 	name: "UNO"
@@ -15,9 +14,9 @@ display:
 	top:		 10
 	
 	vpX:		 10
-	vpY:		 10
-	vpWidth:	 2048
-	vpHeight:	 1024
+	vpY:		 100
+	vpWidth:	 1024
+	vpHeight:	 512
 
 	clearDepth:  20.0
 					
@@ -41,8 +40,7 @@ display:
 	
 	components:
 	{
-		//gameController:
-		( GameController )
+		
 	}
 	
 	page: homeScreen
@@ -51,7 +49,6 @@ display:
 	{
 		// this is the page for the home screen 
 		homeScreen: ( Pager
-					pagingEvent: { n: rulesScreen p: homeScreen }
 						components: {
 							( Polygon
 								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
@@ -127,7 +124,6 @@ display:
 						}
 					)
 		rulesScreen: ( Pager 
-					 pagingEvent: { n: setupScreen p: homeScreen }
 						components: { 
 							( Polygon
 								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
@@ -167,8 +163,16 @@ display:
 						}
 					 )
 		setupScreen: ( Pager 
-					 pagingEvent: { n: setupScreen p: rulesScreen }
 						components: { 
+
+							playerCountNumber:
+							( NumericReadout
+								color: white
+								value: 2
+								transform: { ( Translation -3 2 0 ) ( Scale 5 ) }
+								format: ##
+							)
+
 							( Polygon
 								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
 								color: ( rgb 0 0 0 )
@@ -297,31 +301,8 @@ display:
 							)
 						}
 					)
-	gameplayScreen:	( Pager 
-						components: {
-						( Card
-							components:
-							{
-								( Button 
-									selectName: 1
-									eventId: 1000
-									components:
-									{
-										( Polygon
-										texture: logo
-										#include"setVertAndTexCoords.epp"
-										)
-									}
-								 )
-							}
-						)
+			#include "gamePage.epp"
 
-						#include "redCards.epp"
-						#include "blueCards.epp"
-						#include "greenCards.epp"
-						#include "yellowCards.epp"
-						#include "wildCards.epp"
-						}					 
-					)
+		
 	}
 )

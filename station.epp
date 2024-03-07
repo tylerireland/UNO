@@ -1,6 +1,9 @@
 ( Station 
 
-	#include "display.epp"
-
-	#include "gamecontroller.epp"
+	components:
+	{
+		#include "display.epp"
+		#include "gamecontroller.epp"
+	}
+	
 )

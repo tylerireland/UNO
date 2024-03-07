@@ -4,15 +4,6 @@
 #include "mixr/graphics/Translator.hpp"
 #include <string>
 
-/*
-* setSlotType() - slot function to set the type
-* setType() - sets the type of card (numbered, action, wild)
-* setSlotColor() - slot function to set the color
-* setColor() - sets the color of the card (Red, Blue, Green, Yellow)
-* 
-*/
-
-
 class Card final : public mixr::graphics::Translator
 {
 	DECLARE_SUBCLASS(Card, mixr::graphics::Translator)
@@ -28,8 +19,8 @@ public:
 	std::string getCardColor() { return cardColor; }
 	std::string getCardType() { return cardType; }
 
-	void setCardType(const std::string newType) { cardType = newType; }
-	void setCardColor(const std::string newColor) { cardColor = newColor; }
+	void setCardType(std::string newType) { cardType = newType; }
+	void setCardColor(std::string newColor) { cardColor = newColor; }
 
 private:
 
@@ -37,7 +28,6 @@ private:
 	std::string cardColor;
 
 	bool setSlotCardType(const mixr::base::String* const);
-
 	bool setSlotCardColor(const mixr::base::String* const);
 	
 };

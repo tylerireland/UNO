@@ -1,0 +1,85 @@
+gameplayScreen:	( Pager 
+					components: {
+					( Card
+						components: {
+							( Button 
+								selectName: 9
+								eventId: 1009
+								components:
+								{
+									( Polygon
+									texture: logo
+									#include"setVertAndTexCoords.epp"
+									)
+								}
+							)
+						}
+					)
+					p1Top: ( Card 
+						cardColor: red
+						cardType: one
+						components: {
+							( Polygon
+								transform: { ( Translation -7 -5 0 ) }
+								texture: redone
+								#include "setVertAndTexCoords.epp"
+							)
+						}
+					)
+
+					( Button 
+						selectName: 10
+						eventId: 1010
+						components: 
+						{
+							( AsciiText 
+								color: white
+								text: "Prev"
+								transform: { ( Translation -8.22 -7.50 0 ) ( Scale 0.38 ) } 
+							)
+						}
+					)
+
+					( Button 
+						selectName: 11
+						eventId: 1011
+						components: 
+						{
+							( AsciiText 
+								color: white
+								text: "Next"
+								transform: { ( Translation -6.78 -7.50 0 ) ( Scale 0.38 ) } 
+							)
+						}
+					)
+
+					( Button 
+						selectName: 12
+						eventId: 1012
+						components: 
+						{
+							( AsciiText 
+								color: white
+								text: "Play"
+								transform: { ( Translation -7.83 -8.45 0 ) ( Scale 0.70 ) } 
+							)
+						}
+					)
+					
+					playerTurnNumber:
+					( NumericReadout
+					    value: 1
+						color: white
+						transform: { ( Translation -7.65 0 0 ) } 
+						format: #
+					)
+					
+					cardNum:
+					( NumericReadout
+						color: white
+						transform: { ( Translation -7.65 -2.65 0 ) ( Scale 0.70 ) }
+						format: #
+					)
+
+				}					 
+			)

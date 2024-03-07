@@ -1,171 +1,180 @@
+
 #include "GameController.hpp"
 #include "Pager.hpp"
-#include "GameDisplay.hpp"
 #include <GL/glut.h>
 
 #include "mixr/graphics/Page.hpp"
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/PairStream.hpp"
 #include "mixr/base/Component.hpp"
+#include "mixr/graphics/Polygon.hpp"
+#include "MyMacros.cpp"
+
+#include "random"
+
+using namespace mixr;
 
 IMPLEMENT_SUBCLASS(GameController, "GameController")
 
 EMPTY_SLOTTABLE(GameController)
 EMPTY_DELETEDATA(GameController)
 
+BEGIN_EVENT_HANDLER(GameController)
+	ON_EVENT_OBJ(SET_PLAYER_COUNT, setPlayerCount, mixr::base::Number)
+	ON_EVENT(INIT_GAME, initializeGame)
+	ON_EVENT(DRAW_CARD, drawCard)
+	ON_EVENT(SHOW_HAND, showHand)
+	ON_EVENT(ADD_PLAYER, addPlayer)
+	ON_EVENT(REMOVE_PLAYER, removePlayer)
+	ON_EVENT_OBJ(GET_CARD, getPlayersCard, mixr::base::Number)
+	
+END_EVENT_HANDLER()
+
 GameController::GameController()
 {
 	STANDARD_CONSTRUCTOR()
+	textureNameSD.empty();
+	playerTurnSD.empty();
+	//playerList = new mixr::base::PairStream();
 }
 
 bool GameController::cardIsPlayable(Card* card)
 {
 	// if statement here to check the front of the discardPile vector and compare it to the card being given to the function
-		// it does not like using -> and only likes the "." but I want to avoid object slicing and use pointers, not and instance dependent access function. What do?? 
-	if (drawPile.front()->getCardType() == card->getCardType() || drawPile.front()->getCardColor() == card->getCardColor())
+		// change this to top of discard instead of draw pile
+	if (dynamic_cast<Card*>(findByIndex(topOfDiscIdx)->object())->getCardType() == card->getCardType() || 
+		dynamic_cast<Card*>(findByIndex(topOfDiscIdx)->object())->getCardColor() == card->getCardColor())
 	{
 		return true;
 	}
-	
-		return false;
+
+	return false;
 }
 
-void GameController::initializeGame()
+bool GameController::initializeGame()
 {
-	// doesn't know what subPages is for some reason. Even though Page.hpp is included
-	//const auto pageStream = subPages();
-	// need to find a way to access the cards created on the gameplayScreen
+	for (int i = 1; i < numPlayers + 1; i++)
+	{
+		Player* newPlayer = new Player(i, 10, 10);
 
-	mixr::glut::GlutDisplay* mainDisplay = dynamic_cast<mixr::glut::GlutDisplay*>(container());
-	const auto pairstream = dynamic_cast<Pager*>(mainDisplay->findSubpageByName("gameplayScreen"));
-	std::cout << (pairstream != nullptr);
-	//Pager* gameplayScreen = static_cast<Pager*>(pageStream->findByName("gameplayScreen")->object());
+		// sets player 1's turn
+		if (i == 1) newPlayer->setTurn(true);
 
-	//drawPile = pairstream->getComponents();
 
+		// temp bc pair cast returns null
+		//mixr::base::Pair* playerPair = dynamic_cast<mixr::base::Pair*>(newPlayer);
+		//playerList->put(playerPair);
+
+
+		playerList.push_back(newPlayer);
+	}
+
+	topOfDrawIdx = randomNum(); // generate number
+		
+	dealCards();
+
+	return true;
 }
 
-void GameController::drawCard(int player)
+bool GameController::drawCard()
 {
-	// front of drawPile
-	Card* newCard = drawPile.front();
+	topOfDrawIdx = randomNum(); // generate number
+	drawnCard = (findByIndex(topOfDrawIdx));
 
-	// there has to be a better way to do this
-		// 
 
-	switch (player)
+	if (getPlayer()->getPlayerNum() == 1)
 	{
-	case 1:
-		player1Pile.push_back(newCard);
-		break;
-	case 2:
-		player2Pile.push_back(newCard);
-		break;
-	case 3:
-		player3Pile.push_back(newCard);
-		break;
-	case 4:
-		player4Pile.push_back(newCard);
-		break;
-	case 5:
-		player5Pile.push_back(newCard);
-		break;
-	case 6:
-		player6Pile.push_back(newCard);
-		break;
-	case 7:
-		player7Pile.push_back(newCard);
-		break;
-	case 8:
-		player8Pile.push_back(newCard);
-		break;
-	case 9:
-		player9Pile.push_back(newCard);
-		break;
-	case 10:
-		player10Pile.push_back(newCard);
-		break;
-	default:
-		break;
-	}
+		// get a random card from the deck 
+		Card* currentCard = dynamic_cast<Card*>(drawnCard->object());
 
-	// simply putting front() or 0 index as a parameter did not work. erase() wants something specific. 
-		// hopefully this removes the front of the drawPile, assuming we are using a sort of shuffled stack for it in the front of vector will always be what is displayed and used during gameplay
-	drawPile.erase(drawPile.begin());
+		// create a string of the texture name by getting the currentCard's color and type
+		mixr::base::String* textureName = new mixr::base::String(currentCard->getCardColor().c_str(), currentCard->getCardType().c_str());
+
+		// send that texture string over to the display so it can change the top of the hand to the drawn card
+		getStation()->send("display", SET_TEXTURE, textureName, textureNameSD);
+
+		// unref here, yes?
+		textureName->unref();
+	}
 	
-	/*if (whosTurn == 1)
-	{
-		player1Pile.push_back(newCard);
-	}
-	if (whosTurn == 2)
-	{
-		player2Pile.push_back(newCard);
-	}
-	if (whosTurn == 3)
-	{
-		player3Pile.push_back(newCard);
-	}
-	if (whosTurn == 4)
-	{
-		player4Pile.push_back(newCard);
-	}
-	if (whosTurn == 5)
-	{
-		player5Pile.push_back(newCard);
-	}
-	if (whosTurn == 6)
-	{
-		player6Pile.push_back(newCard);
-	}
-	if (whosTurn == 7)
-	{
-		player7Pile.push_back(newCard);
-	}
-	if (whosTurn == 8)
-	{
-		player8Pile.push_back(newCard);
-	}
-	if (whosTurn == 9)
-	{
-		player9Pile.push_back(newCard);
-	}
-	if (whosTurn == 10)
-	{
-		player10Pile.push_back(newCard);
-	}*/
-}
 
-std::vector<Card*> GameController::shuffleCards(std::vector<Card*> pile)
-{
-	int size = pile.size();
-	
-	// algorithm to swap that may or may not work
-		// iter_swap is supposed swap two elements when give two interators
-	for (int i = 0; i < size - 1; i++) // we iterate through the size of the pile
-	{
-		int j = i + rand() % (size - i); // j is the current iterator i PLUS a random nunber modulus the pile size, which gives us a random element
-		iter_swap(pile.begin() + i, pile.begin() + j); // then the element at i is swapped with the element at j 
-	}
-	// i found this through the algorithm library, so we'll see if this even works. 
-	// there might be a much easier way to shuffle the cards, but this seemed fun to explore 
+	// add card to the player's hand
+	getPlayer()->addCard(drawnCard);
+	// move to the next player
+	nextPlayer();
 
-	// not sure if this would work but holy crap am I tired right now
-	return pile;
+	return true;
 }
 
 void GameController::dealCards()
 {
-	//  dealCards should only be called inside of initializeCardDecks()!!! We may rename that function to initializeGame().
-	// this function assumes the drawPile has been shuffled.
-	
-
 	for (int i = 0; i < 7; i++)  // deals seven cards
 	{
-		for (int j = 0; j < numPlayers - 1; j++)
+		for (int j = 0; j < numPlayers; j++)
 		{
-			drawCard(j);  // using drawCard to give the card to player j
+			drawCard();  // using drawCard to give the card to player j
 		}
 	}
+
+	cardsDealt = true;
+}
+
+bool GameController::setPlayerCount(const mixr::base::Number* const num)
+{
+	numPlayers = num->getInt();
+
+	return true;
+}
+
+void GameController::nextPlayer()
+{
+	/*
+	for (int i = 1; i < numPlayers + 1, i++;)
+	{
+		
+		Player* player = dynamic_cast<Player*>(playerList->getPosition(i));
+		if (player->isMyTurn())
+		{
+			player->setTurn(false);
+
+			if (i + 1 > numPlayers + 1)
+				player = dynamic_cast<Player*>(playerList->getPosition(1));
+			else
+				player = dynamic_cast<Player*>(playerList->getPosition(i+1));
+			
+			player->setTurn(true);
+
+			return;
+		}
+	}
+	*/
+
+	for (int i = 0; i < playerList.size(); i++)
+	{
+		if (playerList.at(i)->isMyTurn())
+		{
+			playerList.at(i)->setTurn(false);
+
+			if (i + 1 <= playerList.size() - 1)
+				playerList.at(i+1)->setTurn(true);
+			else
+				playerList.at(0)->setTurn(true);
+
+			return;
+		}
+	}
+}
+
+int GameController::randomNum()
+{
+	return dist(gen);
+}
+
+bool GameController::showHand()
+{
+	std::cout << "Player " << getPlayer(0)->getPlayerNum() << "'s Hand: " << std::endl;
+	getPlayer(0)->showHand();
+	return true;
 }
 
 void GameController::copyData(const GameController& org, const bool)
@@ -173,5 +182,78 @@ void GameController::copyData(const GameController& org, const bool)
 	BaseClass::copyData(org);
 }
 
+void GameController::updateTC(const double dt)
+{
+	BaseClass::updateTC(dt);
+}
 
+void GameController::updateData(const double dt)
+{
+	if (getPlayer())
+	{
+		playerTurnSD.empty();
+		getStation()->send("display", UPDATE_PLAYER_TURN, getPlayer()->getPlayerNum(), playerTurnSD);
+	}
+	getStation()->send("display", UPDATE_PLAYER_NUM, numPlayers, numPlayersSD);
+	BaseClass::updateData(dt);
+}
+
+Player* GameController::getPlayer()
+{
+	for (Player* player : playerList)
+	{
+		if (player->isMyTurn())
+		{
+			return player;
+		}
+	}
+	
+	/*
+	for (int i = 1; i < numPlayers + 1, i++;)
+	{
+		Player* player = dynamic_cast<Player*>(playerList->getPosition(i));
+		if (player->isMyTurn())
+		{
+			return player;
+		}
+	}
+	*/
+}
+
+Player* GameController::getPlayer(int index)
+{
+	return playerList.at(index);
+}
+
+bool GameController::addPlayer()
+{
+	if (numPlayers < 10)
+	{
+		numPlayers++;
+		return true;
+	}
+	return false;
+}
+
+bool GameController::removePlayer()
+{
+	if (numPlayers > 2)
+	{
+		numPlayers--;
+		return true;
+		// send the setupscreen the number of players
+	}
+	return false;
+}
+
+bool GameController::getPlayersCard(mixr::base::Number* nextOrPrev)
+{
+	Card* currentCard = getPlayer()->getCard(nextOrPrev->getInt());
+	// create a string of the texture name by getting the currentCard's color and type
+	mixr::base::String* textureName = new mixr::base::String(currentCard->getCardColor().c_str(), currentCard->getCardType().c_str());
+	// send that texture string over to the display so it can change the top of the hand to the drawn card
+	getStation()->send("display", SET_TEXTURE, textureName, textureNameSD);
+
+	return true;
+}
 

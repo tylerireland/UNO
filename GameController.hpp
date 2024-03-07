@@ -2,56 +2,87 @@
 #define __GameController_H__
 
 #include "mixr/simulation/Simulation.hpp"
+#include "Station.hpp"
+#include "GameDisplay.hpp"
 #include "Card.hpp"
+#include "mixr/base/PairStream.hpp"
+#include "mixr/base/numeric/Number.hpp"
+#include "mixr/base/Component.hpp"
+#include "mixr/base/Pair.hpp"
+#include "Player.hpp"
+#include "random"
 #include <vector>
-//------------------------------------------------------------------------------
-// Class: Controller
-//
-// Description: Puzzle controller
-//------------------------------------------------------------------------------
+
 class GameController final : public mixr::simulation::Simulation
 {
-    DECLARE_SUBCLASS(GameController, mixr::simulation::Simulation)
+    DECLARE_SUBCLASS(GameController, Simulation)
 
 public:
 
     GameController();
 
+    void updateTC(const double dt = 0.0) final;
+    void updateData(const double dt = 0.0) final;
+
     // returns true if the selected card can play on the discard pile
     bool cardIsPlayable(Card* card);
 
     // moves a card from the drawPile to the selected player's pile
-    void drawCard(int player);
-
-    // shuffles the selected card pile
-    std::vector<Card*> shuffleCards(std::vector<Card*> pile);
+    bool drawCard();
 
     // deals the cards to all the players in the game
     void dealCards();
 
     // will create all the necessary card piles required to start the game.
-    void initializeGame();
+    bool initializeGame();
+
+    // sets the player count from display
+    bool setPlayerCount(const mixr::base::Number* const num);
+    
+    // generate a random number
+    int randomNum();
+
+    // show current players hand
+    bool showHand();
+
+    bool event(const int event, Object* const obj = nullptr) override;
+
+    // returns the player whose turn it is
+    Player* getPlayer();
+    Player* getPlayer(int index);
+
+    // move to the next player
+    void nextPlayer();
+
+    bool addPlayer();
+    bool removePlayer();
+    bool getPlayersCard(mixr::base::Number* nextOrPrev);
 
 private:
 
-    int numPlayers{};
-    int whoTurn{};
+    int numPlayers{2};
+    SendData numPlayersSD;
+    SendData playerTurnSD{};
 
-    std::vector<Card*> allCards{};
-    std::vector<Card*> drawPile{};
-    std::vector<Card*> discardPile{};
-    std::vector<Card*> player1Pile{};
-    std::vector<Card*> player2Pile{};
-    std::vector<Card*> player3Pile{};
-    std::vector<Card*> player4Pile{};
-    std::vector<Card*> player5Pile{};
-    std::vector<Card*> player6Pile{};
-    std::vector<Card*> player7Pile{};
-    std::vector<Card*> player8Pile{};
-    std::vector<Card*> player9Pile{};
-    std::vector<Card*> player10Pile{};
+    int topOfDrawIdx{};
+    int topOfDiscIdx{};
 
+    bool cardsDealt = false;
 
+    // list of all the players in game
+    //mixr::base::PairStream* playerList{};
+
+    // temp vector to store player objects
+    std::vector<Player*> playerList{};
+
+    mixr::base::Pair* drawnCard{};
+    SendData textureNameSD{};
+    
+
+    // variables for random number generator
+    std::random_device seed;
+    std::mt19937 gen{seed()}; // seed the generator
+    std::uniform_int_distribution<> dist{1, 54}; // set min and max
 };
 
 #endif

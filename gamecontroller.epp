@@ -1,2 +1,11 @@
-simulation:
-( GameController )
+controller:
+( GameController 
+	components: 
+	{
+		#include "redCards.epp"
+		#include "blueCards.epp"
+		#include "greenCards.epp"
+		#include "yellowCards.epp"
+		#include "wildCards.epp"
+	}
+)

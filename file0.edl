@@ -1,6 +1,9 @@
 #line 1 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
 ( Station
-#line 3 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
+
+	components:
+	{
+#line 5 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
 #line 1 "display.epp"
 display:
 ( GameDisplay
@@ -74,11 +77,13 @@ display:
 	   wild: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "wild.bmp" )
 
 
+	   logo: ( BitmapTexture width: 256 height: 512 path: "Textures" file: "logocard.bmp" )
+
+
 	  rules: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "UnoRules.bmp" )
 	  home: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "HomeScreen.bmp" )
 	  setup: ( BitmapTexture width: 2048 height: 1024 path: "Textures" file: "setupScreen.bmp" )
 #line 7 "display.epp"
-
     }
 
 	name: "UNO"
@@ -89,9 +94,9 @@ display:
 	top: 10
 
 	vpX: 10
-	vpY: 10
-	vpWidth: 2048
-	vpHeight: 1024
+	vpY: 100
+	vpWidth: 1024
+	vpHeight: 512
 
 	clearDepth: 20.0
 
@@ -116,7 +121,6 @@ display:
 	components:
 	{
 
-		( GameController )
 	}
 
 	page: homeScreen
@@ -125,7 +129,6 @@ display:
 	{
 
 		homeScreen: ( Pager
-					pagingEvent: { n: rulesScreen p: homeScreen }
 						components: {
 							( Polygon
 								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
@@ -201,7 +204,6 @@ display:
 						}
 					)
 		rulesScreen: ( Pager
-					 pagingEvent: { n: setupScreen p: homeScreen }
 						components: {
 							( Polygon
 								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
@@ -241,8 +243,16 @@ display:
 						}
 					 )
 		setupScreen: ( Pager
-					 pagingEvent: { n: setupScreen p: rulesScreen }
 						components: {
+
+							playerCountNumber:
+							( NumericReadout
+								color: white
+								value: 2
+								transform: { ( Translation -3 2 0 ) ( Scale 5 ) }
+								format: ##
+							)
+
 							( Polygon
 								transform: { ( Translation 0 0 0 ) ( Scale 1 ) }
 								color: ( rgb 0 0 0 )
@@ -371,19 +381,20 @@ display:
 							)
 						}
 					)
-	gameplayScreen: ( Pager
+#line 304 "display.epp"
+#line 1 "gamePage.epp"
+gameplayScreen: ( Pager
+					components: {
+					( Card
 						components: {
-						( Card
-							components:
-							{
-								( Button
-									selectName: 1
-									eventId: 1000
-									components:
-									{
-										( Polygon
-										texture: logo
-#line 312 "display.epp"
+							( Button
+								selectName: 9
+								eventId: 1009
+								components:
+								{
+									( Polygon
+									texture: logo
+#line 12 "gamePage.epp"
 #line 1 "setVertAndTexCoords.epp"
 
 vertices:
@@ -400,13 +411,109 @@ texCoord: {
 	[ 1.0 0.77 ]
 	[ 1.0 0.0 ]
 }
-#line 313 "display.epp"
-										)
-									}
-								 )
-							}
-						)
-#line 319 "display.epp"
+#line 13 "gamePage.epp"
+									)
+								}
+							)
+						}
+					)
+					p1Top: ( Card
+						cardColor: red
+						cardType: one
+						components: {
+							( Polygon
+								transform: { ( Translation -7 -5 0 ) }
+								texture: redone
+#line 25 "gamePage.epp"
+#line 1 "setVertAndTexCoords.epp"
+
+vertices:
+{
+	[-1.25 -1.9375]
+	[-1.25 1.9375]
+	[1.25 1.9375]
+	[1.25 -1.9375]
+}
+
+texCoord: {
+	[ 0.0 0.0 ]
+	[ 0.0 0.77 ]
+	[ 1.0 0.77 ]
+	[ 1.0 0.0 ]
+}
+#line 26 "gamePage.epp"
+							)
+						}
+					)
+
+					( Button
+						selectName: 10
+						eventId: 1010
+						components:
+						{
+							( AsciiText
+								color: white
+								text: "Prev"
+								transform: { ( Translation -8.22 -7.50 0 ) ( Scale 0.38 ) }
+							)
+						}
+					)
+
+					( Button
+						selectName: 11
+						eventId: 1011
+						components:
+						{
+							( AsciiText
+								color: white
+								text: "Next"
+								transform: { ( Translation -6.78 -7.50 0 ) ( Scale 0.38 ) }
+							)
+						}
+					)
+
+					( Button
+						selectName: 12
+						eventId: 1012
+						components:
+						{
+							( AsciiText
+								color: white
+								text: "Play"
+								transform: { ( Translation -7.83 -8.45 0 ) ( Scale 0.70 ) }
+							)
+						}
+					)
+
+					playerTurnNumber:
+					( NumericReadout
+					    value: 1
+						color: white
+						transform: { ( Translation -7.65 0 0 ) }
+						format: #
+					)
+
+					cardNum:
+					( NumericReadout
+						color: white
+						transform: { ( Translation -7.65 -2.65 0 ) ( Scale 0.70 ) }
+						format: #
+					)
+
+				}
+			)
+#line 305 "display.epp"
+
+
+	}
+)
+#line 6 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
+#line 1 "gamecontroller.epp"
+controller:
+( GameController
+	components:
+	{
+#line 5 "gamecontroller.epp"
 #line 1 "redCards.epp"
 ( Card
 
@@ -797,7 +904,7 @@ texCoord: {
 		)
 	}
 )
-#line 320 "display.epp"
+#line 6 "gamecontroller.epp"
 #line 1 "blueCards.epp"
 ( Card
 
@@ -1188,7 +1295,7 @@ texCoord: {
 		)
 	}
 )
-#line 321 "display.epp"
+#line 7 "gamecontroller.epp"
 #line 1 "greenCards.epp"
 ( Card
 
@@ -1579,7 +1686,7 @@ texCoord: {
 		)
 	}
 )
-#line 322 "display.epp"
+#line 8 "gamecontroller.epp"
 #line 1 "yellowCards.epp"
 ( Card
 
@@ -1970,7 +2077,7 @@ texCoord: {
 		)
 	}
 )
-#line 323 "display.epp"
+#line 9 "gamecontroller.epp"
 #line 1 "wildCards.epp"
 ( Card
 
@@ -2031,15 +2138,10 @@ texCoord: {
 		)
 	}
 )
-#line 324 "display.epp"
-						}
-					)
+#line 10 "gamecontroller.epp"
 	}
 )
-#line 4 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
-#line 5 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
-#line 1 "gamecontroller.epp"
-simulation:
-( GameController )
-#line 6 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
+#line 7 "C:/Apps/mixr/mixr-examples/UNO/station.epp"
+	}
+
 )
