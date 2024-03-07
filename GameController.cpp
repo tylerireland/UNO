@@ -40,17 +40,9 @@ GameController::GameController()
 	//playerList = new mixr::base::PairStream();
 }
 
-bool GameController::cardIsPlayable(Card* card)
+bool GameController::cardIsPlayable()
 {
-	// if statement here to check the front of the discardPile vector and compare it to the card being given to the function
-		// change this to top of discard instead of draw pile
-	if (dynamic_cast<Card*>(findByIndex(topOfDiscIdx)->object())->getCardType() == card->getCardType() || 
-		dynamic_cast<Card*>(findByIndex(topOfDiscIdx)->object())->getCardColor() == card->getCardColor())
-	{
-		return true;
-	}
 
-	return false;
 }
 
 bool GameController::initializeGame()
@@ -81,24 +73,23 @@ bool GameController::initializeGame()
 bool GameController::drawCard()
 {
 	topOfDrawIdx = randomNum(); // generate number
-	drawnCard = (findByIndex(topOfDrawIdx));
+	drawnCard = findByIndex(topOfDrawIdx);
 
+	// get a random card from the deck 
+	Card* currentCard = dynamic_cast<Card*>(drawnCard->object());
 
-		// get a random card from the deck 
-		Card* currentCard = dynamic_cast<Card*>(drawnCard->object());
+	// create a string of the texture name by getting the currentCard's color and type
+	mixr::base::String* textureName = new mixr::base::String(currentCard->getCardColor().c_str(), currentCard->getCardType().c_str());
 
-		// create a string of the texture name by getting the currentCard's color and type
-		mixr::base::String* textureName = new mixr::base::String(currentCard->getCardColor().c_str(), currentCard->getCardType().c_str());
+	// send that texture string over to the display so it can change the top of the hand to the drawn card
+	getStation()->send("display", SET_TEXTURE, textureName, textureNameSD);
 
-		// send that texture string over to the display so it can change the top of the hand to the drawn card
-		getStation()->send("display", SET_TEXTURE, textureName, textureNameSD);
-
-		// unref here, yes?
-		textureName->unref();
-	
+	// unref here, yes?
+	textureName->unref();
 
 	// add card to the player's hand
 	getPlayer()->addCard(drawnCard);
+
 	// move to the next player
 	nextPlayer();
 

@@ -25,7 +25,7 @@ public:
     void updateData(const double dt = 0.0) final;
 
     // returns true if the selected card can play on the discard pile
-    bool cardIsPlayable(Card* card);
+    bool cardIsPlayable();
 
     // moves a card from the drawPile to the selected player's pile
     bool drawCard();
@@ -78,6 +78,8 @@ private:
     std::vector<Player*> playerList{};
 
     mixr::base::Pair* drawnCard{};
+    Card* topDiscard{};
+
     SendData textureNameSD{};
     
 

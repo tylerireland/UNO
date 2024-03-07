@@ -168,6 +168,7 @@ void GameDisplay::reset()
 
 bool GameDisplay::onSendCard(mixr::base::String* textName)
 {
+
 	const auto pageStream = subPages();
 	const auto textureList = getTextures();
 
