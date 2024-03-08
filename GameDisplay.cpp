@@ -131,6 +131,12 @@ void GameDisplay::buttonEvent(const int b)
 			getStation()->send("controller", SHOW_HAND);
 		}
 		break;
+
+		case END_TURN_BUTTON:
+		{
+			getStation()->send("controller", END_TURN);
+		}
+		break;
 	}
 }
 

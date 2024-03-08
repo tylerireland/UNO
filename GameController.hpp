@@ -54,6 +54,8 @@ public:
     // move to the next player
     void nextPlayer();
 
+    bool endTurn();
+
     bool addPlayer();
     bool removePlayer();
     bool getPlayersCard(mixr::base::Number* nextOrPrev);

@@ -27,6 +27,7 @@ BEGIN_EVENT_HANDLER(GameController)
 	ON_EVENT(ADD_PLAYER, addPlayer)
 	ON_EVENT(REMOVE_PLAYER, removePlayer)
 	ON_EVENT_OBJ(GET_CARD, getPlayersCard, mixr::base::Number)
+	ON_EVENT(END_TURN, endTurn)
 	
 END_EVENT_HANDLER()
 
@@ -42,7 +43,7 @@ GameController::GameController()
 
 bool GameController::cardIsPlayable()
 {
-
+	return true;
 }
 
 bool GameController::initializeGame()
@@ -90,9 +91,18 @@ bool GameController::drawCard()
 	// add card to the player's hand
 	getPlayer()->addCard(drawnCard);
 
-	// move to the next player
-	nextPlayer();
+	if (cardsDealt == false)
+	{
+		// move to the next player during card deal phase
+		nextPlayer();
+	}
 
+	return true;
+}
+
+bool GameController::endTurn()
+{
+	nextPlayer();
 	return true;
 }
 

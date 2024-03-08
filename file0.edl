@@ -513,6 +513,19 @@ texCoord: {
 						}
 					)
 
+					( Button
+						selectName: 13
+						eventId: 1013
+						components:
+						{
+							( AsciiText
+								color: white
+								text: "End Turn"
+								transform: { ( Translation -12.45 -8.6 ) ( Scale 1 ) }
+							)
+						}
+					)
+
 					playerTurnNumber:
 					( NumericReadout
 					    value: 1

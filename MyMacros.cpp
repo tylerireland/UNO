@@ -13,6 +13,7 @@
 #define PREVIOUS_CARD_BUTTON		1010
 #define NEXT_CARD_BUTTON			1011
 #define PLAY_CARD_BUTTON			1012
+#define END_TURN_BUTTON				1013
 #define SET_TEXTURE					3001
 #define NEXT_PLAYER					3002
 #define UPDATE_PLAYER_NUM			3003
@@ -28,3 +29,5 @@
 #define ADD_PLAYER					2005
 #define REMOVE_PLAYER				2006
 #define GET_CARD					2007
+#define	END_TURN					2008
+
